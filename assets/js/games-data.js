@@ -65,6 +65,25 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+    {
+        title: "Bloody flower of teyvat",
+        page: "bloody-flower-of-teyvat.html",
+        cover: "bloody-flower-of-teyvat.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Kleinv01",
+        page: "kleinv01.html",
+        cover: "kleinv01.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
 
     {
         title: "Teach me how to love",
