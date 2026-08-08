@@ -84,7 +84,15 @@ const games = [
         pc: true,
         android: true,
     },
-
+    {
+        title: "chilling-devotion",
+        page: "chilling-devotion.html",
+        cover: "chilling-devotion.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Teach me how to love",
         page: "teach-me-how-to-love.html",
