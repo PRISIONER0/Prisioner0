@@ -66,6 +66,24 @@ const games = [
     // featured: false
     // ================================
     {
+        title: "Chilling-devotion",
+        page: "chilling-devotion.html",
+        cover: "chilling-devotion.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Perfect-love",
+        page: "perfect-love.html",
+        cover: "perfect-love.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Bloody flower of teyvat",
         page: "bloody-flower-of-teyvat.html",
         cover: "bloody-flower-of-teyvat.png",
@@ -84,15 +102,7 @@ const games = [
         pc: true,
         android: true,
     },
-    {
-        title: "chilling-devotion",
-        page: "chilling-devotion.html",
-        cover: "chilling-devotion.png",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
+
     {
         title: "Teach me how to love",
         page: "teach-me-how-to-love.html",
