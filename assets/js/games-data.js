@@ -66,6 +66,33 @@ const games = [
     // featured: false
     // ================================
     {
+        title: "Survive Min",
+        page: "survive-min.html",
+        cover: "survive-min.gif",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Do not take this cat home",
+        page: "do-not-take-this-cat-home.html",
+        cover: "do-not-take-this-cat-home.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Threads of you beyond the bay",
+        page: "threads-of-you-beyond-the-bay.html",
+        cover: "threads-of-you-beyond-the-bay.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Chilling devotion",
         page: "chilling-devotion.html",
         cover: "chilling-devotion.png",
