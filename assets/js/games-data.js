@@ -66,6 +66,15 @@ const games = [
     // featured: false
     // ================================
     {
+        title: "Glory hounds",
+        page: "glory-hounds.html",
+        cover: "glory-hounds.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Survive Min",
         page: "survive-min.html",
         cover: "survive-min.gif",
