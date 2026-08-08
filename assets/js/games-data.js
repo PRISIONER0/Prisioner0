@@ -66,7 +66,7 @@ const games = [
     // featured: false
     // ================================
     {
-        title: "Chilling-devotion",
+        title: "Chilling devotion",
         page: "chilling-devotion.html",
         cover: "chilling-devotion.png",
         featured: false,
@@ -75,7 +75,7 @@ const games = [
         android: true,
     },
     {
-        title: "Perfect-love",
+        title: "Perfect love",
         page: "perfect-love.html",
         cover: "perfect-love.png",
         featured: false,
