@@ -158,9 +158,49 @@ const games = [
     },
 
     {
+        title: "The kid at the back",
+        page: "the-kid-at-the-back.html",
+        cover: "the-kid-at-the-back.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Wan2talk",
+        page: "wan2talk.html",
+        cover: "wan2talk.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Arcticed",
+        page: "arcticed.html",
+        cover: "arcticed.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
         title: "Online obsession",
         page: "online-obsession.html",
         cover: "online-obsession.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "behind the broadcast",
+        page: "behind-the-broadcast.html",
+        cover: "behind-the-broadcast.png",
         featured: false,
         language: "Español",
         pc: true,
@@ -181,6 +221,36 @@ const games = [
         title: "A date with death 2",
         page: "a-date-with-death-2.html",
         cover: "a-date-with-death-2.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+
+    {
+        title: "A date with death",
+        page: "a-date-with-death.html",
+        cover: "a-date-with-death.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+
+    {
+        title: "Mirage-noir",
+        page: "mirage-noir.html",
+        cover: "mirage-noir.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Crisis the third way",
+        page: "crisis-the-third-way.html",
+        cover: "crisis-the-third-way.jpg",
         featured: false,
         language: "Español",
         pc: true,
