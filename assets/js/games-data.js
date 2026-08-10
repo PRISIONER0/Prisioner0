@@ -66,6 +66,35 @@ const games = [
     // featured: false
     // ================================
     {
+        title: "Doki doki literature club",
+        page: "dokidoki.html",
+        cover: "dokidoki.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+    {
+        title: "killer trait",
+        page: "killer-trait.html",
+        cover: "killer-trait.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "The willowmist",
+        page: "willowmist.html",
+        cover: "willowmist.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
         title: "Glory hounds",
         page: "glory-hounds.html",
         cover: "glory-hounds.png",
