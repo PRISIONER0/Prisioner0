@@ -68,7 +68,7 @@ const games = [
     {
         title: "Doki doki literature club",
         page: "dokidoki.html",
-        cover: "dokidoki.png",
+        cover: "Dokidoki.png",
         featured: false,
         language: "Español",
         pc: true,
