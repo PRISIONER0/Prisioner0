@@ -158,6 +158,36 @@ const games = [
     },
 
     {
+        title: "Online obsession",
+        page: "online-obsession.html",
+        cover: "online-obsession.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Gentle fall",
+        page: "gentle-fall.html",
+        cover: "gentle-fall.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    
+    {
+        title: "A date with death 2",
+        page: "a-date-with-death-2.html",
+        cover: "a-date-with-death-2.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+
+    {
         title: "Teach me how to love",
         page: "teach-me-how-to-love.html",
         cover: "teach-me-how-to-love.jpg",
