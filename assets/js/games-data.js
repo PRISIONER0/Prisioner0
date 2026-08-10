@@ -137,6 +137,17 @@ const games = [
         pc: true,
         android: true,
     },
+
+    {
+        title: "Dont eat the cashier",
+        page: "dont-eat-the-cashier.html",
+        cover: "dont-eat-the-cashier.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
     {
         title: "Bloody flower of teyvat",
         page: "bloody-flower-of-teyvat.html",
@@ -208,6 +219,25 @@ const games = [
     },
 
     {
+        title: "Prescription love",
+        page: "prescriptionlove.html",
+        cover: "prescriptionlove.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "The slugman",
+        page: "the-slugman.html",
+        cover: "the-slugman.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
         title: "Gentle fall",
         page: "gentle-fall.html",
         cover: "gentle-fall.png",
@@ -255,6 +285,16 @@ const games = [
         language: "Español",
         pc: true,
         android: false,
+    },
+
+    {
+        title: "The narrator says were meant to be",
+        page: "the-narrator-says-were-meant-to-be.html",
+        cover: "the-narrator-says-were-meant-to-be.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
     },
 
     {
