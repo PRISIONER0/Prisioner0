@@ -75,7 +75,7 @@ const games = [
         android: false,
     },
     {
-        title: "killer trait",
+        title: "Killer trait",
         page: "killer-trait.html",
         cover: "killer-trait.png",
         featured: false,
