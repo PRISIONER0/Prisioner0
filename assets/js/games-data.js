@@ -66,6 +66,36 @@ const games = [
     // featured: false
     // ================================
     {
+        title: "14 Days with you",
+        page: "14dayswithyou.html",
+        cover: "14dayswithyou.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Duality",
+        page: "duality.html",
+        cover: "duality.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Heartstop tour",
+        page: "heartstop-tour.html",
+        cover: "heartstop-tour.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
         title: "Doki doki literature club",
         page: "dokidoki.html",
         cover: "Dokidoki.png",
@@ -74,6 +104,7 @@ const games = [
         pc: true,
         android: false,
     },
+
     {
         title: "Killer trait",
         page: "killer-trait.html",
