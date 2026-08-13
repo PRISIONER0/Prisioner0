@@ -65,6 +65,37 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+
+    {
+        title: "The wolf wears red",
+        page: "the-wolf-wears-red.html",
+        cover: "the-wolf-wears-red.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Repair your heart",
+        page: "repair-your-heart.html",
+        cover: "repair-your-heart.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Embassy otherworld",
+        page: "embassy-otherworld.html",
+        cover: "embassy-otherworld.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
     {
         title: "14 Days with you",
         page: "14dayswithyou.html",
