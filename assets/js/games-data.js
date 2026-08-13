@@ -41,13 +41,13 @@ const games = [
     },
 
     {
-        title: "Serenity",
-        page: "serenity.html",
-        cover: "serenity.jpg",
+        title: "The false sun",
+        page: "the-false-sun.html",
+        cover: "the-false-sun.png",
         featured: true,
         language: "Español",
         pc: true,
-        android: true
+        android: true,
     },
 
     {
@@ -152,15 +152,7 @@ const games = [
         pc: true,
         android: true,
     },
-    {
-        title: "The false sun",
-        page: "the-false-sun.html",
-        cover: "the-false-sun.png",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
+
     {
         title: "Lurking for love",
         page: "lurking-for-love.html",
@@ -170,6 +162,7 @@ const games = [
         pc: true,
         android: true,
     },
+
     {
         title: "Threads of you beyond the bay",
         page: "threads-of-you-beyond-the-bay.html",
