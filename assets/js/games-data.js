@@ -65,6 +65,36 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+    
+    {
+        title: "Loving decays",
+        page: "loving-decays.html",
+        cover: "loving-decays.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Killer chat",
+        page: "killer-chat.html",
+        cover: "killer-chat.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Our life",
+        page: "our-life.html",
+        cover: "our-life.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
 
     {
         title: "The wolf wears red",
