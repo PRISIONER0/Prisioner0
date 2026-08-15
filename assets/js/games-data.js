@@ -65,7 +65,56 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-    
+    {
+        title: "Incursion",
+        page: "incursion.html",
+        cover: "incursion.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Touchstarveds",
+        page: "touchstarved.html",
+        cover: "touchstarved.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+
+    {
+        title: "Beyond the turquoise stars",
+        page: "beyond-the-turquoise-stars.html",
+        cover: "beyond-the-turquoise-stars.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Let me in",
+        page: "let-me-in.html",
+        cover: "let-me-in.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
+        title: "Envelope my heart",
+        page: "envelope-my-heart.html",
+        cover: "envelope-my-heart.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
     {
         title: "Loving decays",
         page: "loving-decays.html",
