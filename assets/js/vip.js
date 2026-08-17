@@ -1,89 +1,182 @@
 /* =====================================================
    PRISIONER0 VIP
-   Activación de códigos VIP
+   Activación y sesión VIP
 ===================================================== */
 
 const VIP_API = "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
 
-const vipCodeInput = document.getElementById("vipCode");
-const activateVipButton = document.getElementById("activateVip");
-const vipMessage = document.getElementById("vipMessage");
+
+// =====================================================
+// OBTENER ID DEL DISPOSITIVO
+// =====================================================
+
+function getDeviceId() {
+
+    let deviceId = localStorage.getItem("prisioner0_device_id");
+
+    if (!deviceId) {
+
+        deviceId = crypto.randomUUID();
+
+        localStorage.setItem(
+            "prisioner0_device_id",
+            deviceId
+        );
+    }
+
+    return deviceId;
+}
 
 
-if (activateVipButton) {
+// =====================================================
+// GUARDAR SESIÓN VIP
+// =====================================================
 
-    activateVipButton.addEventListener("click", async function () {
+function saveVipSession(data) {
 
-        const code = vipCodeInput.value.trim().toUpperCase();
+    localStorage.setItem(
+        "prisioner0_vip_session",
+        data.session_token
+    );
 
-        // Comprobar que haya un código
+    localStorage.setItem(
+        "prisioner0_vip_code",
+        data.code
+    );
+
+    localStorage.setItem(
+        "prisioner0_vip_expires",
+        data.expires_at
+    );
+}
+
+
+// =====================================================
+// ACTIVAR VIP
+// =====================================================
+
+const activateButton =
+    document.getElementById("activateVip");
+
+const vipCodeInput =
+    document.getElementById("vipCode");
+
+const vipMessage =
+    document.getElementById("vipMessage");
+
+
+if (activateButton) {
+
+    activateButton.addEventListener("click", async function () {
+
+        const code =
+            vipCodeInput.value
+                .trim()
+                .toUpperCase();
+
+        // ==========================================
+        // COMPROBAR CÓDIGO VACÍO
+        // ==========================================
+
         if (!code) {
 
-            vipMessage.textContent = "Ingresá tu código VIP.";
-            return;
+            vipMessage.textContent =
+                "Ingresá un código VIP.";
 
+            return;
         }
 
-        // Mostrar estado
-        activateVipButton.disabled = true;
-        activateVipButton.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> COMPROBANDO...';
+        // ==========================================
+        // MOSTRAR ESTADO
+        // ==========================================
 
-        vipMessage.textContent = "";
+        activateButton.disabled = true;
+
+        vipMessage.textContent =
+            "Comprobando código VIP...";
 
         try {
 
-            const response = await fetch(`${VIP_API}/activate-code`, {
+            // ======================================
+            // OBTENER DISPOSITIVO
+            // ======================================
 
-                method: "POST",
+            const deviceId =
+                getDeviceId();
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+            // ======================================
+            // ENVIAR AL WORKER
+            // ======================================
 
-                body: JSON.stringify({
-                    code: code
-                })
+            const response =
+                await fetch(
+                    `${VIP_API}/activate-code`,
+                    {
+                        method: "POST",
 
-            });
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
 
+                        body: JSON.stringify({
 
-            const data = await response.json();
+                            code: code,
 
+                            device_id:
+                                deviceId
 
-            if (data.ok) {
+                        })
+                    }
+                );
+
+            const data =
+                await response.json();
+
+            // ======================================
+            // ERROR
+            // ======================================
+
+            if (!data.ok) {
 
                 vipMessage.textContent =
-                    "¡Código VIP activado correctamente!";
+                    data.error ||
+                    "No se pudo activar el código.";
 
-                vipMessage.style.color = "#7CFC00";
-
-            } else {
-
-                vipMessage.textContent =
-                    data.error || "El código VIP no es válido.";
-
-                vipMessage.style.color = "#ff6b6b";
-
+                return;
             }
+
+            // ======================================
+            // GUARDAR SESIÓN
+            // ======================================
+
+            saveVipSession(data.vip);
+
+            // ======================================
+            // ÉXITO
+            // ======================================
+
+            vipMessage.textContent =
+                "¡Código VIP activado correctamente!";
+
+            vipMessage.style.color =
+                "#7CFF8A";
 
         } catch (error) {
 
-            console.error("Error al conectar con VIP API:", error);
+            console.error(
+                "Error VIP:",
+                error
+            );
 
             vipMessage.textContent =
                 "No se pudo conectar con el servidor VIP.";
 
-            vipMessage.style.color = "#ff6b6b";
+        } finally {
+
+            activateButton.disabled = false;
 
         }
-
-
-        // Restaurar botón
-        activateVipButton.disabled = false;
-
-        activateVipButton.innerHTML =
-            '<i class="fa-solid fa-unlock"></i> ACTIVAR VIP';
 
     });
 
