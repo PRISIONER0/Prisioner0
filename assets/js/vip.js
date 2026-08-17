@@ -12,11 +12,30 @@ const VIP_API = "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
 
 function getDeviceId() {
 
-    let deviceId = localStorage.getItem("prisioner0_device_id");
+    let deviceId = localStorage.getItem(
+        "prisioner0_device_id"
+    );
 
     if (!deviceId) {
 
-        deviceId = crypto.randomUUID();
+        if (
+            window.crypto &&
+            typeof window.crypto.randomUUID === "function"
+        ) {
+
+            deviceId = window.crypto.randomUUID();
+
+        } else {
+
+            deviceId =
+                "dev-" +
+                Date.now().toString(36) +
+                "-" +
+                Math.random().toString(36).substring(2, 10) +
+                "-" +
+                Math.random().toString(36).substring(2, 10);
+
+        }
 
         localStorage.setItem(
             "prisioner0_device_id",
