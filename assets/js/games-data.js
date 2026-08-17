@@ -67,6 +67,42 @@ const games = [
     // ================================
     
     {
+        title: "My Fiance is a fiend",
+        page: "my-fiance-is-a-fiend.html",
+        cover: "my-fiance-is-a-fiend.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+    {
+        title: "Knee deep",
+        page: "knee-deep.html",
+        cover: "knee-deep.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Limerence in moonlight",
+        page: "limerence-in-moonlight.html",
+        cover: "limerence-in-moonlight.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Watch the road",
+        page: "watch-the-road.html",
+        cover: "watch-the-road.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Burn the midnight oil",
         page: "burn-the-midnight-oil.html",
         cover: "burn-the-midnight-oil.png",
