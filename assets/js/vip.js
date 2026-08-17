@@ -3,7 +3,8 @@
    Activación y sesión VIP
 ===================================================== */
 
-const VIP_API = "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
+const VIP_API =
+    "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
 
 
 // =====================================================
@@ -12,9 +13,8 @@ const VIP_API = "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
 
 function getDeviceId() {
 
-    let deviceId = localStorage.getItem(
-        "prisioner0_device_id"
-    );
+    let deviceId =
+        localStorage.getItem("prisioner0_device_id");
 
     if (!deviceId) {
 
@@ -23,7 +23,8 @@ function getDeviceId() {
             typeof window.crypto.randomUUID === "function"
         ) {
 
-            deviceId = window.crypto.randomUUID();
+            deviceId =
+                window.crypto.randomUUID();
 
         } else {
 
@@ -34,7 +35,6 @@ function getDeviceId() {
                 Math.random().toString(36).substring(2, 10) +
                 "-" +
                 Math.random().toString(36).substring(2, 10);
-
         }
 
         localStorage.setItem(
@@ -86,120 +86,250 @@ const vipMessage =
 
 if (activateButton) {
 
-    activateButton.addEventListener("click", async function () {
+    activateButton.addEventListener(
+        "click",
+        async function () {
 
-        const code =
-            vipCodeInput.value
-                .trim()
-                .toUpperCase();
+            const code =
+                vipCodeInput.value
+                    .trim()
+                    .toUpperCase();
 
-        // ==========================================
-        // COMPROBAR CÓDIGO VACÍO
-        // ==========================================
+            // ==========================================
+            // CÓDIGO VACÍO
+            // ==========================================
 
-        if (!code) {
-
-            vipMessage.textContent =
-                "Ingresá un código VIP.";
-
-            return;
-        }
-
-        // ==========================================
-        // MOSTRAR ESTADO
-        // ==========================================
-
-        activateButton.disabled = true;
-
-        vipMessage.textContent =
-            "Comprobando código VIP...";
-
-        try {
-
-            // ======================================
-            // OBTENER DISPOSITIVO
-            // ======================================
-
-            const deviceId =
-                getDeviceId();
-                
-            console.log("CÓDIGO:", code);
-            console.log("DEVICE ID:", deviceId);
-
-            // ======================================
-            // ENVIAR AL WORKER
-            // ======================================
-
-            const response =
-                await fetch(
-                    `${VIP_API}/activate-code`,
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body: JSON.stringify({
-
-                            code: code,
-
-                            device_id:
-                                deviceId
-
-                        })
-                    }
-                );
-
-            const data =
-                await response.json();
-
-            // ======================================
-            // ERROR
-            // ======================================
-
-            if (!data.ok) {
+            if (!code) {
 
                 vipMessage.textContent =
-                    data.error ||
-                    "No se pudo activar el código.";
+                    "Ingresá un código VIP.";
+
+                vipMessage.style.color =
+                    "#aaa";
 
                 return;
             }
 
-            // ======================================
-            // GUARDAR SESIÓN
-            // ======================================
-
-            saveVipSession(data.vip);
-
-            // ======================================
-            // ÉXITO
-            // ======================================
+            activateButton.disabled = true;
 
             vipMessage.textContent =
-                "¡Código VIP activado correctamente!";
+                "Comprobando código VIP...";
 
             vipMessage.style.color =
-                "#7CFF8A";
+                "#aaa";
 
-        } catch (error) {
 
-            console.error(
-                "Error VIP:",
-                error
-            );
+            try {
 
-            vipMessage.textContent =
-                "No se pudo conectar con el servidor VIP.";
+                // ======================================
+                // OBTENER DISPOSITIVO
+                // ======================================
 
-        } finally {
+                const deviceId =
+                    getDeviceId();
 
-            activateButton.disabled = false;
+
+                console.log(
+                    "CÓDIGO:",
+                    code
+                );
+
+                console.log(
+                    "DEVICE ID:",
+                    deviceId
+                );
+
+
+                // ======================================
+                // COMPROBAR / ACTIVAR
+                // ======================================
+
+                const response =
+                    await fetch(
+                        `${VIP_API}/activate-code`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                code: code,
+
+                                device_id:
+                                    deviceId
+
+                            })
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                // ======================================
+                // NECESITA CAMBIO
+                // ======================================
+
+                if (
+                    response.status === 409 &&
+                    data.requires_change === true
+                ) {
+
+                    const confirmar =
+                        confirm(
+                            "⚠️ Este código VIP ya está activo en 2 dispositivos.\n\n" +
+                            "Podés utilizar tu ÚNICO cambio de dispositivo para activar este dispositivo.\n\n" +
+                            "El dispositivo más antiguo será reemplazado.\n\n" +
+                            "¿Querés utilizar tu cambio?"
+                        );
+
+
+                    // ==================================
+                    // USUARIO CANCELÓ
+                    // ==================================
+
+                    if (!confirmar) {
+
+                        vipMessage.textContent =
+                            "No se realizó ningún cambio.";
+
+                        vipMessage.style.color =
+                            "#aaa";
+
+                        return;
+                    }
+
+
+                    // ==================================
+                    // CONFIRMÓ → CAMBIAR DISPOSITIVO
+                    // ==================================
+
+                    vipMessage.textContent =
+                        "Cambiando dispositivo...";
+
+
+                    const changeResponse =
+                        await fetch(
+                            `${VIP_API}/change-device`,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+
+                                    code: code,
+
+                                    device_id:
+                                        deviceId
+
+                                })
+                            }
+                        );
+
+
+                    const changeData =
+                        await changeResponse.json();
+
+
+                    // ==================================
+                    // ERROR EN CAMBIO
+                    // ==================================
+
+                    if (!changeData.ok) {
+
+                        vipMessage.textContent =
+                            changeData.error ||
+                            "No se pudo cambiar el dispositivo.";
+
+                        vipMessage.style.color =
+                            "#ff7070";
+
+                        return;
+                    }
+
+
+                    // ==================================
+                    // GUARDAR NUEVA SESIÓN
+                    // ==================================
+
+                    saveVipSession(
+                        changeData.vip
+                    );
+
+
+                    vipMessage.textContent =
+                        "¡Dispositivo reemplazado correctamente!";
+
+                    vipMessage.style.color =
+                        "#7CFF8A";
+
+
+                    return;
+                }
+
+
+                // ======================================
+                // ERROR NORMAL
+                // ======================================
+
+                if (!data.ok) {
+
+                    vipMessage.textContent =
+                        data.error ||
+                        "No se pudo activar el código.";
+
+                    vipMessage.style.color =
+                        "#ff7070";
+
+                    return;
+                }
+
+
+                // ======================================
+                // ACTIVACIÓN NORMAL
+                // ======================================
+
+                saveVipSession(
+                    data.vip
+                );
+
+
+                vipMessage.textContent =
+                    "¡Código VIP activado correctamente!";
+
+                vipMessage.style.color =
+                    "#7CFF8A";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error VIP:",
+                    error
+                );
+
+                vipMessage.textContent =
+                    "No se pudo conectar con el servidor VIP.";
+
+                vipMessage.style.color =
+                    "#ff7070";
+
+            } finally {
+
+                activateButton.disabled = false;
+
+            }
 
         }
-
-    });
+    );
 
 }
