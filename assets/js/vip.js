@@ -123,6 +123,7 @@ if (activateButton) {
             const deviceId =
                 getDeviceId();
                 
+            console.log("CÓDIGO:", code);
             console.log("DEVICE ID:", deviceId);
 
             // ======================================
