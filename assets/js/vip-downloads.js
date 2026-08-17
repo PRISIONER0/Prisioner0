@@ -1,11 +1,3 @@
-/* =====================================================
-   PRISIONER0 VIP DOWNLOADS
-   Decide entre enlace directo VIP y acortador
-===================================================== */
-
-const VIP_API =
-    "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
-
 
 // =====================================================
 // COMPROBAR SESIÓN VIP
