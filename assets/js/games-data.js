@@ -65,6 +65,43 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+    
+    {
+        title: "Burn the midnight oil",
+        page: "burn-the-midnight-oil.html",
+        cover: "burn-the-midnight-oil.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Predators syndrome",
+        page: "predators-syndrome.html",
+        cover: "predators-syndrome.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Cyber obsession",
+        page: "cyber-obsession.html",
+        cover: "cyber-obsession.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Dont pick up stray aliens",
+        page: "dont-pick-up-stray-aliens.html",
+        cover: "dont-pick-up-stray-aliens.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Incursion",
         page: "incursion.html",
