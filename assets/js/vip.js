@@ -122,6 +122,8 @@ if (activateButton) {
 
             const deviceId =
                 getDeviceId();
+                
+            console.log("DEVICE ID:", deviceId);
 
             // ======================================
             // ENVIAR AL WORKER
