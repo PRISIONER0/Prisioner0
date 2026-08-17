@@ -584,21 +584,26 @@ async function checkVipStatusPage() {
             "vipActivateForm"
         );
 
-    if (!activePanel) {
+    if (!activePanel || !activateForm) {
         return;
     }
 
-    // ================================================
-    // NO HAY SESIÓN
-    // ================================================
+
+    // =================================================
+    // NO HAY SESIÓN VIP
+    // =================================================
 
     if (!sessionToken) {
 
         activePanel.style.display =
             "none";
 
+        activateForm.style.display =
+            "block";
+
         return;
     }
+
 
     try {
 
@@ -620,26 +625,33 @@ async function checkVipStatusPage() {
                 }
             );
 
+
         const data =
             await response.json();
 
 
-        // ============================================
+        // =================================================
         // VIP ACTIVO
-        // ============================================
+        // =================================================
 
         if (
             data.ok === true &&
             data.vip === true
         ) {
 
+            // Mostrar panel VIP
             activePanel.style.display =
                 "block";
 
 
-            // ========================================
+            // Ocultar formulario completo
+            activateForm.style.display =
+                "none";
+
+
+            // =============================================
             // FECHA DE VENCIMIENTO
-            // ========================================
+            // =============================================
 
             const expiresAt =
                 data.vip.expires_at ||
@@ -655,22 +667,31 @@ async function checkVipStatusPage() {
                         expiresAt
                     );
 
-                document.getElementById(
-                    "vipExpires"
-                ).textContent =
-                    expiration.toLocaleDateString(
-                        "es-AR",
-                        {
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric"
-                        }
+
+                const expiresElement =
+                    document.getElementById(
+                        "vipExpires"
                     );
 
 
-                // ====================================
-                // CALCULAR TIEMPO RESTANTE
-                // ====================================
+                if (expiresElement) {
+
+                    expiresElement.textContent =
+                        expiration.toLocaleDateString(
+                            "es-AR",
+                            {
+                                day: "2-digit",
+                                month: "2-digit",
+                                year: "numeric"
+                            }
+                        );
+
+                }
+
+
+                // =========================================
+                // TIEMPO RESTANTE
+                // =========================================
 
                 const now =
                     new Date();
@@ -678,59 +699,51 @@ async function checkVipStatusPage() {
                 const difference =
                     expiration - now;
 
-                if (difference > 0) {
 
-                    const days =
-                        Math.ceil(
-                            difference /
-                            (1000 * 60 * 60 * 24)
-                        );
-
+                const remainingElement =
                     document.getElementById(
                         "vipRemaining"
-                    ).textContent =
-                        `${days} día${days === 1 ? "" : "s"}`;
+                    );
 
-                } else {
 
-                    document.getElementById(
-                        "vipRemaining"
-                    ).textContent =
-                        "Expirado";
+                if (remainingElement) {
+
+                    if (difference > 0) {
+
+                        const days =
+                            Math.ceil(
+                                difference /
+                                (1000 * 60 * 60 * 24)
+                            );
+
+
+                        remainingElement.textContent =
+                            `${days} día${days === 1 ? "" : "s"}`;
+
+                    } else {
+
+                        remainingElement.textContent =
+                            "Expirado";
+
+                    }
 
                 }
 
             }
 
-
-            // ========================================
-            // OCULTAR FORMULARIO
-            // ========================================
-
-            if (activateForm) {
-
-                activateForm.style.display =
-                    "none";
-
-            }
-
         }
 
-        // ============================================
-        // VIP NO ACTIVO
-        // ============================================
+        // =================================================
+        // VIP NO VÁLIDO
+        // =================================================
 
         else {
 
             activePanel.style.display =
                 "none";
 
-            if (activateForm) {
-
-                activateForm.style.display =
-                    "block";
-
-            }
+            activateForm.style.display =
+                "block";
 
         }
 
@@ -744,8 +757,6 @@ async function checkVipStatusPage() {
     }
 
 }
-
-
 // =====================================================
 // COMPROBAR AL CARGAR LA PÁGINA
 // =====================================================
