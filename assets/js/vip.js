@@ -775,3 +775,53 @@ document.addEventListener(
 
     }
 );
+// =====================================================
+// CERRAR SESIÓN VIP
+// =====================================================
+
+const vipLogout =
+    document.getElementById(
+        "vipLogout"
+    );
+
+if (vipLogout) {
+
+    vipLogout.addEventListener(
+        "click",
+        function () {
+
+            const confirmar =
+                confirm(
+                    "¿Querés cerrar tu sesión VIP en este dispositivo?"
+                );
+
+            if (!confirmar) {
+                return;
+            }
+
+            // =========================================
+            // ELIMINAR SESIÓN LOCAL
+            // =========================================
+
+            localStorage.removeItem(
+                "prisioner0_vip_session"
+            );
+
+            localStorage.removeItem(
+                "prisioner0_vip_code"
+            );
+
+            localStorage.removeItem(
+                "prisioner0_vip_expires"
+            );
+
+            // =========================================
+            // RECARGAR
+            // =========================================
+
+            location.reload();
+
+        }
+    );
+
+}
