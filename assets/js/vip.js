@@ -580,18 +580,8 @@ async function checkVipStatusPage() {
         );
 
     const activateForm =
-        document.querySelector(
-            ".vip-code-form"
-        );
-
-    const activateTitle =
-        document.querySelector(
-            ".vip-activate h2"
-        );
-
-    const activateDescription =
-        document.querySelector(
-            ".vip-activate > p"
+        document.getElementById(
+            "vipActivateForm"
         );
 
     if (!activePanel) {
@@ -724,20 +714,6 @@ async function checkVipStatusPage() {
 
             }
 
-            if (activateTitle) {
-
-                activateTitle.style.display =
-                    "none";
-
-            }
-
-            if (activateDescription) {
-
-                activateDescription.style.display =
-                    "none";
-
-            }
-
         }
 
         // ============================================
@@ -748,6 +724,13 @@ async function checkVipStatusPage() {
 
             activePanel.style.display =
                 "none";
+
+            if (activateForm) {
+
+                activateForm.style.display =
+                    "block";
+
+            }
 
         }
 
