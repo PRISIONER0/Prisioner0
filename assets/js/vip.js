@@ -13,9 +13,10 @@ const VIP_API =
 
 function getDeviceId() {
 
-    let deviceId = localStorage.getItem(
-        "prisioner0_device_id"
-    );
+    let deviceId =
+        localStorage.getItem(
+            "prisioner0_device_id"
+        );
 
     if (!deviceId) {
 
@@ -36,6 +37,7 @@ function getDeviceId() {
                 Math.random().toString(36).substring(2, 10) +
                 "-" +
                 Math.random().toString(36).substring(2, 10);
+
         }
 
         localStorage.setItem(
@@ -72,10 +74,212 @@ function saveVipSession(data) {
 
 
 // =====================================================
-// CAMBIAR DISPOSITIVO
+// MOSTRAR CARTEL DE CAMBIO
 // =====================================================
 
-async function changeVipDevice(code, deviceId) {
+function showDeviceChangeModal(data, deviceId) {
+
+    const devices =
+        data.vip?.devices || [];
+
+    if (devices.length < 2) {
+
+        vipMessage.textContent =
+            "No se pudieron obtener tus dispositivos.";
+
+        return;
+    }
+
+
+    // ================================================
+    // CREAR FONDO
+    // ================================================
+
+    const overlay =
+        document.createElement("div");
+
+    overlay.id =
+        "vipDeviceChangeOverlay";
+
+
+    // ================================================
+    // CREAR CARTEL
+    // ================================================
+
+    const modal =
+        document.createElement("div");
+
+    modal.className =
+        "vip-device-modal";
+
+
+    modal.innerHTML = `
+
+        <div class="vip-device-modal-icon">
+            ⚠️
+        </div>
+
+        <h3>
+            Límite de dispositivos
+        </h3>
+
+        <p>
+            Tu código VIP ya está activo
+            en 2 dispositivos.
+        </p>
+
+        <p>
+            Tenés <strong>1 cambio disponible</strong>.
+            ¿Cuál dispositivo querés reemplazar?
+        </p>
+
+        <div class="vip-device-options">
+
+            <button
+                type="button"
+                class="vip-device-option"
+                data-session-id="${devices[0].id}"
+            >
+
+                <span>🖥️</span>
+
+                <strong>
+                    Dispositivo 1
+                </strong>
+
+                <small>
+                    Registrado anteriormente
+                </small>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="vip-device-option"
+                data-session-id="${devices[1].id}"
+            >
+
+                <span>🖥️</span>
+
+                <strong>
+                    Dispositivo 2
+                </strong>
+
+                <small>
+                    Registrado anteriormente
+                </small>
+
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="vip-device-cancel"
+            id="vipDeviceCancel"
+        >
+            Cancelar
+        </button>
+
+    `;
+
+
+    overlay.appendChild(modal);
+
+    document.body.appendChild(overlay);
+
+
+    // =================================================
+    // BOTONES DE DISPOSITIVOS
+    // =================================================
+
+    const buttons =
+        modal.querySelectorAll(
+            ".vip-device-option"
+        );
+
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            async function () {
+
+                const sessionId =
+                    Number(
+                        this.dataset.sessionId
+                    );
+
+                await changeDevice(
+                    data.vip.code,
+                    deviceId,
+                    sessionId,
+                    overlay
+                );
+
+            }
+        );
+
+    });
+
+
+    // =================================================
+    // CANCELAR
+    // =================================================
+
+    document
+        .getElementById("vipDeviceCancel")
+        .addEventListener(
+            "click",
+            function () {
+
+                overlay.remove();
+
+                vipMessage.textContent =
+                    "No se realizó ningún cambio.";
+
+            }
+        );
+
+}
+
+
+// =====================================================
+// REALIZAR CAMBIO DE DISPOSITIVO
+// =====================================================
+
+async function changeDevice(
+    code,
+    deviceId,
+    sessionId,
+    overlay
+) {
+
+    const buttons =
+        overlay.querySelectorAll(
+            ".vip-device-option"
+        );
+
+    buttons.forEach(button => {
+
+        button.disabled = true;
+
+    });
+
+
+    const cancelButton =
+        overlay.querySelector(
+            "#vipDeviceCancel"
+        );
+
+    if (cancelButton) {
+
+        cancelButton.disabled = true;
+
+    }
+
 
     try {
 
@@ -94,48 +298,58 @@ async function changeVipDevice(code, deviceId) {
 
                         code: code,
 
-                        device_id: deviceId
+                        device_id:
+                            deviceId,
+
+                        replace_session_id:
+                            sessionId
 
                     })
                 }
             );
 
+
         const data =
             await response.json();
 
-        // ==========================================
-        // ERROR
-        // ==========================================
 
         if (!data.ok) {
 
-            vipMessage.textContent =
+            alert(
                 data.error ||
-                "No se pudo cambiar el dispositivo.";
+                "No se pudo cambiar el dispositivo."
+            );
 
-            vipMessage.style.color =
-                "#ff7777";
+            buttons.forEach(button => {
+                button.disabled = false;
+            });
 
-            return false;
+            if (cancelButton) {
+                cancelButton.disabled = false;
+            }
+
+            return;
         }
 
-        // ==========================================
+
+        // =============================================
         // GUARDAR NUEVA SESIÓN
-        // ==========================================
+        // =============================================
 
-        saveVipSession(data.vip);
+        saveVipSession(
+            data.vip
+        );
 
-        // ==========================================
-        // ÉXITO
-        // ==========================================
+
+        overlay.remove();
+
 
         vipMessage.textContent =
-            "¡Dispositivo cambiado correctamente!";
+            "¡Dispositivo reemplazado correctamente!";
 
         vipMessage.style.color =
             "#7CFF8A";
 
-        return true;
 
     } catch (error) {
 
@@ -144,231 +358,26 @@ async function changeVipDevice(code, deviceId) {
             error
         );
 
-        vipMessage.textContent =
-            "No se pudo conectar con el servidor VIP.";
+        alert(
+            "No se pudo conectar con el Worker."
+        );
 
-        vipMessage.style.color =
-            "#ff7777";
 
-        return false;
+        buttons.forEach(button => {
+            button.disabled = false;
+        });
+
+        if (cancelButton) {
+            cancelButton.disabled = false;
+        }
+
     }
+
 }
 
 
 // =====================================================
-// MOSTRAR CONFIRMACIÓN DE CAMBIO
-// =====================================================
-
-function showDeviceChangeConfirmation(
-    code,
-    deviceId
-) {
-
-    // ==========================================
-    // CREAR CONTENEDOR
-    // ==========================================
-
-    const overlay =
-        document.createElement("div");
-
-    overlay.id =
-        "vipChangeOverlay";
-
-    overlay.style.cssText = `
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 99999;
-        padding: 20px;
-        box-sizing: border-box;
-    `;
-
-
-    // ==========================================
-    // CARTEL
-    // ==========================================
-
-    const box =
-        document.createElement("div");
-
-    box.style.cssText = `
-        width: 100%;
-        max-width: 430px;
-        background: #151515;
-        border: 1px solid rgba(255,255,255,0.12);
-        border-radius: 18px;
-        padding: 28px;
-        box-sizing: border-box;
-        text-align: center;
-        color: white;
-        font-family: inherit;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    `;
-
-
-    box.innerHTML = `
-
-        <div style="
-            font-size: 42px;
-            margin-bottom: 12px;
-        ">
-            👑
-        </div>
-
-        <h2 style="
-            margin: 0 0 14px;
-            font-size: 22px;
-        ">
-            Tu VIP ya está activo en 2 dispositivos
-        </h2>
-
-        <p style="
-            margin: 0 0 14px;
-            line-height: 1.6;
-            color: #cccccc;
-        ">
-            Este nuevo dispositivo no está registrado.
-        </p>
-
-        <p style="
-            margin: 0 0 22px;
-            line-height: 1.6;
-            color: #ffffff;
-        ">
-            Tenés <strong>1 cambio de dispositivo disponible</strong>.
-        </p>
-
-        <p style="
-            margin: 0 0 24px;
-            line-height: 1.5;
-            font-size: 14px;
-            color: #aaaaaa;
-        ">
-            Si continuás, uno de tus dispositivos actuales
-            dejará de tener acceso VIP.
-            <br><br>
-            Este cambio solo puede utilizarse una vez.
-        </p>
-
-        <div style="
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        ">
-
-            <button
-                id="vipCancelChange"
-                style="
-                    flex: 1;
-                    padding: 12px 16px;
-                    border: 1px solid #444;
-                    border-radius: 10px;
-                    background: #222;
-                    color: white;
-                    cursor: pointer;
-                    font-size: 14px;
-                "
-            >
-                Cancelar
-            </button>
-
-            <button
-                id="vipConfirmChange"
-                style="
-                    flex: 1;
-                    padding: 12px 16px;
-                    border: none;
-                    border-radius: 10px;
-                    background: #7CFF8A;
-                    color: #111;
-                    cursor: pointer;
-                    font-size: 14px;
-                    font-weight: bold;
-                "
-            >
-                Cambiar dispositivo
-            </button>
-
-        </div>
-    `;
-
-
-    overlay.appendChild(box);
-
-    document.body.appendChild(
-        overlay
-    );
-
-
-    // =================================================
-    // CANCELAR
-    // =================================================
-
-    document
-        .getElementById("vipCancelChange")
-        .addEventListener(
-            "click",
-            function () {
-
-                overlay.remove();
-
-                vipMessage.textContent =
-                    "No se realizó ningún cambio.";
-
-                vipMessage.style.color =
-                    "#cccccc";
-            }
-        );
-
-
-    // =================================================
-    // CONFIRMAR CAMBIO
-    // =================================================
-
-    document
-        .getElementById("vipConfirmChange")
-        .addEventListener(
-            "click",
-            async function () {
-
-                const button =
-                    this;
-
-                button.disabled =
-                    true;
-
-                button.textContent =
-                    "Cambiando...";
-
-                const success =
-                    await changeVipDevice(
-                        code,
-                        deviceId
-                    );
-
-                if (success) {
-
-                    overlay.remove();
-
-                } else {
-
-                    button.disabled =
-                        false;
-
-                    button.textContent =
-                        "Cambiar dispositivo";
-                }
-
-            }
-        );
-}
-
-
-// =====================================================
-// ELEMENTOS
+// ACTIVAR VIP
 // =====================================================
 
 const activateButton =
@@ -386,10 +395,6 @@ const vipMessage =
         "vipMessage"
     );
 
-
-// =====================================================
-// ACTIVAR VIP
-// =====================================================
 
 if (activateButton) {
 
@@ -412,35 +417,28 @@ if (activateButton) {
                 vipMessage.textContent =
                     "Ingresá un código VIP.";
 
-                vipMessage.style.color =
-                    "#ff7777";
-
                 return;
+
             }
 
-
-            // ==========================================
-            // ESTADO
-            // ==========================================
 
             activateButton.disabled =
                 true;
 
+
             vipMessage.textContent =
                 "Comprobando código VIP...";
 
+
             vipMessage.style.color =
-                "#cccccc";
+                "";
 
 
             try {
 
-                // ======================================
-                // DISPOSITIVO
-                // ======================================
-
                 const deviceId =
                     getDeviceId();
+
 
                 console.log(
                     "CÓDIGO:",
@@ -486,29 +484,20 @@ if (activateButton) {
 
 
                 // ======================================
-                // ¿NECESITA CAMBIO?
+                // TIENE QUE ELEGIR DISPOSITIVO
                 // ======================================
 
                 if (
                     data.requires_change === true
                 ) {
 
-                    activateButton.disabled =
-                        false;
-
-                    vipMessage.textContent =
-                        "Tu código VIP necesita un cambio de dispositivo.";
-
-                    vipMessage.style.color =
-                        "#ffd166";
-
-
-                    showDeviceChangeConfirmation(
-                        code,
+                    showDeviceChangeModal(
+                        data,
                         deviceId
                     );
 
                     return;
+
                 }
 
 
@@ -523,9 +512,10 @@ if (activateButton) {
                         "No se pudo activar el código.";
 
                     vipMessage.style.color =
-                        "#ff7777";
+                        "";
 
                     return;
+
                 }
 
 
@@ -548,6 +538,7 @@ if (activateButton) {
                 vipMessage.style.color =
                     "#7CFF8A";
 
+
             } catch (error) {
 
                 console.error(
@@ -556,17 +547,19 @@ if (activateButton) {
                 );
 
                 vipMessage.textContent =
-                    "No se pudo conectar con el servidor VIP.";
+                    "No se pudo conectar con el Worker.";
 
                 vipMessage.style.color =
-                    "#ff7777";
+                    "";
 
             } finally {
 
                 activateButton.disabled =
                     false;
+
             }
 
         }
     );
+
 }

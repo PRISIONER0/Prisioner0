@@ -1434,6 +1434,127 @@ INFORMACIÓN VIP
 
     margin:12px 0;
 }
+/* =====================================================
+   CARTEL CAMBIO DE DISPOSITIVO VIP
+===================================================== */
+
+#vipDeviceChangeOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.vip-device-modal {
+    width: 100%;
+    max-width: 440px;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    background: #151515;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+
+    text-align: center;
+
+    color: white;
+}
+
+.vip-device-modal-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.vip-device-modal h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.vip-device-modal p {
+    margin: 8px 0;
+    line-height: 1.5;
+    color: #cfcfcf;
+}
+
+.vip-device-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.vip-device-option {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    background: #202020;
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.2s;
+}
+
+.vip-device-option:hover {
+    transform: translateY(-2px);
+    border-color: #7CFF8A;
+}
+
+.vip-device-option span {
+    font-size: 25px;
+    margin-right: 8px;
+}
+
+.vip-device-option strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.vip-device-option small {
+    display: block;
+    margin-top: 4px;
+    color: #999;
+}
+
+.vip-device-cancel {
+    width: 100%;
+
+    margin-top: 18px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #999;
+
+    cursor: pointer;
+}
+
+.vip-device-cancel:hover {
+    color: white;
+}
 /* =====================================
    RESPONSIVE
 ===================================== */
