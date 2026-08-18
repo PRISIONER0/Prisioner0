@@ -67,6 +67,42 @@ const games = [
     // ================================
     
     {
+        title: "To die with ben",
+        page: "to-die-with-ben.html",
+        cover: "to-die-with-ben.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Chromatic agape",
+        page: "chromatic-agape.html",
+        cover: "chromatic-agape.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Prelude",
+        page: "prelude.html",
+        cover: "prelude.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Thesis of love",
+        page: "thesis-of-love.html",
+        cover: "thesis-of-love.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Doki doki literature club",
         page: "dokidoki.html",
         cover: "Dokidoki.png",
