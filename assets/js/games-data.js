@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "Doki doki literature club",
+        page: "dokidoki.html",
+        cover: "Dokidoki.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "My Fiance is a fiend",
         page: "my-fiance-is-a-fiend.html",
         cover: "my-fiance-is-a-fiend.png",
@@ -272,16 +281,6 @@ const games = [
         title: "Heartstop tour",
         page: "heartstop-tour.html",
         cover: "heartstop-tour.png",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-
-    {
-        title: "Doki doki literature club",
-        page: "dokidoki.html",
-        cover: "Dokidoki.png",
         featured: false,
         language: "Español",
         pc: true,
