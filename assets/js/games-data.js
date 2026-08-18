@@ -285,7 +285,7 @@ const games = [
         featured: false,
         language: "Español",
         pc: true,
-        android: false,
+        android: true,
     },
 
     {
