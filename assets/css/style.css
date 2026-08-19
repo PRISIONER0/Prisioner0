@@ -2078,3 +2078,42 @@ footer{
 }
 
 }
+/* =============================== */
+/* ANUNCIOS ADSTERRA */
+/* =============================== */
+
+.ad-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* Anuncios para PC */
+.ad-desktop {
+    display: flex;
+}
+
+/* Anuncios para móvil */
+.ad-mobile {
+    display: none;
+}
+
+
+/* =============================== */
+/* MÓVIL */
+/* =============================== */
+
+@media (max-width: 767px) {
+
+    .ad-desktop {
+        display: none;
+    }
+
+    .ad-mobile {
+        display: flex;
+    }
+
+}
