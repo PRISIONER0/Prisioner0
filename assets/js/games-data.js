@@ -67,6 +67,42 @@ const games = [
     // ================================
     
     {
+        title: "Date at the cemetery",
+        page: "date-at-the-cemetery.html",
+        cover: "date-at-the-cemetery.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+        {
+        title: "Witchs bound",
+        page: "witchs-bound.html",
+        cover: "witchs-bound.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+    {
+        title: "Drenched in blue",
+        page: "drenched-in-blue.html",
+        cover: "drenched-in-blue.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Overdose",
+        page: "overdose.html",
+        cover: "overdose.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "To die with ben",
         page: "to-die-with-ben.html",
         cover: "to-die-with-ben.jpg",
