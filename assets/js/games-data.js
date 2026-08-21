@@ -87,7 +87,7 @@ const games = [
     {
         title: "That guy pisses me off",
         page: "that-guy-pisses-me-off.html",
-        cover: "that-guy-pisses-me-off.png",
+        cover: "That-guy-pisses-me-off.png",
         featured: false,
         language: "Español",
         pc: true,
