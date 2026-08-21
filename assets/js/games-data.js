@@ -67,6 +67,42 @@ const games = [
     // ================================
     
     {
+        title: "How to break up with your yandere boyfriend",
+        page: "how-to-break-up-with-your-yandere-boyfriend.html",
+        cover: "how-to-break-up-with-your-yandere-boyfriend.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Mushroom oasis",
+        page: "mushroom-oasis.html",
+        cover: "mushroom-oasis.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "That guy pisses me off",
+        page: "that-guy-pisses-me-off.html",
+        cover: "that-guy-pisses-me-off.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Deep sea bouttoniare",
+        page: "deep-sea-bouttoniare.html",
+        cover: "deep-sea-bouttoniare.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Date at the cemetery",
         page: "date-at-the-cemetery.html",
         cover: "date-at-the-cemetery.png",
