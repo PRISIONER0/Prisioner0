@@ -67,6 +67,43 @@ const games = [
     // ================================
     
     {
+        title: "Your Boyfriend",
+        page: "your-boyfriend.html",
+        cover: "your-boyfriend.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: false,
+    },
+    {
+        title: "My best friend yui",
+        page: "my-best-friend-yui.html",
+        cover: "my-best-friend-yui.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Capture my love",
+        page: "capture-my-love.html",
+        cover: "capture-my-love.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Under heaven or hell",
+        page: "underheavenorhell.html",
+        cover: "underheavenorhell.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+
+    {
         title: "How to break up with your yandere boyfriend",
         page: "how-to-break-up-with-your-yandere-boyfriend.html",
         cover: "how-to-break-up-with-your-yandere-boyfriend.png",
