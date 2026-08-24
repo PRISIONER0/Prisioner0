@@ -2117,3 +2117,42 @@ footer{
     }
 
 }
+/* =====================================================
+   PAGINACIÓN DEL CATÁLOGO
+===================================================== */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 30px auto 10px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.pagination-button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    background: #222;
+    color: #fff;
+    transition: 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.pagination-button.active {
+    font-weight: 700;
+}
+
+.pagination-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
