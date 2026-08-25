@@ -76,7 +76,7 @@ const games = [
         android: true,
     },
     {
-        title: "MY wish to you",
+        title: "My wish to you",
         page: "my-wish-to-you.html",
         cover: "my-wish-to-you.png",
         featured: false,
