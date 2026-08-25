@@ -67,6 +67,24 @@ const games = [
     // ================================
     
     {
+        title: "Harlequinade",
+        page: "harlequinade.html",
+        cover: "harlequinade.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "MY wish to you",
+        page: "my-wish-to-you.html",
+        cover: "my-wish-to-you.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Your Boyfriend",
         page: "your-boyfriend.html",
         cover: "your-boyfriend.jpg",
