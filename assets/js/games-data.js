@@ -67,6 +67,33 @@ const games = [
     // ================================
     
     {
+        title: "Boyfriend to death",
+        page: "boyfriend_to_death.html",
+        cover: "boyfriend_to_death.webp",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Keeping you close",
+        page: "keeping-you-close.html",
+        cover: "keeping-you-close.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Twisted carnival",
+        page: "twisted-carnival.html",
+        cover: "twisted-carnival.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Harlequinade",
         page: "harlequinade.html",
         cover: "harlequinade.png",
