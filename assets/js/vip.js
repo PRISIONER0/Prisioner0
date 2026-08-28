@@ -563,6 +563,24 @@ if (activateButton) {
     );
 
 }
+
+// =====================================================
+// LIMPIAR SESIÓN VIP
+// =====================================================
+function clearVipSession() {
+    localStorage.removeItem(
+        "prisioner0_vip_session"
+    );
+
+    localStorage.removeItem(
+        "prisioner0_vip_code"
+    );
+
+    localStorage.removeItem(
+        "prisioner0_vip_expires"
+    );
+}
+
 // =====================================================
 // MOSTRAR ESTADO VIP
 // =====================================================
@@ -738,13 +756,13 @@ async function checkVipStatusPage() {
         // =================================================
 
         else {
+            clearVipSession();
 
             activePanel.style.display =
                 "none";
 
             activateForm.style.display =
                 "block";
-
         }
 
     } catch (error) {

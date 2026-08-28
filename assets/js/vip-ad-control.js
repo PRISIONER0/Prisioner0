@@ -5,13 +5,48 @@
 
 document.addEventListener("DOMContentLoaded", async function () {
 
+    const sessionToken = localStorage.getItem(
+        "prisioner0_vip_session"
+    );
+
+    let vipActivo = false;
+
     // =================================================
     // COMPROBAR SESIÓN VIP
-    // USANDO EL ESTADO VIP COMPARTIDO
     // =================================================
 
-    const vipActivo =
-        await checkVipGlobal();
+    if (sessionToken) {
+
+        try {
+
+            const response = await fetch(
+                `${VIP_API}/check-session`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        session_token: sessionToken
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            vipActivo =
+                data.ok === true &&
+                data.vip === true;
+
+        } catch (error) {
+
+            console.error(
+                "Error comprobando VIP para publicidad:",
+                error
+            );
+
+        }
+    }
 
     console.log(
         "VIP activo - publicidad:",
