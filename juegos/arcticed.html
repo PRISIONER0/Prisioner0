@@ -31,6 +31,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
      crossorigin="anonymous"></script>
      <!-- Adcash -->
 <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+
 </head>
 
 <body data-game="arcticed.html">
@@ -75,8 +76,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </header>
 
-<!-- AD PC -->
-<div class="ad-container ad-desktop">
+<!-- AD PC - ARRIBA -->
+<div class="ad-container ad-desktop" id="adTop">
     <script>
         aclib.runBanner({
             zoneId: '12031562',
@@ -84,8 +85,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     </script>
 </div>
 
-<!-- AD MÓVIL -->
-<div class="ad-container ad-mobile">
+<!-- AD MÓVIL - ARRIBA -->
+<div class="ad-container ad-mobile" id="adTopMobile">
     <script>
         aclib.runBanner({
             zoneId: '12031670',
@@ -188,8 +189,8 @@ pero esta vez tú has sido elegido. Atrapado como su presa, tendrás que sobrevi
 
 
 </main>
-    <!-- AD PC -->
-    <div class="ad-container ad-desktop">
+   <!-- AD PC - ABAJO -->
+   <div class="ad-container ad-desktop" id="adBottom">
         <script>
             aclib.runBanner({
                 zoneId: '12031562',
@@ -197,14 +198,15 @@ pero esta vez tú has sido elegido. Atrapado como su presa, tendrás que sobrevi
         </script>
     </div>
 
-    <!-- AD MÓVIL -->
-    <div class="ad-container ad-mobile">
+    <!-- AD MÓVIL - ABAJO -->
+    <div class="ad-container ad-mobile" id="adBottomMobile">
         <script>
             aclib.runBanner({
                 zoneId: '12031670',
             });
         </script>
     </div>
+
 <footer>
 
     <h3>PRISIONER0</h3>
@@ -263,6 +265,8 @@ pero esta vez tú has sido elegido. Atrapado como su presa, tendrás que sobrevi
 <script src="../assets/js/games-data.js"></script>
 <script src="../assets/js/games.js"></script>
 <script src="../assets/js/vip.js"></script>
+<script src="../assets/js/vip-modal.js"></script>
+<script src="../assets/js/vip-ad-control.js"></script>
 <script src="../assets/js/vip-downloads.js"></script>
 
 </body>
