@@ -65,7 +65,34 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-    
+
+    {
+        title: "To eat a god",
+        page: "to-eat-a-god.html",
+        cover: "to-eat-a-god.gif",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Broken colors",
+        page: "broken-colors.html",
+        cover: "broken-colors.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Channel 453",
+        page: "channel-453.html",
+        cover: "channel-453.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Boyfriend to death",
         page: "boyfriend_to_death.html",
