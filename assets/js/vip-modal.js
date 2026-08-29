@@ -122,6 +122,8 @@
             <a
                 href="../vip.html"
                 class="prisioner0-vip-button"
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 HACERME VIP
             </a>
