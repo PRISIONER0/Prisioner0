@@ -29,6 +29,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7008409481351567"
      crossorigin="anonymous"></script>
+               <!-- Adcash -->
+<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
 </head>
 
 <body data-game="you-make-this-house-a-home.html">
@@ -72,42 +74,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 </nav>
 
 </header>
-<!-- ANUNCIO SUPERIOR PC -->
 
-<div class="ad-container ad-desktop">
-
-<script>
-  atOptions = {
-    'key' : '86d3d97720fb482bcc949f05dcf5593c',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-
-<script src="https://www.highperformanceformat.com/86d3d97720fb482bcc949f05dcf5593c/invoke.js"></script>
-
+<!-- AD PC - ARRIBA -->
+<div class="ad-container ad-desktop" id="adTop">
+    <script>
+        aclib.runBanner({
+            zoneId: '12031562',
+        });
+    </script>
 </div>
 
-
-<!-- ANUNCIO SUPERIOR MÓVIL -->
-
-<div class="ad-container ad-mobile">
-
-<script>
-  atOptions = {
-    'key' : 'cc51634487a7716962dad58175ddf565',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-
-<script src="https://www.highperformanceformat.com/cc51634487a7716962dad58175ddf565/invoke.js"></script>
-
+<!-- AD MÓVIL - ARRIBA -->
+<div class="ad-container ad-mobile" id="adTopMobile">
+    <script>
+        aclib.runBanner({
+            zoneId: '12031670',
+        });
+    </script>
 </div>
+
 <main>
 
     <section class="game-page">
@@ -203,23 +188,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 
 </main>
-<!-- ANUNCIO INFERIOR -->
 
-<div class="ad-container">
+   <!-- AD PC - ABAJO -->
+   <div class="ad-container ad-desktop" id="adBottom">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031562',
+            });
+        </script>
+    </div>
 
-<script>
-  atOptions = {
-    'key' : '4119de72be9c128ad9aac25b5cf7e5f4',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
+    <!-- AD MÓVIL - ABAJO -->
+    <div class="ad-container ad-mobile" id="adBottomMobile">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031670',
+            });
+        </script>
+    </div>
 
-<script src="https://www.highperformanceformat.com/4119de72be9c128ad9aac25b5cf7e5f4/invoke.js"></script>
-
-</div>
 <footer>
 
     <h3>PRISIONER0</h3>
@@ -278,6 +265,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <script src="../assets/js/games-data.js"></script>
 <script src="../assets/js/games.js"></script>
 <script src="../assets/js/vip.js"></script>
+<script src="../assets/js/vip-modal.js"></script>
+<script src="../assets/js/vip-ad-control.js"></script>
 <script src="../assets/js/vip-downloads.js"></script>
 
 </body>
