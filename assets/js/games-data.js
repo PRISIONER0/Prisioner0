@@ -67,6 +67,42 @@ const games = [
     // ================================
 
     {
+        title: "Seekl",
+        page: "seekl.html",
+        cover: "seekl.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "You stole my heart",
+        page: "you-stole-my-heart.html",
+        cover: "you-stole-my-heart.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "My dear hatchet man",
+        page: "my-dear-hatchet-man.html",
+        cover: "my-dear-hatchet-man.webp",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Get rich quick 101",
+        page: "get-rich-quick-101.html",
+        cover: "get-rich-quick-101.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "To eat a god",
         page: "to-eat-a-god.html",
         cover: "to-eat-a-god.gif",
