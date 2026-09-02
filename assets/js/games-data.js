@@ -69,7 +69,7 @@ const games = [
     {
         title: "the-kid-at-the-back-nsfw",
         page: "the-kid-at-the-back-nsfw.html",
-        cover: "the-kid-at-the-back-nsfw.jpg",
+        cover: "the-kid-at-the-back.jpg",
         featured: false,
         language: "Español",
         pc: true,
@@ -78,7 +78,7 @@ const games = [
     {
         title: "insomnia-jeff-the-killer",
         page: "insomnia-jeff-the-killer.html",
-        cover: "insomnia-jeff-the-killer.webp",
+        cover: "insomnia-jeff-the-killer.png",
         featured: false,
         language: "Español",
         pc: true,
