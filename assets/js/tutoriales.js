@@ -15,8 +15,8 @@ const tutorialVideos = {
     },
 
     android: {
-        type: "tiktok",
-        url: "https://www.tiktok.com/player/v1/7675491879391087880"
+        type: "youtube",
+        url: "https://www.youtube.com/embed/raFNdyTVQv8"
     }
 };
 
@@ -247,10 +247,11 @@ tutorialOptions.forEach(option => {
         }
 
         if (platform === "android") {
-            playerTitle.textContent = "Tutorial para Android";
+            playerTitle.textContent =
+                "Tutorial para Android";
 
             iframe.src =
-                "https://www.tiktok.com/player/v1/7675491879391087880";
+                tutorial.url;
         }
 
     });
