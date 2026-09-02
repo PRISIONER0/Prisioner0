@@ -67,6 +67,24 @@ const games = [
     // ================================
 
     {
+        title: "the-kid-at-the-back-nsfw",
+        page: "the-kid-at-the-back-nsfw.html",
+        cover: "the-kid-at-the-back-nsfw.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "insomnia-jeff-the-killer",
+        page: "insomnia-jeff-the-killer.html",
+        cover: "insomnia-jeff-the-killer.webp",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Boyfriend to death",
         page: "boyfriend_to_death.html",
         cover: "boyfriend_to_death.webp",
