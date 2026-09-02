@@ -67,7 +67,7 @@ const games = [
     // ================================
 
     {
-        title: "the-kid-at-the-back-nsfw",
+        title: "The kid at the back nsfw",
         page: "the-kid-at-the-back-nsfw.html",
         cover: "the-kid-at-the-back.jpg",
         featured: false,
@@ -76,7 +76,7 @@ const games = [
         android: true,
     },
     {
-        title: "insomnia-jeff-the-killer",
+        title: "Insomnia jeff the killer",
         page: "insomnia-jeff-the-killer.html",
         cover: "insomnia-jeff-the-killer.png",
         featured: false,
