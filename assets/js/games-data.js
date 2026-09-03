@@ -65,7 +65,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-    
+       
+    {
+        title: "14 Days With You + dlc NSFW",
+        page: "14dayswithyou+dlc.html",
+        cover: "14nightswithyou.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Our life now & forever",
         page: "our-life-nf.html",
