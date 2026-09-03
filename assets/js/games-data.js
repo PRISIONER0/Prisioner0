@@ -67,7 +67,7 @@ const games = [
     // ================================
        
     {
-        title: "14 Days With You + dlc NSFW",
+        title: "14 Days With You + dlc NSFW {ANDROID SOLUCIONADO}",
         page: "14dayswithyou+dlc.html",
         cover: "14nightswithyou.png",
         featured: false,
