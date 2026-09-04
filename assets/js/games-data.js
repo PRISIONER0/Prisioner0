@@ -67,6 +67,33 @@ const games = [
     // ================================
        
     {
+        title: "D3v0ur",
+        page: "d3v0ur.html",
+        cover: "d3v0ur.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+        {
+        title: "The miracle week",
+        page: "the-miracle-week.html",
+        cover: "the-miracle-week.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+        {
+        title: "Fatedmate",
+        page: "fatedmate.html",
+        cover: "fatedmate.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "14 Days With You + dlc NSFW {ANDROID SOLUCIONADO}",
         page: "14dayswithyou+dlc.html",
         cover: "14nightswithyou.png",
