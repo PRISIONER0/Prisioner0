@@ -65,7 +65,25 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-       
+      
+    {
+        title: "Bound by insanity",
+        page: "bound-by-insanity.html",
+        cover: "bound-by-insanity.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+        {
+        title: "Your other half",
+        page: "your-other-half.html",
+        cover: "your-other-half.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "D3v0ur",
         page: "d3v0ur.html",
