@@ -67,6 +67,24 @@ const games = [
     // ================================
       
     {
+        title: "Blooming panic",
+        page: "blooming-panic.html",
+        cover: "blooming-panic.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Ng cursed in Love!?",
+        page: "ng-cursed.html",
+        cover: "ng-cursed.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Bound by insanity",
         page: "bound-by-insanity.html",
         cover: "bound-by-insanity.png",
