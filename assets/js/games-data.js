@@ -65,7 +65,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-      
+
+    {
+        title: "The art shop (Día 2)",
+        page: "the-art-shop.html",
+        cover: "the-art-shop.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Blooming panic",
         page: "blooming-panic.html",
@@ -142,15 +151,6 @@ const games = [
         title: "Our life now & forever",
         page: "our-life-nf.html",
         cover: "our-life-nf.jpg",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "The art shop",
-        page: "the-art-shop.html",
-        cover: "the-art-shop.png",
         featured: false,
         language: "Español",
         pc: true,
