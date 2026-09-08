@@ -75,10 +75,21 @@ const games = [
         pc: true,
         android: true,
     },
+
     {
         title: "Speared by heart",
         page: "speared-by-heart.html",
         cover: "speared-by-heart.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true
+    },
+
+    {
+        title: "The art shop (Día 2)",
+        page: "the-art-shop.html",
+        cover: "the-art-shop.png",
         featured: false,
         language: "Español",
         pc: true,
@@ -160,15 +171,6 @@ const games = [
         title: "Our life now & forever",
         page: "our-life-nf.html",
         cover: "our-life-nf.jpg",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "The art shop",
-        page: "the-art-shop.html",
-        cover: "the-art-shop.png",
         featured: false,
         language: "Español",
         pc: true,
