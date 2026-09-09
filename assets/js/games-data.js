@@ -67,6 +67,24 @@ const games = [
     // ================================
      
     {
+        title: "Cita con john doe",
+        page: "cita-con-john-doe.html",
+        cover: "cita-con-john-doe.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Sophies date night with harlequin",
+        page: "sophies-date-night-with-harlequin.html",
+        cover: "sophies-date-night-with-harlequin.jpg",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Your hero jayce blackwood",
         page: "your-hero-jayce-blackwood.html",
         cover: "your-hero-jayce-blackwood.png",
