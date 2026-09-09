@@ -67,6 +67,15 @@ const games = [
     // ================================
      
     {
+        title: "Perfect love",
+        page: "perfect-love.html",
+        cover: "perfect-love.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Cita con john doe",
         page: "cita-con-john-doe.html",
         cover: "cita-con-john-doe.png",
@@ -820,15 +829,6 @@ const games = [
         title: "Chilling devotion",
         page: "chilling-devotion.html",
         cover: "chilling-devotion.png",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "Perfect love",
-        page: "perfect-love.html",
-        cover: "perfect-love.png",
         featured: false,
         language: "Español",
         pc: true,
