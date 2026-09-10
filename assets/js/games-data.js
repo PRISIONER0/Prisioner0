@@ -66,6 +66,15 @@ const games = [
     // featured: false
     // ================================
      
+        {
+        title: "D3v0ur (Actualizado con teclado)",
+        page: "d3v0ur.html",
+        cover: "d3v0ur.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
     {
         title: "Perfect love",
         page: "perfect-love.html",
@@ -158,15 +167,6 @@ const games = [
         pc: true,
         android: true,
     },
-    {
-        title: "D3v0ur",
-        page: "d3v0ur.html",
-        cover: "d3v0ur.png",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
         {
         title: "The miracle week",
         page: "the-miracle-week.html",
@@ -186,7 +186,7 @@ const games = [
         android: true,
     },
     {
-        title: "14 Days With You + dlc NSFW {ANDROID SOLUCIONADO}",
+        title: "14 Days With You + dlc NSFW",
         page: "14dayswithyou+dlc.html",
         cover: "14nightswithyou.png",
         featured: false,
