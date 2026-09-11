@@ -65,8 +65,26 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-     
-        {
+    
+    {
+        title: "Your loving test subject",
+        page: "your-loving-test-subject.html",
+        cover: "your-loving-test-subject.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Afterlight stays",
+        page: "afterlight-stays.html",
+        cover: "afterlight-stays.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "D3v0ur (Actualizado con teclado)",
         page: "d3v0ur.html",
         cover: "d3v0ur.png",
