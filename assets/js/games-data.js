@@ -68,7 +68,7 @@ const games = [
     
     {
         title: "Your affliction lester diaz",
-        page: "your-affliction-lester-diazt.html",
+        page: "your-affliction-lester-diaz.html",
         cover: "your-affliction-lester-diaz.png",
         featured: false,
         language: "Español",
