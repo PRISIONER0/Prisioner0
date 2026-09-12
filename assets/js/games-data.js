@@ -932,6 +932,16 @@ const games = [
     },
 
     {
+        title: "Arcticed",
+        page: "arcticed.html",
+        cover: "arcticed.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    
+    {
         title: "Online obsession",
         page: "online-obsession.html",
         cover: "online-obsession.png",
