@@ -67,6 +67,24 @@ const games = [
     // ================================
     
     {
+        title: "Your affliction lester diaz",
+        page: "your-affliction-lester-diazt.html",
+        cover: "your-affliction-lester-diaz.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Criminally yours DLC",
+        page: "criminally-yours.html",
+        cover: "criminally-yours.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Your loving test subject",
         page: "your-loving-test-subject.html",
         cover: "your-loving-test-subject.png",
@@ -904,9 +922,9 @@ const games = [
     },
 
     {
-        title: "Arcticed",
-        page: "arcticed.html",
-        cover: "arcticed.png",
+        title: "criminally-yours",
+        page: "criminally-yours.html",
+        cover: "criminally-yours.png",
         featured: false,
         language: "Español",
         pc: true,
