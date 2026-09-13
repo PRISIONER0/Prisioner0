@@ -67,6 +67,24 @@ const games = [
     // ================================
     
     {
+        title: "Your dearest boyfriend",
+        page: "yourdearestboyfriend.html",
+        cover: "yourdearestboyfriend.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "reservedtable",
+        page: "reservedtable.html",
+        cover: "reservedtable.png",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Your affliction lester diaz",
         page: "your-affliction-lester-diaz.html",
         cover: "your-affliction-lester-diaz.png",
