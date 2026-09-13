@@ -12,7 +12,7 @@ const games = [
     {
         title: "Kingdom of Marionettes",
         page: "kingdom-of-marionettes.html",
-        cover: "kingdom-of-marionettes.jpg",
+        cover: "kingdom-of-marionettes.webp",
         featured: true,
         language: "Español",
         pc: true,
@@ -23,7 +23,7 @@ const games = [
     {
         title: "BIG BAD DOGS",
         page: "big-bad-dogs.html",
-        cover: "big-bad-dogs.jpg",
+        cover: "big-bad-dogs.webp",
         featured: true,
         language: "Español",
         pc: true,
@@ -33,7 +33,7 @@ const games = [
     {
         title: "The Freak Circus",
         page: "the-freak-circus.html",
-        cover: "the-freak-circus.jpg",
+        cover: "the-freak-circus.webp",
         featured: true,
         language: "Español",
         pc: true,
@@ -43,7 +43,7 @@ const games = [
     {
         title: "The false sun",
         page: "the-false-sun.html",
-        cover: "the-false-sun.png",
+        cover: "the-false-sun.webp",
         featured: true,
         language: "Español",
         pc: true,
@@ -53,7 +53,7 @@ const games = [
     {
         title: "You Make This House a Home",
         page: "you-make-this-house-a-home.html",
-        cover: "you-make-this-house-a-home.jpg",
+        cover: "you-make-this-house-a-home.webp",
         featured: true,
         language: "Español",
         pc: true,
@@ -69,7 +69,7 @@ const games = [
     {
         title: "Your dearest boyfriend",
         page: "yourdearestboyfriend.html",
-        cover: "yourdearestboyfriend.png",
+        cover: "yourdearestboyfriend.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -78,7 +78,7 @@ const games = [
     {
         title: "reservedtable",
         page: "reservedtable.html",
-        cover: "reservedtable.png",
+        cover: "reservedtable.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -87,7 +87,7 @@ const games = [
     {
         title: "Your affliction lester diaz",
         page: "your-affliction-lester-diaz.html",
-        cover: "your-affliction-lester-diaz.png",
+        cover: "your-affliction-lester-diaz.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -96,7 +96,7 @@ const games = [
     {
         title: "Criminally yours DLC",
         page: "criminally-yours.html",
-        cover: "criminally-yours.png",
+        cover: "criminally-yours.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -105,7 +105,7 @@ const games = [
     {
         title: "Your loving test subject",
         page: "your-loving-test-subject.html",
-        cover: "your-loving-test-subject.png",
+        cover: "your-loving-test-subject.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -114,7 +114,7 @@ const games = [
     {
         title: "Afterlight stays",
         page: "afterlight-stays.html",
-        cover: "afterlight-stays.png",
+        cover: "afterlight-stays.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -123,7 +123,7 @@ const games = [
     {
         title: "D3v0ur (Actualizado con teclado)",
         page: "d3v0ur.html",
-        cover: "d3v0ur.png",
+        cover: "d3v0ur.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -132,7 +132,7 @@ const games = [
     {
         title: "Perfect love",
         page: "perfect-love.html",
-        cover: "perfect-love.png",
+        cover: "perfect-love.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -141,7 +141,7 @@ const games = [
     {
         title: "Cita con john doe",
         page: "cita-con-john-doe.html",
-        cover: "cita-con-john-doe.png",
+        cover: "cita-con-john-doe.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -150,7 +150,7 @@ const games = [
     {
         title: "Sophies date night with harlequin",
         page: "sophies-date-night-with-harlequin.html",
-        cover: "sophies-date-night-with-harlequin.jpg",
+        cover: "sophies-date-night-with-harlequin.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -159,7 +159,7 @@ const games = [
     {
         title: "Your hero jayce blackwood",
         page: "your-hero-jayce-blackwood.html",
-        cover: "your-hero-jayce-blackwood.png",
+        cover: "your-hero-jayce-blackwood.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -169,7 +169,7 @@ const games = [
     {
         title: "Speared by heart",
         page: "speared-by-heart.html",
-        cover: "speared-by-heart.png",
+        cover: "speared-by-heart.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -179,7 +179,7 @@ const games = [
     {
         title: "The art shop (Día 2)",
         page: "the-art-shop.html",
-        cover: "the-art-shop.png",
+        cover: "the-art-shop.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -188,7 +188,7 @@ const games = [
     {
         title: "Blooming panic",
         page: "blooming-panic.html",
-        cover: "blooming-panic.png",
+        cover: "blooming-panic.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -197,7 +197,7 @@ const games = [
     {
         title: "Ng cursed in Love!?",
         page: "ng-cursed.html",
-        cover: "ng-cursed.png",
+        cover: "ng-cursed.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -206,7 +206,7 @@ const games = [
     {
         title: "Bound by insanity",
         page: "bound-by-insanity.html",
-        cover: "bound-by-insanity.png",
+        cover: "bound-by-insanity.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -215,7 +215,7 @@ const games = [
         {
         title: "Your other half",
         page: "your-other-half.html",
-        cover: "your-other-half.png",
+        cover: "your-other-half.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -224,7 +224,7 @@ const games = [
         {
         title: "The miracle week",
         page: "the-miracle-week.html",
-        cover: "the-miracle-week.jpg",
+        cover: "the-miracle-week.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -233,7 +233,7 @@ const games = [
         {
         title: "Fatedmate",
         page: "fatedmate.html",
-        cover: "fatedmate.png",
+        cover: "fatedmate.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -242,7 +242,7 @@ const games = [
     {
         title: "14 Days With You + dlc NSFW",
         page: "14dayswithyou+dlc.html",
-        cover: "14nightswithyou.png",
+        cover: "14nightswithyou.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -251,7 +251,7 @@ const games = [
     {
         title: "Our life now & forever",
         page: "our-life-nf.html",
-        cover: "our-life-nf.jpg",
+        cover: "our-life-nf.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -260,7 +260,7 @@ const games = [
     {
         title: "The kid at the back nsfw",
         page: "the-kid-at-the-back-nsfw.html",
-        cover: "the-kid-at-the-back.jpg",
+        cover: "the-kid-at-the-back.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -269,7 +269,7 @@ const games = [
     {
         title: "Insomnia jeff the killer",
         page: "insomnia-jeff-the-killer.html",
-        cover: "insomnia-jeff-the-killer.png",
+        cover: "insomnia-jeff-the-killer.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -287,7 +287,7 @@ const games = [
     {
         title: "Boyfriend to death 2 fresh blood",
         page: "boyfriend-to-death2.html",
-        cover: "boyfriend-to-death2.jpg",
+        cover: "boyfriend-to-death2.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -296,7 +296,7 @@ const games = [
     {
         title: "You Kill Me Every Time",
         page: "ykmetstrade.html",
-        cover: "ykmetstrade.png",
+        cover: "ykmetstrade.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -305,7 +305,7 @@ const games = [
     {
         title: "Error143",
         page: "error143.html",
-        cover: "error143.png",
+        cover: "error143.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -314,7 +314,7 @@ const games = [
     {
         title: "Seekl",
         page: "seekl.html",
-        cover: "seekl.jpg",
+        cover: "seekl.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -323,7 +323,7 @@ const games = [
     {
         title: "You stole my heart",
         page: "you-stole-my-heart.html",
-        cover: "you-stole-my-heart.png",
+        cover: "you-stole-my-heart.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -341,7 +341,7 @@ const games = [
     {
         title: "Get rich quick 101",
         page: "get-rich-quick-101.html",
-        cover: "get-rich-quick-101.png",
+        cover: "get-rich-quick-101.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -359,7 +359,7 @@ const games = [
     {
         title: "Broken colors",
         page: "broken-colors.html",
-        cover: "broken-colors.png",
+        cover: "broken-colors.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -368,7 +368,7 @@ const games = [
     {
         title: "Channel 453",
         page: "channel-453.html",
-        cover: "channel-453.jpg",
+        cover: "channel-453.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -377,7 +377,7 @@ const games = [
     {
         title: "Trap of salvation",
         page: "trap-of-salvation.html",
-        cover: "trap-of-salvation.png",
+        cover: "trap-of-salvation.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -386,7 +386,7 @@ const games = [
     {
         title: "Condemned hearts",
         page: "condemned-hearts.html",
-        cover: "condemned-hearts.png",
+        cover: "condemned-hearts.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -395,7 +395,7 @@ const games = [
     {
         title: "Everybody loves eddie",
         page: "everybody-loves-eddie.html",
-        cover: "everybody-loves-eddie.png",
+        cover: "everybody-loves-eddie.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -404,7 +404,7 @@ const games = [
     {
         title: "Rabbits burn softly",
         page: "rabbits-burn-softly.html",
-        cover: "rabbits-burn-softly.png",
+        cover: "rabbits-burn-softly.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -413,7 +413,7 @@ const games = [
     {
         title: "Keeping you close",
         page: "keeping-you-close.html",
-        cover: "keeping-you-close.png",
+        cover: "keeping-you-close.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -422,7 +422,7 @@ const games = [
     {
         title: "Twisted carnival",
         page: "twisted-carnival.html",
-        cover: "twisted-carnival.png",
+        cover: "twisted-carnival.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -431,7 +431,7 @@ const games = [
     {
         title: "Harlequinade",
         page: "harlequinade.html",
-        cover: "harlequinade.png",
+        cover: "harlequinade.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -440,7 +440,7 @@ const games = [
     {
         title: "My wish to you",
         page: "my-wish-to-you.html",
-        cover: "my-wish-to-you.png",
+        cover: "my-wish-to-you.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -449,7 +449,7 @@ const games = [
     {
         title: "Your Boyfriend",
         page: "your-boyfriend.html",
-        cover: "your-boyfriend.jpg",
+        cover: "your-boyfriend.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -458,7 +458,7 @@ const games = [
     {
         title: "My best friend yui",
         page: "my-best-friend-yui.html",
-        cover: "my-best-friend-yui.png",
+        cover: "my-best-friend-yui.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -467,7 +467,7 @@ const games = [
     {
         title: "Capture my love",
         page: "capture-my-love.html",
-        cover: "capture-my-love.png",
+        cover: "capture-my-love.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -476,7 +476,7 @@ const games = [
     {
         title: "Under heaven or hell",
         page: "underheavenorhell.html",
-        cover: "underheavenorhell.png",
+        cover: "underheavenorhell.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -486,7 +486,7 @@ const games = [
     {
         title: "How to break up with your yandere boyfriend",
         page: "how-to-break-up-with-your-yandere-boyfriend.html",
-        cover: "how-to-break-up-with-your-yandere-boyfriend.png",
+        cover: "how-to-break-up-with-your-yandere-boyfriend.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -495,7 +495,7 @@ const games = [
     {
         title: "Mushroom oasis",
         page: "mushroom-oasis.html",
-        cover: "mushroom-oasis.png",
+        cover: "mushroom-oasis.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -504,7 +504,7 @@ const games = [
     {
         title: "That guy pisses me off",
         page: "that-guy-pisses-me-off.html",
-        cover: "That-guy-pisses-me-off.png",
+        cover: "That-guy-pisses-me-off.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -513,7 +513,7 @@ const games = [
     {
         title: "Deep sea bouttoniare",
         page: "deep-sea-bouttoniare.html",
-        cover: "deep-sea-bouttoniare.png",
+        cover: "deep-sea-bouttoniare.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -522,7 +522,7 @@ const games = [
     {
         title: "Date at the cemetery",
         page: "date-at-the-cemetery.html",
-        cover: "date-at-the-cemetery.png",
+        cover: "date-at-the-cemetery.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -531,7 +531,7 @@ const games = [
         {
         title: "Witchs bound",
         page: "witchs-bound.html",
-        cover: "witchs-bound.png",
+        cover: "witchs-bound.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -540,7 +540,7 @@ const games = [
     {
         title: "Drenched in blue",
         page: "drenched-in-blue.html",
-        cover: "drenched-in-blue.png",
+        cover: "drenched-in-blue.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -549,7 +549,7 @@ const games = [
     {
         title: "Overdose",
         page: "overdose.html",
-        cover: "overdose.png",
+        cover: "overdose.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -558,7 +558,7 @@ const games = [
     {
         title: "To die with ben",
         page: "to-die-with-ben.html",
-        cover: "to-die-with-ben.jpg",
+        cover: "to-die-with-ben.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -567,7 +567,7 @@ const games = [
     {
         title: "Chromatic agape",
         page: "chromatic-agape.html",
-        cover: "chromatic-agape.png",
+        cover: "chromatic-agape.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -576,7 +576,7 @@ const games = [
     {
         title: "Prelude",
         page: "prelude.html",
-        cover: "prelude.png",
+        cover: "prelude.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -585,7 +585,7 @@ const games = [
     {
         title: "Thesis of love",
         page: "thesis-of-love.html",
-        cover: "thesis-of-love.png",
+        cover: "thesis-of-love.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -594,7 +594,7 @@ const games = [
     {
         title: "Doki doki literature club",
         page: "dokidoki.html",
-        cover: "Dokidoki.png",
+        cover: "Dokidoki.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -603,7 +603,7 @@ const games = [
     {
         title: "My Fiance is a fiend",
         page: "my-fiance-is-a-fiend.html",
-        cover: "my-fiance-is-a-fiend.png",
+        cover: "my-fiance-is-a-fiend.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -612,7 +612,7 @@ const games = [
     {
         title: "Knee deep",
         page: "knee-deep.html",
-        cover: "knee-deep.png",
+        cover: "knee-deep.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -621,7 +621,7 @@ const games = [
     {
         title: "Limerence in moonlight",
         page: "limerence-in-moonlight.html",
-        cover: "limerence-in-moonlight.png",
+        cover: "limerence-in-moonlight.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -630,7 +630,7 @@ const games = [
     {
         title: "Watch the road",
         page: "watch-the-road.html",
-        cover: "watch-the-road.png",
+        cover: "watch-the-road.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -639,7 +639,7 @@ const games = [
     {
         title: "Burn the midnight oil",
         page: "burn-the-midnight-oil.html",
-        cover: "burn-the-midnight-oil.png",
+        cover: "burn-the-midnight-oil.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -648,7 +648,7 @@ const games = [
     {
         title: "Predators syndrome",
         page: "predators-syndrome.html",
-        cover: "predators-syndrome.png",
+        cover: "predators-syndrome.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -657,7 +657,7 @@ const games = [
     {
         title: "Cyber obsession",
         page: "cyber-obsession.html",
-        cover: "cyber-obsession.png",
+        cover: "cyber-obsession.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -666,7 +666,7 @@ const games = [
     {
         title: "Dont pick up stray aliens",
         page: "dont-pick-up-stray-aliens.html",
-        cover: "dont-pick-up-stray-aliens.png",
+        cover: "dont-pick-up-stray-aliens.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -675,7 +675,7 @@ const games = [
     {
         title: "Incursion",
         page: "incursion.html",
-        cover: "incursion.png",
+        cover: "incursion.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -685,7 +685,7 @@ const games = [
     {
         title: "Touchstarveds",
         page: "touchstarved.html",
-        cover: "touchstarved.png",
+        cover: "touchstarved.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -695,7 +695,7 @@ const games = [
     {
         title: "Beyond the turquoise stars",
         page: "beyond-the-turquoise-stars.html",
-        cover: "beyond-the-turquoise-stars.jpg",
+        cover: "beyond-the-turquoise-stars.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -705,7 +705,7 @@ const games = [
     {
         title: "Let me in",
         page: "let-me-in.html",
-        cover: "let-me-in.png",
+        cover: "let-me-in.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -715,7 +715,7 @@ const games = [
     {
         title: "Envelope my heart",
         page: "envelope-my-heart.html",
-        cover: "envelope-my-heart.png",
+        cover: "envelope-my-heart.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -725,7 +725,7 @@ const games = [
     {
         title: "Loving decays",
         page: "loving-decays.html",
-        cover: "loving-decays.jpg",
+        cover: "loving-decays.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -735,7 +735,7 @@ const games = [
     {
         title: "Killer chat",
         page: "killer-chat.html",
-        cover: "killer-chat.png",
+        cover: "killer-chat.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -745,7 +745,7 @@ const games = [
     {
         title: "Our life",
         page: "our-life.html",
-        cover: "our-life.jpg",
+        cover: "our-life.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -755,7 +755,7 @@ const games = [
     {
         title: "The wolf wears red",
         page: "the-wolf-wears-red.html",
-        cover: "the-wolf-wears-red.png",
+        cover: "the-wolf-wears-red.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -765,7 +765,7 @@ const games = [
     {
         title: "Repair your heart",
         page: "repair-your-heart.html",
-        cover: "repair-your-heart.png",
+        cover: "repair-your-heart.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -775,7 +775,7 @@ const games = [
     {
         title: "Embassy otherworld",
         page: "embassy-otherworld.html",
-        cover: "embassy-otherworld.png",
+        cover: "embassy-otherworld.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -785,7 +785,7 @@ const games = [
     {
         title: "14 Days with you",
         page: "14dayswithyou.html",
-        cover: "14dayswithyou.png",
+        cover: "14dayswithyou.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -795,7 +795,7 @@ const games = [
     {
         title: "Duality",
         page: "duality.html",
-        cover: "duality.png",
+        cover: "duality.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -805,7 +805,7 @@ const games = [
     {
         title: "Heartstop tour",
         page: "heartstop-tour.html",
-        cover: "heartstop-tour.png",
+        cover: "heartstop-tour.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -815,7 +815,7 @@ const games = [
     {
         title: "Killer trait",
         page: "killer-trait.html",
-        cover: "killer-trait.png",
+        cover: "killer-trait.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -825,7 +825,7 @@ const games = [
     {
         title: "The willowmist",
         page: "willowmist.html",
-        cover: "willowmist.png",
+        cover: "willowmist.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -835,7 +835,7 @@ const games = [
     {
         title: "Glory hounds",
         page: "glory-hounds.html",
-        cover: "glory-hounds.png",
+        cover: "glory-hounds.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -853,7 +853,7 @@ const games = [
     {
         title: "Do not take this cat home",
         page: "do-not-take-this-cat-home.html",
-        cover: "do-not-take-this-cat-home.png",
+        cover: "do-not-take-this-cat-home.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -863,7 +863,7 @@ const games = [
     {
         title: "Lurking for love",
         page: "lurking-for-love.html",
-        cover: "lurking-for-love.png",
+        cover: "lurking-for-love.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -873,7 +873,7 @@ const games = [
     {
         title: "Threads of you beyond the bay",
         page: "threads-of-you-beyond-the-bay.html",
-        cover: "threads-of-you-beyond-the-bay.png",
+        cover: "threads-of-you-beyond-the-bay.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -882,7 +882,7 @@ const games = [
     {
         title: "Chilling devotion",
         page: "chilling-devotion.html",
-        cover: "chilling-devotion.png",
+        cover: "chilling-devotion.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -892,7 +892,7 @@ const games = [
     {
         title: "Dont eat the cashier",
         page: "dont-eat-the-cashier.html",
-        cover: "dont-eat-the-cashier.png",
+        cover: "dont-eat-the-cashier.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -902,7 +902,7 @@ const games = [
     {
         title: "Bloody flower of teyvat",
         page: "bloody-flower-of-teyvat.html",
-        cover: "bloody-flower-of-teyvat.png",
+        cover: "bloody-flower-of-teyvat.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -912,7 +912,7 @@ const games = [
     {
         title: "Kleinv01",
         page: "kleinv01.html",
-        cover: "kleinv01.png",
+        cover: "kleinv01.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -922,7 +922,7 @@ const games = [
     {
         title: "The kid at the back",
         page: "the-kid-at-the-back.html",
-        cover: "the-kid-at-the-back.jpg",
+        cover: "the-kid-at-the-back.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -932,7 +932,7 @@ const games = [
     {
         title: "Wan2talk",
         page: "wan2talk.html",
-        cover: "wan2talk.jpg",
+        cover: "wan2talk.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -942,7 +942,7 @@ const games = [
     {
         title: "criminally-yours",
         page: "criminally-yours.html",
-        cover: "criminally-yours.png",
+        cover: "criminally-yours.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -952,7 +952,7 @@ const games = [
     {
         title: "Arcticed",
         page: "arcticed.html",
-        cover: "arcticed.png",
+        cover: "arcticed.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -962,7 +962,7 @@ const games = [
     {
         title: "Online obsession",
         page: "online-obsession.html",
-        cover: "online-obsession.png",
+        cover: "online-obsession.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -972,7 +972,7 @@ const games = [
     {
         title: "behind the broadcast",
         page: "behind-the-broadcast.html",
-        cover: "behind-the-broadcast.png",
+        cover: "behind-the-broadcast.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -982,7 +982,7 @@ const games = [
     {
         title: "Prescription love",
         page: "prescriptionlove.html",
-        cover: "prescriptionlove.png",
+        cover: "prescriptionlove.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -991,7 +991,7 @@ const games = [
     {
         title: "The slugman",
         page: "the-slugman.html",
-        cover: "the-slugman.png",
+        cover: "the-slugman.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1001,7 +1001,7 @@ const games = [
     {
         title: "Gentle fall",
         page: "gentle-fall.html",
-        cover: "gentle-fall.png",
+        cover: "gentle-fall.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1011,7 +1011,7 @@ const games = [
     {
         title: "A date with death 2",
         page: "a-date-with-death-2.html",
-        cover: "a-date-with-death-2.png",
+        cover: "a-date-with-death-2.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1021,7 +1021,7 @@ const games = [
     {
         title: "A date with death",
         page: "a-date-with-death.html",
-        cover: "a-date-with-death.png",
+        cover: "a-date-with-death.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1031,7 +1031,7 @@ const games = [
     {
         title: "Mirage-noir",
         page: "mirage-noir.html",
-        cover: "mirage-noir.png",
+        cover: "mirage-noir.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1041,7 +1041,7 @@ const games = [
     {
         title: "Crisis the third way",
         page: "crisis-the-third-way.html",
-        cover: "crisis-the-third-way.jpg",
+        cover: "crisis-the-third-way.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1051,7 +1051,7 @@ const games = [
     {
         title: "The narrator says were meant to be",
         page: "the-narrator-says-were-meant-to-be.html",
-        cover: "the-narrator-says-were-meant-to-be.png",
+        cover: "the-narrator-says-were-meant-to-be.webp",
         featured: false,
         language: "Español",
         pc: true,
@@ -1061,7 +1061,7 @@ const games = [
     {
         title: "Teach me how to love",
         page: "teach-me-how-to-love.html",
-        cover: "teach-me-how-to-love.jpg",
+        cover: "teach-me-how-to-love.webp",
         featured: false,
         language: "Español",
         pc: true,
