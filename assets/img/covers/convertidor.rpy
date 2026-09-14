@@ -1,18 +1,32 @@
 import os
 from PIL import Image
 
-# Carpeta actual
-directorio_actual = '.'
+def convertir_imagenes():
+    # Ruta fija directa a la carpeta que me mostraste en la foto
+    carpeta_img = r"D:\PRISIONERO-WEB\backup\Prisioner0\assets\img"
+    
+    contador = 0
+    # Procesa los archivos de la carpeta 'img'
+    for archivo in os.listdir(carpeta_img):
+        if archivo.lower().endswith(".png"):
+            ruta_png = os.path.join(carpeta_img, archivo)
+            
+            # CORRECCIÓN: Agregamos [0] para extraer correctamente el nombre sin el .png
+            nombre_base = os.path.splitext(archivo)[0]
+            ruta_webp = os.path.join(carpeta_img, f"{nombre_base}.webp")
+            
+            try:
+                with Image.open(ruta_png) as img:
+                    img.save(ruta_webp, "WEBP", quality=92, method=6)
+                print(f"Convertido: {archivo} -> {nombre_base}.webp")
+                
+                # Borra el PNG original
+                os.remove(ruta_png)
+                contador += 1
+            except Exception as e:
+                print(f"Error con {archivo}: {e}")
+                
+    print(f"\n¡Listo! Se convirtieron y limpiaron {contador} imagenes.")
 
-# Recorrer todos los archivos de la carpeta
-for archivo in os.listdir(directorio_actual):
-    if archivo.lower().endswith('.png'):
-        nombre_sin_extension, _ = os.path.splitext(archivo)
-        
-        # Abrir la imagen PNG y guardarla como WebP
-        with Image.open(archivo) as img:
-            # Convertir a RGB si el PNG tiene transparencias para evitar errores, o dejarlo en RGBA si lo soporta
-            img.save(f"{nombre_sin_extension}.webp", "WEBP", quality=80)
-        print(f"Convertido con éxito: {archivo} -> {nombre_sin_extension}.webp")
-
-print("¡Proceso terminado!")
+if __name__ == "__main__":
+    convertir_imagenes()

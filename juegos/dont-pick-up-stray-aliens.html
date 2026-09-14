@@ -37,63 +37,56 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <body data-game="dont-pick-up-stray-aliens.html">
 
-<header>
-
-<nav>
-
-<div class="logo">
-
-    <a href="#inicio">
-
-        <img src="../assets/img/logo.webp"
-             alt="PRISIONER0">
-
-    </a>
-</div>
-<div class="games-search-box">
-
-    <input
-        type="text"
-        placeholder="🔍 Buscar un juego..."
-        id="gameSearch">
-
-    <div id="gamesSearchResults"></div>
-
-</div>
-
-    <ul>
-
-        <a href="../index.html#inicio">Inicio</a>
-
-        <a href="../index.html#juegos">Juegos</a>
+<header class="site-header">
+    <div class="nav-container">
+        <div class="brand-logo">
+            <a href="../index.html">
+                <img src="../assets/img/logo.webp" alt="PRISIONER0 Logo">
+            </a>
+        </div>
         
-       <li><a href="../acerca.html">Acerca de</a></li>
+        <div class="games-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar un juego..." id="gameSearch" autocomplete="off" spellcheck="false">
+            <div id="gamesSearchResults"></div>
+        </div>
 
-        <a href="../contacto.html">Contacto</a>
-
-    </ul>
-
-</nav>
-
+        <nav class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="../index.html#juegos">Catálogo</a>
+            <a href="../acerca.html">Acerca de</a>
+            <a href="../contacto.html">Contacto</a>
+            <a href="../vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
+                <i class="fa-solid fa-crown"></i> VIP
+            </a>
+            <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
+                <i class="fa-solid fa-fire"></i> PRISIONER0+
+            </a>
+        </nav>
+    </div>
 </header>
 
-<!-- AD PC - ARRIBA -->
-<div class="ad-container ad-desktop" id="adTop">
-    <script>
-        aclib.runBanner({
-            zoneId: '12031562',
-        });
-    </script>
-</div>
+<!-- 
+    ==================================================
+    BLOQUES DE ANUNCIOS OCULTOS TEMPORALMENTE (ADNET)
+    ==================================================
 
-<!-- AD MÓVIL - ARRIBA -->
-<div class="ad-container ad-mobile" id="adTopMobile">
-    <script>
-        aclib.runBanner({
-            zoneId: '12031670',
-        });
-    </script>
-</div>
+    <div class="ad-container ad-desktop" id="adTop">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031562',
+            });
+        </script>
+    </div>
+
+    <div class="ad-container ad-mobile" id="adTopMobile">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031670',
+            });
+        </script>
+    </div>
+-->
 
 <main>
 
@@ -204,8 +197,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 </main>
   
- <!-- AD PC - ABAJO -->
-   <div class="ad-container ad-desktop" id="adBottom">
+<!-- 
+    ==================================================
+    ANUNCIOS INFERIORES OCULTOS TEMPORALMENTE
+    ==================================================
+
+    <div class="ad-container ad-desktop" id="adBottom">
         <script>
             aclib.runBanner({
                 zoneId: '12031562',
@@ -213,7 +210,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         </script>
     </div>
 
-    <!-- AD MÓVIL - ABAJO -->
     <div class="ad-container ad-mobile" id="adBottomMobile">
         <script>
             aclib.runBanner({
@@ -221,54 +217,28 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
             });
         </script>
     </div>
+-->
 
-<footer>
-
-    <h3>PRISIONER0</h3>
-
-    <p>
-        Traducciones y ports de Visual Novels
-        para PC y Android en español.
-    </p>
-
-    <div class="footer-links">
-
-        <a href="https://discord.gg/BS7uRGx62m"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-brands fa-discord"></i>
-
-            Discord
-
-        </a>
-
-        <a href="https://ko-fi.com/prisioner0"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-solid fa-heart"></i>
-
-            Apoyar
-
-        </a>
-
-        <a href="https://www.youtube.com/@PRISIONER0-NV"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-brands fa-youtube"></i>
-
-            YouTube
-
-        </a>
-
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>PRISIONER0</h3>
+            <p>Traducciones y ports de Visual Novels en español.</p>
+        </div>
+        <div class="footer-nav-links">
+            <a href="https://discord.gg/BS7uRGx62m" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a href="https://ko-fi.com/prisioner0" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-heart"></i> Ko-fi</a>
+            <a href="https://www.tiktok.com/@prisioner079" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://www.youtube.com/@PRISIONER0-NV" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
     </div>
-
-    <p class="copyright">
-        © 2026 PRISIONER0 - Todos los derechos reservados.
-    </p>
-
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; max-width: 1200px; margin: 0 auto; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p>© 2026 PRISIONER0. Todos los derechos reservados.</p>
+        <div class="footer-legal-links" style="display: flex; gap: 15px; font-size: 13px;">
+            <a href="privacidad.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Política de Privacidad</a>
+            <a href="mailto:contacto@prisioner0.com" style="color: rgba(255,255,255,0.7); text-decoration: none;"><i class="fa-solid fa-envelope"></i> contacto@prisioner0.com</a>
+        </div>
+    </div>
 </footer>
 
 <div class="lightbox" id="lightbox">

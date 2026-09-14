@@ -16,18 +16,20 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
 <meta property="og:title" content="PRISIONER0 - Visual Novels en Español">
 <meta property="og:description" content="Traducciones y ports de Visual Novels para PC y Android en español.">
-<meta property="og:image" content="https://prisioner0.com/assets/img/logo.png">
+<meta property="og:image" content="https://prisioner0.com/assets/img/logo.webp">
 <meta property="og:type" content="website">
 
 <link rel="icon"
-      type="image/png"
-      href="assets/img/favicon.png">
+      type="image/webp"
+      href="assets/img/favicon.webp">
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet"
       href="assets/css/style.css">
+<link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <!-- Google Analytics -->
@@ -54,206 +56,180 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
 <body>
 
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <a href="#inicio">
+                    <img src="assets/img/logo.webp" alt="PRISIONER0 Logo">
+                </a>
+            </div>
+            
+            <div class="global-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Buscar entre 100+ novelas visuales...">
+            </div>
 
-<header>
-
-<nav>
-
-
-<div class="logo">
-
-    <a href="#inicio">
-
-        <img src="assets/img/logo.png"
-             alt="PRISIONER0">
-
-    </a>
-
-</div>
-
-
-<div class="search-box">
-
-    <input
-        type="text"
-        placeholder="🔍 Buscar un juego..."
-        id="searchInput">
-
-</div>
-
-
-<ul>
-
-    <li>
-        <a href="#inicio">Inicio</a>
-    </li>
-
-    <li>
-        <a href="#juegos">Juegos</a>
-    </li>
-
-    <li>
-        <a href="acerca.html">Acerca de</a>
-    </li>
-
-    <li>
-        <a href="contacto.html">Contacto</a>
-    </li>
-
-</ul>
-
-
-</nav>
-
-</header>
+            <nav class="nav-links">
+                <a href="#inicio" class="active">Inicio</a>
+                <a href="#juegos">Catálogo</a>
+                <a href="acerca.html">Acerca de</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
+                    <i class="fa-solid fa-crown"></i> VIP
+                </a>
+                                    <!-- Botón especial para la web +18 -->
+                <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
+                    <i class="fa-solid fa-fire"></i> PRISIONER0+
+                </a>
+            </nav>
+        </div>
+    </header>
 
 <main>
 
-<!-- AD PC - ARRIBA -->
-<div class="ad-container ad-desktop" id="adTop">
-    <script>
-        aclib.runBanner({
-            zoneId: '12031562',
-        });
-    </script>
-</div>
+<!-- 
+    ==================================================
+    BLOQUES DE ANUNCIOS OCULTOS TEMPORALMENTE (ADNET)
+    ==================================================
 
-<!-- AD MÓVIL - ARRIBA -->
-<div class="ad-container ad-mobile" id="adTopMobile">
-    <script>
-        aclib.runBanner({
-            zoneId: '12031670',
-        });
-    </script>
-</div>
-
-<section id="inicio" class="hero">
-    
-    <!-- VIP -->
-    <div class="vip-hero">
-
-        <a href="vip.html" class="vip-crown" title="Obtener PRISIONER0 VIP">
-
-            <i class="fa-solid fa-crown"></i>
-
-            <span class="vip-title">
-                OBTENER VIP x 30 DÍAS
-            </span>
-
-            <span class="vip-description">
-                Descargas sin anuncios por solo 1.99$
-            </span>
-
-        </a>
-
+    <div class="ad-container ad-desktop" id="adTop">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031562',
+            });
+        </script>
     </div>
 
-    <!-- Redes sociales -->
-
-    <div class="social-buttons">
-
-
-        <!-- Discord -->
-
-        <a href="https://discord.gg/BS7uRGx62m"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social discord"
-        title="Únete a nuestra comunidad en Discord">
-
-            <i class="fa-brands fa-discord"></i>
-
-        </a>
-
-
-        <!-- Apoyar -->
-
-        <a href="https://ko-fi.com/prisioner0"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social support"
-        title="Apoya el proyecto">
-
-            <i class="fa-solid fa-heart"></i>
-
-        </a>
-
-
-        <!-- YouTube -->
-
-        <a href="https://www.youtube.com/@PRISIONER0-NV"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social youtube"
-        title="Canal de YouTube">
-
-            <i class="fa-brands fa-youtube"></i>
-
-        </a>
-
+    <div class="ad-container ad-mobile" id="adTopMobile">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031670',
+            });
+        </script>
     </div>
+-->
 
-
-
-    <!-- Título -->
-
-    <h2>
-
-        Visual Novels en Español
-
-    </h2>
-
-
-    <!-- Lema -->
-
-    <p class="hero-slogan">
-
-        "Tus historias favoritas, ahora en tu idioma."
-
-    </p>
-
-
-    <!-- Plataformas -->
-
-    <p class="hero-platforms">
-
-        <i class="fa-solid fa-language"></i> Español
-
-        <span>•</span>
-
-        <i class="fa-solid fa-desktop"></i> PC
-
-        <span>•</span>
-
-        <i class="fa-brands fa-android"></i> Android
-
-    </p>
-
-
-    <!-- Descripción -->
-
-    <p class="hero-description">
-
-        Traducciones y ports de Visual Novels
-        para PC y Android.
-
-    </p>
-
-
-    <!-- Botón principal -->
-
-    <div class="hero-buttons">
-
-        <a href="#juegos" class="primary-btn">
-
-            Ver Catálogo
-
+       <!-- SECCIÓN HERO PRINCIPAL -->
+        <section id="inicio" class="hero-modern">
+            <div class="hero-inner">
+                
+                <div class="hero-tagline">
+                    <span class="pill-badge"><i class="fa-solid fa-sparkles"></i> Plataforma Oficial de Traducción</span>
+                    <!-- SECCIÓN PROMO PRISIONER0+ -->
+    <div class="nsfw-promo-banner" style="margin: 30px auto; max-width: 1200px; padding: 0 20px;">
+        <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nsfw-card">
+            <div class="nsfw-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="nsfw-text">
+                <h3>¿Buscas contenido +18 y Juegos NSFW?</h3>
+                <p>Visita mi portal exclusivo para adultos con traducciones sin censura en
+            </div>
+            <div class="nsfw-action">
+                <i class="fa-solid fa-fire"></i> PRISIONER0+
+            </div>
         </a>
-
     </div>
+                    <h1>Visual Novels en Español</h1>
+                    <p class="hero-subtitle">"Tus historias favoritas, ahora en tu idioma."</p>
+                </div>
 
+                <div class="tech-specs-bar">
+                    <span><i class="fa-solid fa-language"></i>  Español </span>
+                    <span class="dot">•</span>
+                    <span><i class="fa-solid fa-desktop"></i> PC Windows</span>
+                    <span class="dot">•</span>
+                    <span><i class="fa-brands fa-android"></i> Android Ports</span>
+                </div>
 
-</section>
+                <!-- Bloque editorial optimizado para AdSense -->
+                <div class="editorial-seo-box">
+                    <p>
+                        Bienvenido al portal central de <strong>PRISIONER0</strong>. Soy un traductor independiente, desarrollo parches de traducción al español, adaptaciones móviles y realizo soporte técnico para grandes novelas visuales de culto e independientes. Disfruta de una experiencia optimizada, enlaces verificados y una comunidad activa apasionada por las buenas tramas.
+                    </p>
+                </div>
+
+                <!-- BANNER VIP REUBICADO JUSTO ARRIBA DE EXPLORAR JUEGOS -->
+                <div class="vip-promo-section-inline">
+                    <div class="vip-container">
+                        <a href="vip.html" class="vip-card-modern">
+                            <div class="vip-badge-tag">Exclusivo PRISIONER0</div>
+                            <div class="vip-card-content">
+                                <div class="vip-icon-box">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <div class="vip-text-box">
+                                    <h2>PRESIONA AQUI para obtener el Pase VIP x 30 Días — Sin Anuncios</h2>
+                                    <p>Navega por todo toda la web y descarga de forma directa y rápida eliminando toda la publicidad por solo <strong>1.99$</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="vip-action-btn">
+                                <span>Obtener Acceso</span>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#juegos" class="btn-main-glow">
+                        <i class="fa-solid fa-gamepad"></i> Explorar el catálogo
+                    </a>
+                </div>
+
+                <!-- TARJETAS DE COMUNIDAD CON DISCORD DINÁMICO REAL -->
+                <div class="community-grid-modern">
+                    
+                    <!-- Discord Card -->
+                    <a href="https://discord.gg/BS7uRGx62m" target="_blank" rel="noopener noreferrer" class="comm-card discord-mod">
+                        <div class="comm-icon"><i class="fa-brands fa-discord"></i></div>
+                        <div class="comm-data">
+                            <div class="comm-top-row">
+                                <h3>Comunidad Discord</h3>
+                                <span class="live-counter" id="discordMembers">Sincronizando...</span>
+                            </div>
+                            <p>Soporte, reportes, sugerencias de proxima traducción/ports y charlas con la comunidad.</p>
+                        </div>
+                    </a>
+
+                <!-- Redes Multimedia (Violeta Neón) -->
+                <div class="comm-card" style="display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(138, 43, 226, 0.3);">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <div class="comm-icon" style="color: #a855f7; text-shadow: 0 0 15px rgba(168, 85, 247, 0.5); margin-bottom: 0;"><i class="fa-solid fa-clapperboard"></i></div>
+                        <div class="comm-data" style="width: 100%;">
+                            <div class="comm-top-row">
+                                <h3>Redes Multimedia</h3>
+                                <span class="tag-label" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);">Tráilers & Shorts</span>
+                            </div>
+                            <p style="margin-bottom: 12px;">Tutoriales, gameplays y clips rápidos de novedades.</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 5px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+                        <a href="https://www.youtube.com/@PRISIONER0-NV" target="_blank" rel="noopener noreferrer" style="color: #ff4444; font-size: 13px; font-weight: bold; display: flex; align-items: center; gap: 5px; text-decoration: none;">
+                            <i class="fa-brands fa-youtube"></i> Ver YouTube
+                        </a>
+                        <span style="color: rgba(255,255,255,0.3);">|</span>
+                        <a href="https://www.tiktok.com/@prisioner0" target="_blank" rel="noopener noreferrer" style="color: #00f2fe; font-size: 13px; font-weight: bold; display: flex; align-items: center; gap: 5px; text-decoration: none;">
+                            <i class="fa-brands fa-tiktok"></i> Ver TikTok
+                        </a>
+                    </div>
+                </div>
+
+                    <!-- Donaciones Card -->
+                    <div class="comm-card donate-mod" onclick="openDonateModal()">
+                        <div class="comm-icon"><i class="fa-solid fa-heart"></i></div>
+                        <div class="comm-data">
+                            <div class="comm-top-row">
+                                <h3>Apoyar Proyecto</h3>
+                                <span class="tag-label pink">Ko-fi / CBU / Crypto</span>
+                            </div>
+                            <p>¿Valoras mi trabajo? Con tú donación me ayudas a seguir subiendo más juegos y solucionar errores.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
 
 
@@ -281,7 +257,9 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
 
     <div class="featured-games">
-
+        <div class="section-subtitle">
+                    <i class="fa-solid fa-fire-flame-curved"></i> Proyectos Destacados
+        </div>
         <div id="featured-games" class="games-grid">
 
         </div>
@@ -318,8 +296,12 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
 </main>
 
-   <!-- AD PC - ABAJO -->
-   <div class="ad-container ad-desktop" id="adBottom">
+<!-- 
+    ==================================================
+    ANUNCIOS INFERIORES OCULTOS TEMPORALMENTE
+    ==================================================
+
+    <div class="ad-container ad-desktop" id="adBottom">
         <script>
             aclib.runBanner({
                 zoneId: '12031562',
@@ -327,7 +309,6 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
         </script>
     </div>
 
-    <!-- AD MÓVIL - ABAJO -->
     <div class="ad-container ad-mobile" id="adBottomMobile">
         <script>
             aclib.runBanner({
@@ -335,81 +316,135 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
             });
         </script>
     </div>
+-->
 
-<footer>
-
-
-    <h3>
-
-        PRISIONER0
-
-    </h3>
-
-
-    <p>
-
-        Traducciones y ports de Visual Novels
-        para PC y Android en español.
-
-    </p>
-
-
-    <div class="footer-links">
-
-
-        <a href="https://discord.gg/BS7uRGx62m"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-brands fa-discord"></i>
-
-            Discord
-
-        </a>
-
-
-        <a href="https://ko-fi.com/prisioner0"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-solid fa-heart"></i>
-
-            Apoyar
-
-        </a>
-
-
-        <a href="https://www.youtube.com/@PRISIONER0-NV"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            <i class="fa-brands fa-youtube"></i>
-
-            YouTube
-
-        </a>
-
-
+    <!-- MODAL DE SOPORTE / DONACIONES -->
+    <div id="donateModal" class="modal-backdrop">
+        <div class="modal-box-modern">
+            <button class="modal-close" onclick="closeDonateModal()">&times;</button>
+            <div class="modal-header-content">
+                <i class="fa-solid fa-mug-hot"></i>
+                <h3>Métodos de Colaboración</h3>
+            </div>
+            <p>Tu aporte económico directo me permite continuar con el proyecto y aumentar el catalogo en la web, como asi financiar gastos de traducción/ports, dominio y web.</p>
+            
+<div class="support-channels">
+    
+    <!-- Opción Ko-fi -->
+    <div class="channel-row">
+        <div class="ch-info">
+            <span class="ch-title"><i class="fa-solid fa-globe"></i> Ko-fi (Internacional)</span>
+        </div>
+        <a href="https://ko-fi.com/prisioner0" target="_blank" class="ch-btn kofi">Visitar Ko-fi</a>
     </div>
 
+    <!-- Opción Alias Argentina -->
+                <div class="channel-row">
+                    <div class="ch-info">
+                        <span class="ch-title"><i class="fa-solid fa-wallet"></i> Alias Argentina</span>
+                        <span class="ch-sub">Mercado Pago: Gutierrez Javier Arnaldo</span>
+                        <code class="ch-code-text" id="aliasArg">prisioner0</code>
+                    </div>
+                    <button class="copy-btn" onclick="copiarTexto('aliasArg', this)">
+                        <i class="fa-solid fa-copy"></i> Copiar
+                    </button>
+                </div>
 
-    <p class="copyright">
+                <!-- Opción Binance UID -->
+                <div class="channel-row">
+                    <div class="ch-info">
+                        <span class="ch-title"><i class="fa-solid fa-coins"></i> Binance ID (UID)</span>
+                        <code class="ch-code-text" id="binanceUid">570359590</code>
+                    </div>
+                    <button class="copy-btn" onclick="copiarTexto('binanceUid', this)">
+                        <i class="fa-solid fa-copy"></i> Copiar
+                    </button>
+                </div>
 
-        © 2026 PRISIONER0 - Todos los derechos reservados.
+            </div>
+        </div>
+    </div>
 
-    </p>
-
-
+<!-- PIE DE PÁGINA -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>PRISIONER0</h3>
+            <p>Traducciones y ports de Visual Novels en español.</p>
+        </div>
+        <div class="footer-nav-links">
+            <a href="https://discord.gg/BS7uRGx62m" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a href="https://ko-fi.com/prisioner0" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-heart"></i> Ko-fi</a>
+            <a href="https://www.tiktok.com/@prisioner079" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <a href="https://www.youtube.com/@PRISIONER0-NV" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+    </div>
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; max-width: 1200px; margin: 0 auto; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p>© 2026 PRISIONER0. Todos los derechos reservados.</p>
+        <div class="footer-legal-links" style="display: flex; gap: 15px; font-size: 13px;">
+            <a href="privacidad.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Política de Privacidad</a>
+            <a href="mailto:contacto@prisioner0.com" style="color: rgba(255,255,255,0.7); text-decoration: none;"><i class="fa-solid fa-envelope"></i> contacto@prisioner0.com</a>
+        </div>
+    </div>
 </footer>
 
+    <!-- SCRIPT DE CONEXIÓN A DISCORD API Y MODAL -->
+    <script>
+        async function fetchRealDiscordMembers() {
+            try {
+                let res = await fetch('https://discord.com/api/v10/invites/BS7uRGx62m?with_counts=true');
+                let data = await res.json();
+                if (data && data.approximate_member_count) {
+                    document.getElementById('discordMembers').innerText = `${data.approximate_member_count} miembros`;
+                } else {
+                    document.getElementById('discordMembers').innerText = 'Comunidad Activa';
+                }
+            } catch (e) {
+                document.getElementById('discordMembers').innerText = 'Comunidad Activa';
+            }
+        }
+        fetchRealDiscordMembers();
 
+        function openDonateModal() {
+            document.getElementById('donateModal').style.display = 'flex';
+        }
+        function closeDonateModal() {
+            document.getElementById('donateModal').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            let modal = document.getElementById('donateModal');
+            if (event.target == modal) modal.style.display = 'none';
+        }
+    </script>
 
-<script src="assets/js/games-data.js"></script>
-<script src="assets/js/vip.js"></script>
-<script src="assets/js/vip-ad-control.js"></script>
-<script src="assets/js/index.js"></script>
+    <!-- Scripts de la plataforma -->
+    <script src="assets/js/games-data.js"></script>
+    <script src="assets/js/vip.js"></script>
+    <script src="assets/js/vip-ad-control.js"></script>
+    <script src="assets/js/index.js"></script>
 
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
 
+    <script>
+        window.addEventListener('scroll', function() {
+            let btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 
 </html>

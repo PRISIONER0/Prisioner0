@@ -9,8 +9,8 @@
     // CONFIGURACIÓN
     // -------------------------------------------------
 
-    const DELAY_BEFORE_SHOW = 2000; // 2 segundos
-    const CLOSE_DELAY = 3000;       // 3 segundos
+    const DELAY_BEFORE_SHOW = 1000; // 1 segundos
+    const CLOSE_DELAY = 3500;       // 3 segundos
 
     // -------------------------------------------------
     // COMPROBAR SESIÓN VIP

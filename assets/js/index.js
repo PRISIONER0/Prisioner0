@@ -654,3 +654,21 @@ if (homeLink && hero) {
 
     });
 }
+function copiarTexto(idElemento, boton) {
+    const textoACopiar = document.getElementById(idElemento).innerText;
+
+    navigator.clipboard.writeText(textoACopiar).then(() => {
+        // Cambiar el texto e icono del botón temporalmente
+        const contenidoOriginal = boton.innerHTML;
+        boton.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado!';
+        boton.classList.add('copied');
+
+        // Restaurar después de 2 segundos
+        setTimeout(() => {
+            boton.innerHTML = contenidoOriginal;
+            boton.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Error al copiar: ', err);
+    });
+}
