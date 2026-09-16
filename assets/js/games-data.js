@@ -67,6 +67,24 @@ const games = [
     // ================================
     
     {
+        title: "Swooning over stans",
+        page: "swooning-over-stans.html",
+        cover: "swooning-over-stans.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Ghost of gunsmoke",
+        page: "ghost-of-gunsmoke.html",
+        cover: "ghost-of-gunsmoke.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },
+    {
         title: "Your dearest boyfriend",
         page: "yourdearestboyfriend.html",
         cover: "yourdearestboyfriend.webp",
