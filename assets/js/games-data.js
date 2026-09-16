@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "See thru",
+        page: "seethru.html",
+        cover: "seethru.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Swooning over stans",
         page: "swooning-over-stans.html",
         cover: "swooning-over-stans.png",
