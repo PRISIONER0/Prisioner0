@@ -25,7 +25,7 @@ const games = [
         page: "big-bad-dogs.html",
         cover: "big-bad-dogs.webp",
         featured: true,
-        language: "Español",
+        language: "Español/Portuguese",
         pc: true,
         android: true
     },
