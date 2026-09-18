@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "My sweet housemate",
+        page: "my-sweet-housemate.html",
+        cover: "my-sweet-housemate.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "See thru",
         page: "seethru.html",
         cover: "seethru.png",
