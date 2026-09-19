@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "Obsession",
+        page: "obsession.html",
+        cover: "obsession.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Divine possession",
         page: "divine-possession.html",
         cover: "divine-possession.png",
