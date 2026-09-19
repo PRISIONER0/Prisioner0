@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "Divine possession",
+        page: "divine-possession.html",
+        cover: "divine-possession.png",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "My sweet housemate",
         page: "my-sweet-housemate.html",
         cover: "my-sweet-housemate.png",
