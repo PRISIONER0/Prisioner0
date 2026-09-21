@@ -67,9 +67,18 @@ const games = [
     // ================================
     
     {
+        title: "Welcome home",
+        page: "welcome-home.html",
+        cover: "welcome-home.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Obsession",
         page: "obsession.html",
-        cover: "obsession.png",
+        cover: "obsession.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
@@ -78,7 +87,7 @@ const games = [
     {
         title: "Divine possession",
         page: "divine-possession.html",
-        cover: "divine-possession.png",
+        cover: "divine-possession.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
@@ -87,7 +96,7 @@ const games = [
     {
         title: "My sweet housemate",
         page: "my-sweet-housemate.html",
-        cover: "my-sweet-housemate.png",
+        cover: "my-sweet-housemate.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
@@ -96,7 +105,7 @@ const games = [
     {
         title: "See thru",
         page: "seethru.html",
-        cover: "seethru.png",
+        cover: "seethru.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
@@ -105,7 +114,7 @@ const games = [
     {
         title: "Swooning over stans",
         page: "swooning-over-stans.html",
-        cover: "swooning-over-stans.png",
+        cover: "swooning-over-stans.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
@@ -114,7 +123,7 @@ const games = [
     {
         title: "Ghost of gunsmoke",
         page: "ghost-of-gunsmoke.html",
-        cover: "ghost-of-gunsmoke.png",
+        cover: "ghost-of-gunsmoke.webp",
         featured: false,
         language: "Español/Portuguese",
         pc: true,
