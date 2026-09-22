@@ -148,7 +148,7 @@ const games = [
         android: true,
     },
     {
-        title: "reservedtable",
+        title: "Reservedtable",
         page: "reservedtable.html",
         cover: "reservedtable.webp",
         featured: false,
