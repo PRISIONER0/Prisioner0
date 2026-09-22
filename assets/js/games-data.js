@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "Turned on",
+        page: "turned-on.html",
+        cover: "turned-on.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Welcome home",
         page: "welcome-home.html",
         cover: "welcome-home.webp",
