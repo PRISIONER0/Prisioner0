@@ -67,6 +67,15 @@ const games = [
     // ================================
     
     {
+        title: "Parasite in love",
+        page: "parasite-in-love.html",
+        cover: "parasite-in-love.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Turned on",
         page: "turned-on.html",
         cover: "turned-on.webp",
