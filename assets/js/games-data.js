@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Sally face",
+        page: "sallyface.html",
+        cover: "sallyface.gif",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: false,
+        android: true,
+    },
+    {
         title: "Fnaf Daybreak",
         page: "fnaf-daybreak.html",
         cover: "fnaf-daybreak.webp",
@@ -333,15 +342,6 @@ const games = [
         title: "Insomnia jeff the killer",
         page: "insomnia-jeff-the-killer.html",
         cover: "insomnia-jeff-the-killer.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "You Kill Me Every Time",
-        page: "ykmetstrade.html",
-        cover: "ykmetstrade.webp",
         featured: false,
         language: "Español",
         pc: true,
