@@ -10,6 +10,15 @@ const games = [
     // ================================
     
     {
+        title: "You Make This House a Home ACT DEMO2",
+        page: "you-make-this-house-a-home.html",
+        cover: "you-make-this-house-a-home.webp",
+        featured: true,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true
+    },
+    {
         title: "Kingdom of Marionettes",
         page: "kingdom-of-marionettes.html",
         cover: "kingdom-of-marionettes.webp",
@@ -50,22 +59,21 @@ const games = [
         android: true,
     },
 
-    {
-        title: "You Make This House a Home",
-        page: "you-make-this-house-a-home.html",
-        cover: "you-make-this-house-a-home.webp",
-        featured: true,
-        language: "Español",
-        pc: true,
-        android: true
-    },
-
 
     // ================================
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
     
+    {
+        title: "Fnaf Daybreak",
+        page: "fnaf-daybreak.html",
+        cover: "fnaf-daybreak.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
     {
         title: "Parasite in love",
         page: "parasite-in-love.html",
