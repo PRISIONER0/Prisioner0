@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-<script data-cfasync="false" src="/sw.js"></script>
 <script>
 (function() {
 
@@ -13,35 +12,42 @@
         return;
     }
 
-    const admaven1 =
+    // ================================
+    // ADMAVEN
+    // ================================
+
+    const admaven =
         document.createElement("script");
 
-    admaven1.setAttribute(
+    admaven.setAttribute(
         "data-cfasync",
         "false"
     );
 
-    admaven1.src =
-        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722476";
-
-    document.head.appendChild(admaven1);
-
-
-    const admaven2 =
-        document.createElement("script");
-
-    admaven2.setAttribute(
-        "data-cfasync",
-        "false"
-    );
-
-    admaven2.src =
+    admaven.src =
         "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
 
-    document.head.appendChild(admaven2);
+    document.head.appendChild(admaven);
+
+
+    // ================================
+    // SW.JS
+    // ================================
+
+    const swScript =
+        document.createElement("script");
+
+    swScript.setAttribute(
+        "data-cfasync",
+        "false"
+    );
+
+    swScript.src = "/sw.js";
+
+    document.head.appendChild(swScript);
 
 })();
-</script> 
+</script>
 <!-- admaven -->
 <meta name='admaven-placement' content=BpdU8qja8>
 
