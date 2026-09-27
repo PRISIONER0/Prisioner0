@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Thesis of love",
+        page: "thesis-of-love.html",
+        cover: "thesis-of-love.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Stillwater",
         page: "stillwater.html",
         cover: "stillwater.webp",
@@ -631,15 +640,6 @@ const games = [
         title: "Prelude",
         page: "prelude.html",
         cover: "prelude.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "Thesis of love",
-        page: "thesis-of-love.html",
-        cover: "thesis-of-love.webp",
         featured: false,
         language: "Español",
         pc: true,
