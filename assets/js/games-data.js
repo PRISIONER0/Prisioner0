@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Stillwater",
+        page: "stillwater.html",
+        cover: "stillwater.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: false,
+        android: true,
+    },
+    {
         title: "Sally face",
         page: "sallyface.html",
         cover: "sallyface.gif",
