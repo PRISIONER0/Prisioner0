@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Favor ep2",
+        page: "favor-ep2.html",
+        cover: "favor-ep2.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Thesis of love",
         page: "thesis-of-love.html",
         cover: "thesis-of-love.webp",
