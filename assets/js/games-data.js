@@ -66,6 +66,24 @@ const games = [
     // ================================
     
     {
+        title: "Looking for you",
+        page: "looking-for-you.html",
+        cover: "looking-for-you.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "In your virtue",
+        page: "in-your-virtue.html",
+        cover: "in-your-virtue.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Favor ep2",
         page: "favor-ep2.html",
         cover: "favor-ep2.webp",
