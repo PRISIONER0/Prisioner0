@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Happiness fix",
+        page: "happiness-fix.html",
+        cover: "happiness-fix.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Looking for you",
         page: "looking-for-you.html",
         cover: "looking-for-you.webp",
