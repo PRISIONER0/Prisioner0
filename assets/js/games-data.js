@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "The Amazing Digital Dating Simulator",
+        page: "tadds-fangame.html",
+        cover: "tadds-fangame.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Happiness fix",
         page: "happiness-fix.html",
         cover: "happiness-fix.webp",
