@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "Overdose (DIA 9)",
+        page: "overdose.html",
+        cover: "overdose.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "The Amazing Digital Dating Simulator",
         page: "tadds-fangame.html",
         cover: "tadds-fangame.webp",
@@ -649,15 +658,6 @@ const games = [
         title: "Drenched in blue",
         page: "drenched-in-blue.html",
         cover: "drenched-in-blue.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "Overdose",
-        page: "overdose.html",
-        cover: "overdose.webp",
         featured: false,
         language: "Español",
         pc: true,
