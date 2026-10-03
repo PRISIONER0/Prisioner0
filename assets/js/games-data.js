@@ -66,6 +66,15 @@ const games = [
     // ================================
     
     {
+        title: "tender-lovin-cannibal",
+        page: "tender-lovin-cannibal.html",
+        cover: "tender-lovin-cannibal.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Overdose (DIA 9)",
         page: "overdose.html",
         cover: "overdose.webp",
