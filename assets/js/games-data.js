@@ -66,7 +66,7 @@ const games = [
     // ================================
     
     {
-        title: "tender-lovin-cannibal",
+        title: "Tender lovin cannibal",
         page: "tender-lovin-cannibal.html",
         cover: "tender-lovin-cannibal.webp",
         featured: false,
