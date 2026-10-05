@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-    
+        
+    {
+        title: "My night survival",
+        page: "my-night-survival.html",
+        cover: "my-night-survival.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
     {
         title: "Tender lovin cannibal",
         page: "tender-lovin-cannibal.html",
