@@ -95,7 +95,14 @@ function showVipAccessUnlocked() {
            onclick="requestVipDownload('pc'); return false;">
 
             <i class="fa-solid fa-desktop"></i>
-            🇺🇸 🇪🇸 🇧🇷 Descargar (PC)
+
+            <span class="vip-flags">
+                <img src="https://flagcdn.com/20x15/us.png" alt="English">
+                <img src="https://flagcdn.com/20x15/es.png" alt="Español">
+                <img src="https://flagcdn.com/20x15/br.png" alt="Português">
+            </span>
+
+            Descargar Traduccion (PC)
 
         </a>
 
@@ -104,7 +111,14 @@ function showVipAccessUnlocked() {
            onclick="requestVipDownload('android'); return false;">
 
             <i class="fa-solid fa-mobile-screen-button"></i>
-            🇺🇸 🇪🇸 🇧🇷 Descargar (Android)
+
+            <span class="vip-flags">
+                <img src="https://flagcdn.com/20x15/us.png" alt="English">
+                <img src="https://flagcdn.com/20x15/es.png" alt="Español">
+                <img src="https://flagcdn.com/20x15/br.png" alt="Português">
+            </span>
+
+            Descargar Juego (Android)
 
         </a>
     `;
@@ -194,5 +208,17 @@ async function requestVipDownload(platform) {
 document.addEventListener("DOMContentLoaded", () => {
 
     checkVipAccess();
+
+});
+
+// *============================================*
+// *BLOQUEAR MENÚ DERECHO EN BOTONES VIP*
+// *============================================*
+
+document.addEventListener("contextmenu", function(event) {
+
+    if (event.target.closest(".vip-access-download")) {
+        event.preventDefault();
+    }
 
 });
