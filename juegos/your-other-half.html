@@ -2,6 +2,54 @@
 <html lang="es">
 
 <head>
+<script>
+(function() {
+
+    const vipSession =
+        localStorage.getItem("prisioner0_vip_session");
+
+    if (vipSession) {
+        return;
+    }
+
+    // ================================
+    // ADMAVEN
+    // ================================
+
+    const admaven =
+        document.createElement("script");
+
+    admaven.setAttribute(
+        "data-cfasync",
+        "false"
+    );
+
+    admaven.src =
+        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
+
+    document.head.appendChild(admaven);
+
+
+    // ================================
+    // SW.JS
+    // ================================
+
+    const swScript =
+        document.createElement("script");
+
+    swScript.setAttribute(
+        "data-cfasync",
+        "false"
+    );
+
+    swScript.src = "/sw.js";
+
+    document.head.appendChild(swScript);
+
+})();
+</script>
+<!-- admaven -->
+<meta name='admaven-placement' content=BpdU8qja8>
 <meta name="description" content="Descarga your-other-half en español para PC y Android. Encuentra la traducción y el port de esta Visual Novel en PRISIONER0, junto con tutoriales para descargar e instalar el juego.">
 <meta name="keywords" content="your-other-half español, your-other-half traducción, your-other-half PC, your-other-half Android, Visual Novel español, Visual Novels en español, traducciones de juegos, PRISIONER0">
 <meta name="author" content="PRISIONER0">
