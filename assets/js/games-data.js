@@ -23,7 +23,7 @@ const games = [
         page: "kingdom-of-marionettes.html",
         cover: "kingdom-of-marionettes.webp",
         featured: true,
-        language: "Español",
+        language: "Español/Portuguese",
         pc: true,
         android: true
     },
