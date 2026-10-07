@@ -83,6 +83,7 @@ function showVipAccessLocked() {
 // ============================================
 
 function showVipAccessUnlocked() {
+
     const container =
         document.getElementById("vipAccess");
 
@@ -90,7 +91,7 @@ function showVipAccessUnlocked() {
 
     container.innerHTML = `
         <a href="#"
-           class="download-btn"
+           class="download-btn vip-access-download"
            onclick="requestVipDownload('pc'); return false;">
 
             <i class="fa-solid fa-desktop"></i>
@@ -99,7 +100,7 @@ function showVipAccessUnlocked() {
         </a>
 
         <a href="#"
-           class="download-btn"
+           class="download-btn vip-access-download"
            onclick="requestVipDownload('android'); return false;">
 
             <i class="fa-solid fa-mobile-screen-button"></i>
