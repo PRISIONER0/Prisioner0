@@ -82,6 +82,38 @@ function showVipAccessLocked() {
 // ESTADO: VIP ACTIVADO
 // ============================================
 
+function showVipAccessUnlocked() {
+    const container = document.getElementById("vipAccess");
+    if (!container) return;
+
+    container.innerHTML = `
+        <a href="#"
+           class="download-btn"
+           onclick="requestVipDownload('pc'); return false;">
+
+            <i class="fa-solid fa-desktop"></i>
+
+            Descargar Traduccion EN / ES-LAT / PT (PC)
+
+        </a>
+
+        <a href="#"
+           class="download-btn"
+           onclick="requestVipDownload('android'); return false;">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            Descargar juego EN / ES-LAT / PT (Android)
+
+        </a>
+    `;
+}
+
+
+// ============================================
+// SOLICITAR DESCARGA VIP
+// ============================================
+
 async function requestVipDownload(platform) {
 
     const sessionToken =
@@ -137,80 +169,6 @@ async function requestVipDownload(platform) {
             "No se pudo comprobar tu acceso VIP. " +
             "Inténtalo nuevamente."
         );
-    }
-}
-
-
-// ============================================
-// SOLICITAR DESCARGA VIP
-// ============================================
-
-async function requestVipDownload(platform) {
-
-    const sessionToken =
-        localStorage.getItem("prisioner0_vip_session");
-
-    if (!sessionToken) {
-        alert("Necesitas tener una suscripción VIP activa.");
-        return;
-    }
-
-    try {
-
-        // Buscar todos los botones de descarga
-        const buttons =
-            document.querySelectorAll("#vipAccess .download-btn");
-
-        buttons.forEach(button => {
-            button.style.pointerEvents = "none";
-            button.style.opacity = "0.6";
-        });
-
-        const response = await fetch(
-            `${VIP_ACCESS_API}/create-download`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    session_token: sessionToken,
-                    game: "1a",
-                    platform: platform
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if (!response.ok || !data.ok || !data.url) {
-
-            throw new Error(
-                data.error || "No se pudo generar el enlace."
-            );
-        }
-
-        // Abrir el enlace temporal generado por el Worker
-        window.location.href = data.url;
-
-    } catch (error) {
-
-        console.error("Error generando descarga:", error);
-
-        alert(
-            "No se pudo generar el enlace de descarga. " +
-            "Inténtalo nuevamente."
-        );
-
-        const buttons =
-            document.querySelectorAll("#vipAccess .download-btn");
-
-        buttons.forEach(button => {
-            button.style.pointerEvents = "";
-            button.style.opacity = "";
-        });
     }
 }
 
