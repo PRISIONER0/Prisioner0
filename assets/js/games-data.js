@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-             
+                 
+    {
+        title: "Geisha",
+        page: "geisha.html",
+        cover: "geisha.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },           
     {
         title: "Bob velseb the cannibal the dating simulator",
         page: "bob-velseb-the-cannibal-the-dating-simulator.html",
