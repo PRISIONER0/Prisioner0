@@ -83,25 +83,28 @@ function showVipAccessLocked() {
 // ============================================
 
 function showVipAccessUnlocked() {
-
-    const container =
-        document.getElementById("vipAccess");
-
+    const container = document.getElementById("vipAccess");
     if (!container) return;
 
     container.innerHTML = `
-        <a href="#" 
+        <a href="#"
            class="download-btn"
            onclick="requestVipDownload('pc'); return false;">
-            <i class="fa-solid fa-download"></i>
-            Descargar juego completo (PC)
+
+            <i class="fa-solid fa-desktop"></i>
+
+            Descargar Traduccion EN / ES-LAT / PT (PC)
+
         </a>
 
-        <a href="#" 
+        <a href="#"
            class="download-btn"
            onclick="requestVipDownload('android'); return false;">
-            <i class="fa-brands fa-android"></i>
-            Descargar juego completo (Android)
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            Descargar juego EN / ES-LAT / PT (Android)
+
         </a>
     `;
 }
