@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-        
+             
+    {
+        title: "Bob velseb the cannibal the dating simulator",
+        page: "bob-velseb-the-cannibal-the-dating-simulator.html",
+        cover: "bob-velseb-the-cannibal-the-dating-simulator.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },   
     {
         title: "My night survival",
         page: "my-night-survival.html",
