@@ -82,31 +82,62 @@ function showVipAccessLocked() {
 // ESTADO: VIP ACTIVADO
 // ============================================
 
-function showVipAccessUnlocked() {
-    const container = document.getElementById("vipAccess");
-    if (!container) return;
+async function requestVipDownload(platform) {
 
-    container.innerHTML = `
-        <a href="#"
-           class="download-btn"
-           onclick="requestVipDownload('pc'); return false;">
+    const sessionToken =
+        localStorage.getItem("prisioner0_vip_session");
 
-            <i class="fa-solid fa-desktop"></i>
+    if (!sessionToken) {
+        alert("Necesitas tener una suscripción VIP activa.");
+        return;
+    }
 
-            Descargar Traduccion EN / ES-LAT / PT (PC)
+    // Comprobar nuevamente que la sesión VIP siga activa
+    try {
 
-        </a>
+        const response = await fetch(
+            `${VIP_ACCESS_API}/check-session`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    session_token: sessionToken
+                })
+            }
+        );
 
-        <a href="#"
-           class="download-btn"
-           onclick="requestVipDownload('android'); return false;">
+        const data = await response.json();
 
-            <i class="fa-solid fa-mobile-screen-button"></i>
+        if (!data.ok || data.vip !== true) {
+            alert("Tu sesión VIP no está activa.");
+            return;
+        }
 
-            Descargar juego EN / ES-LAT / PT (Android)
+        // ================================
+        // DESCARGA DEL JUEGO
+        // ================================
 
-        </a>
-    `;
+        if (platform === "pc") {
+
+            window.location.href =
+                "https://pixeldrain.com/api/file/tKw3zKu4?download";
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Error comprobando acceso VIP:",
+            error
+        );
+
+        alert(
+            "No se pudo comprobar tu acceso VIP. " +
+            "Inténtalo nuevamente."
+        );
+    }
 }
 
 
