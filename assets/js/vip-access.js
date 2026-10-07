@@ -83,7 +83,9 @@ function showVipAccessLocked() {
 // ============================================
 
 function showVipAccessUnlocked() {
-    const container = document.getElementById("vipAccess");
+    const container =
+        document.getElementById("vipAccess");
+
     if (!container) return;
 
     container.innerHTML = `
@@ -92,8 +94,7 @@ function showVipAccessUnlocked() {
            onclick="requestVipDownload('pc'); return false;">
 
             <i class="fa-solid fa-desktop"></i>
-
-            Descargar Traduccion EN / ES-LAT / PT (PC)
+            🇺🇸 🇪🇸 🇧🇷 Descargar (PC)
 
         </a>
 
@@ -102,8 +103,7 @@ function showVipAccessUnlocked() {
            onclick="requestVipDownload('android'); return false;">
 
             <i class="fa-solid fa-mobile-screen-button"></i>
-
-            Descargar juego EN / ES-LAT / PT (Android)
+            🇺🇸 🇪🇸 🇧🇷 Descargar (Android)
 
         </a>
     `;
@@ -124,9 +124,9 @@ async function requestVipDownload(platform) {
         return;
     }
 
-    // Comprobar nuevamente que la sesión VIP siga activa
     try {
 
+        // Comprobar que la sesión VIP sigue activa
         const response = await fetch(
             `${VIP_ACCESS_API}/check-session`,
             {
@@ -147,15 +147,28 @@ async function requestVipDownload(platform) {
             return;
         }
 
-        // ================================
-        // DESCARGA DEL JUEGO
-        // ================================
+        // =========================================
+        // DESCARGA PC
+        // =========================================
 
         if (platform === "pc") {
 
             window.location.href =
-                "https://pixeldrain.com/api/file/tKw3zKu4?download";
+                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/kingdom-of-marionettes-CAP2-PRISIONER0.zip";
 
+            return;
+        }
+
+        // =========================================
+        // DESCARGA ANDROID
+        // =========================================
+
+        if (platform === "android") {
+
+            window.location.href =
+                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/komv2.prisioner0-2.0-1791390618-release.apk";
+
+            return;
         }
 
     } catch (error) {
