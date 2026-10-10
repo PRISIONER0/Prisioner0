@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-                 
+                     
+    {
+        title: "Helping your boyfriend",
+        page: "helping-your-boyfriend.html",
+        cover: "helping-your-boyfriend.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },              
     {
         title: "Geisha",
         page: "geisha.html",
