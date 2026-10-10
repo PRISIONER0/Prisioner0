@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-                     
+                          
+    {
+        title: "Today im harvesting you",
+        page: "today-im-harvesting-you.html",
+        cover: "today-im-harvesting-you.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },                   
     {
         title: "Helping your boyfriend",
         page: "helping-your-boyfriend.html",
@@ -179,7 +188,7 @@ const games = [
         cover: "stillwater.webp",
         featured: false,
         language: "Español/Portuguese",
-        pc: false,
+        pc: true,
         android: true,
     },
     {
