@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-                          
+                               
+    {
+        title: "Forget me not",
+        page: "forget-me-not.html",
+        cover: "forget-me-not.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },                      
     {
         title: "Today im harvesting you",
         page: "today-im-harvesting-you.html",
