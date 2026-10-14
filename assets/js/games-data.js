@@ -64,7 +64,15 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-                                    
+    {
+        title: "Fallen devotion",
+        page: "fallen-devotion.html",
+        cover: "fallen-devotion.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },                                 
     {
         title: "Record of greypine",
         page: "record-of-greypine.html",
