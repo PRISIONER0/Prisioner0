@@ -64,7 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-                               
+                                    
+    {
+        title: "Record of greypine",
+        page: "record-of-greypine.html",
+        cover: "record-of-greypine.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },                           
     {
         title: "Forget me not",
         page: "forget-me-not.html",
