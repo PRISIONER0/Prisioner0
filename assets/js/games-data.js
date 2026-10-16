@@ -64,6 +64,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+
+    {
+        title: "Sweet valentine chocolatier",
+        page: "sweet-valentine-chocolatier.html",
+        cover: "sweet-valentine-chocolatier.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    }, 
     {
         title: "Fallen devotion",
         page: "fallen-devotion.html",
