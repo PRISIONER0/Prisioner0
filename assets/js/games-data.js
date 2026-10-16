@@ -66,6 +66,15 @@ const games = [
     // ================================
 
     {
+        title: "Unquiet grey",
+        page: "unquiet-grey.html",
+        cover: "unquiet-grey.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    }, 
+    {
         title: "Sweet valentine chocolatier",
         page: "sweet-valentine-chocolatier.html",
         cover: "sweet-valentine-chocolatier.webp",
