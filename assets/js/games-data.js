@@ -8,7 +8,16 @@ const games = [
     // JUEGOS DESTACADOS
     // Máximo 5 con featured: true
     // ================================
-    
+    {
+        title: "Kingdom of Marionettes CAP 2",
+        page: "kingdom-of-marionettes.html",
+        cover: "kingdom-of-marionettes2.webp",
+        featured: true,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true
+    },
+
     {
         title: "You Make This House a Home ACT DEMO2",
         page: "you-make-this-house-a-home.html",
@@ -18,16 +27,6 @@ const games = [
         pc: true,
         android: true
     },
-    {
-        title: "Kingdom of Marionettes",
-        page: "kingdom-of-marionettes.html",
-        cover: "kingdom-of-marionettes.webp",
-        featured: true,
-        language: "Español/Portuguese",
-        pc: true,
-        android: true
-    },
-
 
     {
         title: "BIG BAD DOGS",
