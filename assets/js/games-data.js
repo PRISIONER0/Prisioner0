@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Where eternity sleeps",
+        page: "where-eternity-sleeps.html",
+        cover: "where-eternity-sleeps.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Unquiet grey",
         page: "unquiet-grey.html",
         cover: "unquiet-grey.webp",
