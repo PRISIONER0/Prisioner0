@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Perfect roommate",
+        page: "perfect-roommate.html",
+        cover: "perfect-roommate.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Where eternity sleeps",
         page: "where-eternity-sleeps.html",
         cover: "where-eternity-sleeps.webp",
