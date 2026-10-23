@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "See how the cat jumps",
+        page: "see-how-the-cat-jumps.html",
+        cover: "see-how-the-cat-jumps.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Perfect roommate",
         page: "perfect-roommate.html",
         cover: "perfect-roommate.webp",
