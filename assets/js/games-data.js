@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "The book of the lost memories",
+        page: "the-book-of-the-lost-memories.html",
+        cover: "the-book-of-the-lost-memories.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "See how the cat jumps",
         page: "see-how-the-cat-jumps.html",
         cover: "see-how-the-cat-jumps.webp",
