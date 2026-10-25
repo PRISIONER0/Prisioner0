@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "To eat a god DAY 3",
+        page: "to-eat-a-god.html",
+        cover: "to-eat-a-god.gif",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "The book of the lost memories",
         page: "the-book-of-the-lost-memories.html",
         cover: "the-book-of-the-lost-memories.webp",
@@ -593,15 +602,6 @@ const games = [
         title: "Get rich quick 101",
         page: "get-rich-quick-101.html",
         cover: "get-rich-quick-101.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "To eat a god",
-        page: "to-eat-a-god.html",
-        cover: "to-eat-a-god.gif",
         featured: false,
         language: "Español",
         pc: true,
