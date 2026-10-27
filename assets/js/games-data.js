@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Kidnapped for a date",
+        page: "kidnapped-for-a-date.html",
+        cover: "kidnapped-for-a-date.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "To eat a god DAY 3",
         page: "to-eat-a-god.html",
         cover: "to-eat-a-god.gif",
