@@ -65,6 +65,24 @@ const games = [
     // ================================
 
     {
+        title: "Bloody painter dating sim",
+        page: "bloody-painter-dating-sim.html",
+        cover: "bloody-painter-dating-sim.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "CreepyDates",
+        page: "creepydates.html",
+        cover: "creepydates.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Kidnapped for a date",
         page: "kidnapped-for-a-date.html",
         cover: "kidnapped-for-a-date.webp",
