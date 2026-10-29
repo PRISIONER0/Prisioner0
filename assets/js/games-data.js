@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Delicious date",
+        page: "delicious-date.html",
+        cover: "delicious-date.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Bloody painter dating sim",
         page: "bloody-painter-dating-sim.html",
         cover: "bloody-painter-dating-sim.webp",
