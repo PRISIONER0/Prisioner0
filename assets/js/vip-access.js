@@ -98,7 +98,6 @@ function showVipAccessUnlocked() {
 
             <span class="vip-flags">
                 <img src="https://flagcdn.com/20x15/es.png" alt="Español">
-                <img src="https://flagcdn.com/20x15/br.png" alt="Português">
             </span>
 
             Descargar Traduccion (PC)
@@ -113,7 +112,6 @@ function showVipAccessUnlocked() {
 
             <span class="vip-flags">
                 <img src="https://flagcdn.com/20x15/es.png" alt="Español">
-                <img src="https://flagcdn.com/20x15/br.png" alt="Português">
             </span>
 
             Descargar Juego (Android)
@@ -167,7 +165,7 @@ async function requestVipDownload(platform) {
         if (platform === "pc") {
 
             window.location.href =
-                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/BytheLastPetal-PRISIONER0.zip";
+                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/PRISIONER0_Bloody.Painter.Dating.Sim.DLC.zip";
 
             return;
         }
@@ -179,7 +177,7 @@ async function requestVipDownload(platform) {
         if (platform === "android") {
 
             window.location.href =
-                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/btlp.prisioner0-1.0-1792453970-release.apk";
+                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/PRISIONER0_Bloody.Painter.Dating.Sim.DLC.apk";
 
             return;
         }
