@@ -63,6 +63,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
+
+    {
+        title: "My boyfriend",
+        page: "my-boyfriend.html",
+        cover: "my-boyfriend.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
     {
         title: "Bloody painter dating sim",
         page: "bloody-painter-dating-sim.html",
