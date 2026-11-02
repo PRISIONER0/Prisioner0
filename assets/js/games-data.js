@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "D3v0ur (Actualizado con teclado)",
+        page: "d3v0ur.html",
+        cover: "d3v0ur.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "My boyfriend",
         page: "my-boyfriend.html",
         cover: "my-boyfriend.webp",
@@ -473,15 +482,6 @@ const games = [
         title: "Afterlight stays",
         page: "afterlight-stays.html",
         cover: "afterlight-stays.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "D3v0ur (Actualizado con teclado)",
-        page: "d3v0ur.html",
-        cover: "d3v0ur.webp",
         featured: false,
         language: "Español",
         pc: true,
