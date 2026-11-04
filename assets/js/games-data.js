@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Fappable cannibal",
+        page: "fappable-cannibal.html",
+        cover: "fappable-cannibal.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "D3v0ur (Actualizado con teclado)",
         page: "d3v0ur.html",
         cover: "d3v0ur.webp",
