@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "A little inconvenience",
+        page: "a-little-inconvenience.html",
+        cover: "a-little-inconvenience.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Fappable cannibal",
         page: "fappable-cannibal.html",
         cover: "fappable-cannibal.webp",
