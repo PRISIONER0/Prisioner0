@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Symptoms of deceit",
+        page: "symptoms-of-deceit",
+        cover: "symptoms-of-deceit.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "A little inconvenience",
         page: "a-little-inconvenience.html",
         cover: "a-little-inconvenience.webp",
