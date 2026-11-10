@@ -647,15 +647,6 @@ const games = [
         android: true,
     },
     {
-        title: "Error143",
-        page: "error143.html",
-        cover: "error143.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
         title: "Seekl",
         page: "seekl.html",
         cover: "seekl.webp",
@@ -1314,17 +1305,6 @@ const games = [
         pc: true,
         android: true,
     },
-    
-    {
-        title: "A date with death 2",
-        page: "a-date-with-death-2.html",
-        cover: "a-date-with-death-2.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: false,
-    },
-
     {
         title: "A date with death",
         page: "a-date-with-death.html",
