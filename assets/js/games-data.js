@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "The art shop (DAY 3)",
+        page: "the-art-shop.html",
+        cover: "the-art-shop.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Symptoms of deceit",
         page: "symptoms-of-deceit",
         cover: "symptoms-of-deceit.webp",
@@ -559,16 +568,6 @@ const games = [
         language: "Español",
         pc: true,
         android: true
-    },
-
-    {
-        title: "The art shop (Día 2)",
-        page: "the-art-shop.html",
-        cover: "the-art-shop.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
     },
     {
         title: "Blooming panic",
