@@ -131,14 +131,71 @@ header {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1600px;
+    width: 96%;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 12px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 16px;
 }
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #b0c4de;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #00f0ff;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+}
+
+.nav-links .nav-btn-plus {
+    background: linear-gradient(135deg, #ff2a5f, #ff7043);
+    color: #fff !important;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(255, 42, 95, 0.4);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links .nav-btn-plus:hover {
+    background: linear-gradient(135deg, #ff1744, #ff5722);
+    box-shadow: 0 0 18px rgba(255, 42, 95, 0.8);
+    transform: translateY(-1px);
+}
+
+/* BOTÓN PREMIUM MORADO NEÓN */
+.nav-links .premium-nav-btn {
+    background: linear-gradient(135deg, #7e22ce, #a855f7, #6d28d9);
+    color: #fff !important;
+    border: 1px solid rgba(192,132,252,0.7);
+    box-shadow:
+        0 0 8px rgba(168,85,247,0.7),
+        0 0 18px rgba(126,34,206,0.45);
+}
+
+.nav-links .premium-nav-btn:hover {
+    background: linear-gradient(135deg, #9333ea, #c084fc, #7e22ce);
+    box-shadow:
+        0 0 12px rgba(168,85,247,0.9),
+        0 0 28px rgba(126,34,206,0.7);
+    transform: translateY(-2px);
+}
+
 
 .brand-logo a {
     background: #ffffff !important;
@@ -223,43 +280,6 @@ header {
     border-color: #00f0ff;
     background: rgba(2, 12, 27, 0.98);
     box-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: #b0c4de;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: #00f0ff;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
-}
-
-.nav-links .nav-btn-plus {
-    background: linear-gradient(135deg, #ff2a5f, #ff7043);
-    color: #fff !important;
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(255, 42, 95, 0.4);
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-links .nav-btn-plus:hover {
-    background: linear-gradient(135deg, #ff1744, #ff5722);
-    box-shadow: 0 0 18px rgba(255, 42, 95, 0.8);
-    transform: translateY(-1px);
 }
 
 
@@ -2685,45 +2705,98 @@ PRISIONER0 VIP - MODAL PROMOCIONAL MODERNO
    ESTILOS RESPONSIVE - TABLETS Y CELULARES (Hasta 768px)
    ===================================================== */
 
+
 @media (max-width: 768px) {
 
-    /* ---------- 1. NAVEGACIÓN Y MENÚ NUEVO ---------- */
+    /* CONTENEDOR PRINCIPAL */
     .site-header .nav-container {
         flex-direction: column;
         align-items: center;
-        padding: 10px 15px;
-        gap: 12px;
+        padding: 10px 12px;
+        gap: 9px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
+    /* LOGO */
     .brand-logo img {
         max-height: 40px;
     }
 
-    .global-search {
+    /* BUSCADOR */
+    .games-search-box {
         width: 100%;
         max-width: 100%;
-        margin: 5px 0;
+        margin: 3px 0;
     }
 
-    .global-search input {
+    .games-search-box input {
         width: 100%;
+        box-sizing: border-box;
         font-size: 14px;
-        padding: 8px 12px 8px 35px;
+        padding: 9px 12px 9px 35px;
     }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        width: 100%;
-        margin-top: 5px;
-    }
+    /* MENÚ: DOS FILAS */
 
-    .nav-links a {
-        font-size: 13px;
-        padding: 6px 10px;
-    }
+/* MENÚ MÓVIL SIMÉTRICO */
+.nav-links {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: center;
+    justify-content: center;
+    gap: 10px 0;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* PRIMERA FILA: CUATRO ENLACES */
+.nav-links a:nth-child(-n+4) {
+    grid-row: 1;
+    grid-column: span 3;
+    justify-self: stretch;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px 0;
+    white-space: nowrap;
+}
+
+/* SEGUNDA FILA: TRES BOTONES IGUALES */
+.nav-links a:nth-child(n+5) {
+    grid-row: 2;
+    grid-column: span 4;
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 3px;
+    white-space: nowrap;
+}
+
+
+/* BUSCADOR PRINCIPAL DE INDEX EN MÓVILES */
+.global-search {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    margin: 3px 0;
+}
+
+.global-search input {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 10px 12px 10px 40px;
+}
 
 
     /* ---------- 2. SECCIÓN HERO MODERN Y ELEMENTOS INTERNOS ---------- */
@@ -3156,3 +3229,4 @@ MODAL VIP - MÓVIL (HASTA 480px)
         font-size: 36px;
     }
 }
+
