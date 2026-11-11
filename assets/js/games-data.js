@@ -65,11 +65,7 @@ const games = [
     // ================================
 
     {
-<<<<<<< HEAD
-        title: "The art shop (Day 3)",
-=======
         title: "The art shop (DAY 3)",
->>>>>>> 15b3571396ec60cd172aed1cd553c955f442231b
         page: "the-art-shop.html",
         cover: "the-art-shop.webp",
         featured: false,
