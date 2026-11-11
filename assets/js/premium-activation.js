@@ -1,4 +1,3 @@
-
 /* =====================================================
    PRISIONER0 PREMIUM
    Activación, validación de sesión y dispositivos
@@ -12,6 +11,8 @@ const PREMIUM_SESSION_KEY = "prisioner0_premium_session";
 const PREMIUM_CODE_KEY = "prisioner0_premium_code";
 const PREMIUM_EXPIRES_KEY = "prisioner0_premium_expires";
 
+const PREMIUM_REQUEST_TIMEOUT = 15000;
+
 
 // =====================================================
 // ELEMENTOS
@@ -23,6 +24,59 @@ const premiumMessage = document.getElementById("premiumMessage");
 const premiumActivateForm = document.getElementById("premiumActivateForm");
 const premiumActivePanel = document.getElementById("premiumActivePanel");
 const premiumLogoutButton = document.getElementById("premiumLogout");
+
+
+// =====================================================
+// PETICIONES AL WORKER CON TIEMPO LÍMITE
+// =====================================================
+
+async function premiumFetch(endpoint, options = {}) {
+
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => {
+        controller.abort();
+    }, PREMIUM_REQUEST_TIMEOUT);
+
+    try {
+
+        const response = await fetch(`${PREMIUM_API}${endpoint}`, {
+            ...options,
+            signal: controller.signal
+        });
+
+        return response;
+
+    } catch (error) {
+
+        if (error.name === "AbortError") {
+            throw new Error("El servidor tardó demasiado en responder. Intentá nuevamente.");
+        }
+
+        throw new Error("No se pudo conectar con el servidor PREMIUM. Revisá tu conexión.");
+
+    } finally {
+
+        clearTimeout(timeout);
+    }
+}
+
+
+// =====================================================
+// LEER RESPUESTA JSON
+// =====================================================
+
+async function premiumReadResponse(response) {
+
+    try {
+
+        return await response.json();
+
+    } catch (error) {
+
+        throw new Error("El servidor devolvió una respuesta inválida.");
+    }
+}
 
 
 // =====================================================
@@ -172,7 +226,7 @@ async function checkPremiumSession() {
 
     try {
 
-        const response = await fetch(`${PREMIUM_API}/check-session`, {
+        const response = await premiumFetch("/check-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -182,7 +236,11 @@ async function checkPremiumSession() {
             })
         });
 
-        const data = await response.json();
+        const data = await premiumReadResponse(response);
+
+        if (!response.ok) {
+            throw new Error(data.error || "No se pudo comprobar la sesión.");
+        }
 
         if (data.ok && data.premium === true) {
 
@@ -203,10 +261,9 @@ async function checkPremiumSession() {
 
         console.error("Error comprobando PREMIUM:", error);
 
-        // Si no hay conexión, no borramos una sesión válida localmente.
-        if (premiumMessage) {
-            showPremiumMessage("No se pudo comprobar tu sesión. Revisá tu conexión e intentá nuevamente.");
-        }
+        showPremiumMessage(error.message || "No se pudo comprobar tu sesión.");
+
+        // No eliminamos la sesión local si hubo un error de conexión.
     }
 }
 
@@ -219,6 +276,12 @@ function showPremiumForm() {
 
     if (premiumActivePanel) {
         premiumActivePanel.style.display = "none";
+    }
+
+    const activationHeading = document.getElementById("premiumActivationHeading");
+
+    if (activationHeading) {
+        activationHeading.style.display = "block";
     }
 
     if (premiumActivateForm) {
@@ -252,6 +315,13 @@ function showPremiumDeviceModal(data, deviceId) {
         return;
     }
 
+    // Evitar duplicar el modal.
+    const previousOverlay = document.getElementById("premiumDeviceChangeOverlay");
+
+    if (previousOverlay) {
+        previousOverlay.remove();
+    }
+
     const overlay = document.createElement("div");
     overlay.id = "premiumDeviceChangeOverlay";
 
@@ -277,9 +347,11 @@ function showPremiumDeviceModal(data, deviceId) {
                     type="button"
                     class="vip-device-option"
                     data-session-id="${device.id}">
+
                     <span>🖥️</span>
                     <strong>Dispositivo ${index + 1}</strong>
                     <small>Registrado anteriormente</small>
+
                 </button>
             `).join("")}
 
@@ -289,7 +361,9 @@ function showPremiumDeviceModal(data, deviceId) {
             type="button"
             class="vip-device-cancel"
             id="premiumDeviceCancel">
+
             Cancelar
+
         </button>
     `;
 
@@ -303,11 +377,16 @@ function showPremiumDeviceModal(data, deviceId) {
             const replaceSessionId = button.dataset.sessionId;
 
             button.disabled = true;
+
+            overlay.querySelectorAll(".vip-device-option").forEach(option => {
+                option.disabled = true;
+            });
+
             showPremiumMessage("Cambiando dispositivo...");
 
             try {
 
-                const response = await fetch(`${PREMIUM_API}/change-device`, {
+                const response = await premiumFetch("/change-device", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -319,10 +398,14 @@ function showPremiumDeviceModal(data, deviceId) {
                     })
                 });
 
-                const result = await response.json();
+                const result = await premiumReadResponse(response);
 
                 if (!response.ok || !result.ok) {
-                    throw new Error(result.error || result.mensaje || "No se pudo cambiar el dispositivo.");
+                    throw new Error(
+                        result.error ||
+                        result.mensaje ||
+                        "No se pudo cambiar el dispositivo."
+                    );
                 }
 
                 savePremiumSession(result.premium);
@@ -334,15 +417,23 @@ function showPremiumDeviceModal(data, deviceId) {
 
             } catch (error) {
 
-                button.disabled = false;
+                console.error("Error cambiando dispositivo:", error);
+
+                overlay.querySelectorAll(".vip-device-option").forEach(option => {
+                    option.disabled = false;
+                });
+
                 showPremiumMessage(error.message);
+
             }
         });
     });
 
     document.getElementById("premiumDeviceCancel").addEventListener("click", () => {
+
         overlay.remove();
         showPremiumMessage("Activación cancelada.");
+
     });
 }
 
@@ -354,6 +445,11 @@ function showPremiumDeviceModal(data, deviceId) {
 if (premiumActivateButton) {
 
     premiumActivateButton.addEventListener("click", async () => {
+
+        if (!premiumCodeInput) {
+            showPremiumMessage("No se encontró el campo del código PREMIUM.");
+            return;
+        }
 
         const code = premiumCodeInput.value.trim().toUpperCase();
 
@@ -368,6 +464,7 @@ if (premiumActivateButton) {
         }
 
         premiumActivateButton.disabled = true;
+
         premiumActivateButton.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> ACTIVANDO...';
 
@@ -375,7 +472,9 @@ if (premiumActivateButton) {
 
         try {
 
-            const response = await fetch(`${PREMIUM_API}/activate-code`, {
+            console.log("PREMIUM: enviando solicitud de activación...");
+
+            const response = await premiumFetch("/activate-code", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -387,20 +486,35 @@ if (premiumActivateButton) {
                 })
             });
 
-            const data = await response.json();
+            console.log("PREMIUM: respuesta HTTP:", response.status);
+
+            const data = await premiumReadResponse(response);
+
+            console.log("PREMIUM: respuesta del servidor:", data);
+
+            // Si hay dos dispositivos, mostrar el modal.
+            // Esto debe comprobarse antes de response.ok porque el Worker
+            // devuelve HTTP 409 cuando se requiere reemplazar un dispositivo.
 
             if (data.requires_change === true) {
+
                 showPremiumDeviceModal(data, getPremiumDeviceId());
                 return;
             }
 
             if (!response.ok || !data.ok) {
-                throw new Error(data.error || data.mensaje || "No se pudo activar el código.");
+
+                throw new Error(
+                    data.error ||
+                    data.mensaje ||
+                    "No se pudo activar el código."
+                );
             }
 
             savePremiumSession(data.premium);
 
             showPremiumMessage("¡PREMIUM activado correctamente!", true);
+
             showPremiumActive(data.premium.expires_at);
 
             premiumCodeInput.value = "";
@@ -408,13 +522,18 @@ if (premiumActivateButton) {
         } catch (error) {
 
             console.error("Error activando PREMIUM:", error);
-            showPremiumMessage(error.message || "Ocurrió un error al activar el código.");
+
+            showPremiumMessage(
+                error.message || "Ocurrió un error al activar el código."
+            );
 
         } finally {
 
             premiumActivateButton.disabled = false;
+
             premiumActivateButton.innerHTML =
                 '<i class="fa-solid fa-unlock-keyhole"></i> ACTIVAR';
+
         }
     });
 }
@@ -429,11 +548,11 @@ if (premiumLogoutButton) {
     premiumLogoutButton.addEventListener("click", () => {
 
         clearPremiumSession();
+
         showPremiumForm();
 
-        if (premiumMessage) {
-            showPremiumMessage("Cerraste tu sesión PREMIUM.");
-        }
+        showPremiumMessage("Cerraste tu sesión PREMIUM.");
+
     });
 }
 
@@ -462,4 +581,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }, 60000);
+
 });
