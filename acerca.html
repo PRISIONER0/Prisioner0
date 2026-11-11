@@ -3,26 +3,82 @@
 
 <head>
 <script>
-(function() {
+(async function() {
 
     const vipSession =
         localStorage.getItem("prisioner0_vip_session");
 
-    if (vipSession) {
+    const premiumSession =
+        localStorage.getItem("prisioner0_premium_session");
+
+    const VIP_API =
+        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
+
+    const PREMIUM_API =
+        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
+
+
+    async function checkSession(api, token, type) {
+
+        if (!token) return false;
+
+        try {
+
+            const response = await fetch(`${api}/check-session`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    session_token: token
+                })
+            });
+
+            if (!response.ok) return false;
+
+            const data = await response.json();
+
+            if (type === "vip") {
+                return data.ok === true && data.vip === true;
+            }
+
+            if (type === "premium") {
+                return data.ok === true && data.premium === true;
+            }
+
+            return false;
+
+        } catch (error) {
+
+            console.error("Error comprobando suscripción:", error);
+            return false;
+        }
+    }
+
+
+    const [vipActive, premiumActive] = await Promise.all([
+
+        checkSession(VIP_API, vipSession, "vip"),
+
+        checkSession(PREMIUM_API, premiumSession, "premium")
+
+    ]);
+
+
+    // Si tiene VIP o Premium activo, no cargar publicidad.
+
+    if (vipActive || premiumActive) {
         return;
     }
+
 
     // =================================
     // ADMAVEN
     // =================================
 
-    const admaven =
-        document.createElement("script");
+    const admaven = document.createElement("script");
 
-    admaven.setAttribute(
-        "data-cfasync",
-        "false"
-    );
+    admaven.setAttribute("data-cfasync", "false");
 
     admaven.src =
         "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
@@ -86,6 +142,9 @@
                 <a href="vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
                     <i class="fa-solid fa-crown"></i> VIP
                 </a>
+                <a href="premium.html" class="nav-btn-plus premium-nav-btn">
+                    <i class="fa-solid fa-gem"></i> PREMIUM
+                </a>
                                 <!-- Botón especial para la web +18 -->
                 <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
                     <i class="fa-solid fa-fire"></i> PRISIONER0+
@@ -133,7 +192,7 @@
             </div>
             <div class="stat-box">
                 <i class="fa-solid fa-language"></i>
-                <h3>Español</h3>
+                <h3>ES/PT</h3>
                 <p>Traducciones Propias</p>
             </div>
             <div class="stat-box">
@@ -238,7 +297,7 @@
                     <div class="faq-hidden">
                         <div class="faq-item">
                             <h3>¿Las traducciones son gratuitas?</h3>
-                            <p>Sí, todo el contenido público de traducción y ports es completamente gratuito (con la presencia de anuncios y acortadores habituales en las descargas).</p>
+                            <p>Sí, casi todo el contenido público de traducción y ports es completamente gratuito (con la presencia de anuncios y acortadores habituales en las descargas). Pero existe un pequeño catálogo exclusivo cuidado minuciosamente que solo se puede acceder a el, siendo PREMIUM.</p>
                         </div>
                         <div class="faq-item">
                             <h3>¿Todos los juegos tienen versión para Android?</h3>
@@ -326,6 +385,7 @@
 </footer>
 
 <script src="assets/js/games-data.js"></script>
+<script src="../assets/js/premium-data.js"></script>
 <script src="assets/js/games.js"></script>
 <script src="assets/js/vip.js"></script>
 <script src="assets/js/vip-ad-control.js"></script>

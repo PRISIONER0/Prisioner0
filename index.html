@@ -2,27 +2,84 @@
 <html lang="es">
 
 <head>
+
 <script>
-(function() {
+(async function() {
 
     const vipSession =
         localStorage.getItem("prisioner0_vip_session");
 
-    if (vipSession) {
+    const premiumSession =
+        localStorage.getItem("prisioner0_premium_session");
+
+    const VIP_API =
+        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
+
+    const PREMIUM_API =
+        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
+
+
+    async function checkSession(api, token, type) {
+
+        if (!token) return false;
+
+        try {
+
+            const response = await fetch(`${api}/check-session`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    session_token: token
+                })
+            });
+
+            if (!response.ok) return false;
+
+            const data = await response.json();
+
+            if (type === "vip") {
+                return data.ok === true && data.vip === true;
+            }
+
+            if (type === "premium") {
+                return data.ok === true && data.premium === true;
+            }
+
+            return false;
+
+        } catch (error) {
+
+            console.error("Error comprobando suscripción:", error);
+            return false;
+        }
+    }
+
+
+    const [vipActive, premiumActive] = await Promise.all([
+
+        checkSession(VIP_API, vipSession, "vip"),
+
+        checkSession(PREMIUM_API, premiumSession, "premium")
+
+    ]);
+
+
+    // Si tiene VIP o Premium activo, no cargar publicidad.
+
+    if (vipActive || premiumActive) {
         return;
     }
+
 
     // =================================
     // ADMAVEN
     // =================================
 
-    const admaven =
-        document.createElement("script");
+    const admaven = document.createElement("script");
 
-    admaven.setAttribute(
-        "data-cfasync",
-        "false"
-    );
+    admaven.setAttribute("data-cfasync", "false");
 
     admaven.src =
         "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
@@ -31,13 +88,14 @@
 
 })();
 </script>
+
 <!-- admaven -->
 <meta name='admaven-placement' content=BpdU8qja8>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PRISIONER0 | Traducciones de Visual Novels en Español para PC y Android</title>
+<title>PRISIONER0 | Traducciones de Visual Novels en Español/Portugués para PC y Android</title>
 
 <meta name="description" content="PRISIONER0 ofrece traducciones y ports de Visual Novels al español para PC y Android.">
 
@@ -58,10 +116,9 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="stylesheet"
-      href="assets/css/style.css">
-<link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet"href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/premium-home.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <!-- Google Analytics -->
@@ -80,10 +137,6 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
   gtag('config', 'G-Z73RW5F2N1');
 </script>
 
-<!-- wortise -->
-<script type="text/javascript" async src="https://cdn.resources.wortise.com/sdk/web/web-sdk.js">
-    wortise.init('b4287217-5ea5-4e48-b1dc-5998b5c4c245');
-</script>
 </head>
 
 
@@ -110,6 +163,9 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
                 <a href="contacto.html">Contacto</a>
                 <a href="vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
                     <i class="fa-solid fa-crown"></i> VIP
+                </a>
+                <a href="premium.html" class="nav-btn-plus premium-nav-btn">
+                    <i class="fa-solid fa-gem"></i> PREMIUM
                 </a>
                                     <!-- Botón especial para la web +18 -->
                 <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
@@ -154,20 +210,21 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
         <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nsfw-card">
             <div class="nsfw-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
             <div class="nsfw-text">
-                <h3>¿Buscas novelas visuales con historias extendidas?</h3>
-                <p>Visita mi portal secundario con traducciones Uncensored en
+                <h3>¿Buscas novelas visuales SIN censura?</h3>
+                <p>Visita mi portal secundario también GRATUITO con traducciones +18
             </div>
             <div class="nsfw-action">
                 <i class="fa-solid fa-fire"></i> PRISIONER0+
             </div>
         </a>
     </div>
-                    <h1>Visual Novels en Español</h1>
+                    <h1>Visual Novels Español/Portugués</h1>
                     <p class="hero-subtitle">"Tus historias favoritas, ahora en tu idioma."</p>
+                    
                 </div>
 
                 <div class="tech-specs-bar">
-                    <span><i class="fa-solid fa-language"></i>  Español </span>
+                    <span><i class="fa-solid fa-language"></i>  Es/Pt </span>
                     <span class="dot">•</span>
                     <span><i class="fa-solid fa-desktop"></i> PC Windows</span>
                     <span class="dot">•</span>
@@ -203,11 +260,69 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
                     </div>
                 </div>
 
+                <!-- TARJETA PREMIUM COMPLETA CLIQUEABLE -->
+                <a href="premium.html" class="prisionero-card-banner">
+                <span class="badge-exclusivo-premium">EXCLUSIVO PRISIONERO</span>
+                
+                <div class="card-banner-content">
+                    
+                    <!-- LADO IZQUIERDO: DIAMANTE GRANDE Y TEXTOS -->
+                    <div class="card-banner-left">
+                    <div class="diamond-icon floating-diamond">
+                        <svg viewBox="0 0 24 24" width="45" height="45" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="neon-diamond">
+                        <polyline points="6 3 18 3 22 8 12 22 2 8 6 3"></polyline>
+                        <line x1="2" y1="8" x2="22" y2="8"></line>
+                        <line x1="12" y1="22" x2="12" y2="8"></line>
+                        <line x1="6" y1="3" x2="10" y2="8"></line>
+                        <line x1="18" y1="3" x2="14" y2="8"></line>
+                        </svg>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="title-row">
+                        <h2 class="card-title blink-neon">PREMIUM</h2>
+                        <span class="card-desc">— Acceso a una colección exclusiva de novelas visuales</span>
+                        </div>
+                        
+                        <!-- CARACTERÍSTICAS CON ICONOS VECTORIALES PUROS -->
+                        <div class="card-features">
+                        <span class="feature-item">
+                            <span class="feature-icon icon-crown">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 4l3 12h14l3-12-6 7-4-8-4 8-6-7z"></path>
+                                <path d="M4 20h16"></path>
+                            </svg>
+                            </span> VIP: sin anuncios ni acortadores
+                        </span>
+                        <span class="feature-item">
+                            <span class="feature-icon icon-diamond">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 3 18 3 22 8 12 22 2 8 6 3"></polyline>
+                                <line x1="2" y1="8" x2="22" y2="8"></line>
+                                <line x1="12" y1="22" x2="12" y2="8"></line>
+                            </svg>
+                            </span> PREMIUM: VIP + catálogo especial
+                        </span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- LADO DERECHO: BOTÓN DE ACCIÓN -->
+                    <div class="card-banner-right">
+                    <div class="btn-premium pulse-btn">
+                        Obtener PREMIUM <span class="price-tag">x 4.99$</span> <span class="arrow">→</span>
+                    </div>
+                    </div>
+
+                </div>
+                </a>
+
                 <div class="hero-cta-group">
                     <a href="#juegos" class="btn-main-glow">
                         <i class="fa-solid fa-gamepad"></i> Explorar el catálogo
                     </a>
                 </div>
+
 
                 <!-- TARJETAS DE COMUNIDAD CON DISCORD DINÁMICO REAL -->
                 <div class="community-grid-modern">
@@ -282,6 +397,124 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
     </p>
 
+<!-- ===== PRISIONER0 PREMIUM ===== -->
+<section class="premium-home">
+
+    <div class="premium-home-content">
+
+        <div class="premium-home-info">
+
+<span class="premium-home-label">
+    <span class="premium-gem-icon">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gemTop" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="35%" stop-color="#e8baff"/>
+                    <stop offset="100%" stop-color="#a52cff"/>
+                </linearGradient>
+
+                <linearGradient id="gemLeft" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#d98aff"/>
+                    <stop offset="100%" stop-color="#6510b9"/>
+                </linearGradient>
+
+                <linearGradient id="gemRight" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#f2cfff"/>
+                    <stop offset="100%" stop-color="#8a20e8"/>
+                </linearGradient>
+            </defs>
+
+            <polygon points="50,5 91,35 50,95 9,35"
+                     fill="#a52cff"/>
+
+            <polygon points="9,35 50,5 35,35"
+                     fill="url(#gemTop)"/>
+
+            <polygon points="50,5 91,35 65,35"
+                     fill="#d9a0ff"/>
+
+            <polygon points="35,35 65,35 50,95"
+                     fill="url(#gemRight)"/>
+
+            <polygon points="9,35 35,35 50,95"
+                     fill="url(#gemLeft)"/>
+
+            <polygon points="35,35 50,5 65,35"
+                     fill="#f5dfff"/>
+
+            <path d="M9 35 L91 35 L50 95 Z"
+                  fill="none"
+                  stroke="#f5dfff"
+                  stroke-width="1.5"
+                  opacity="0.8"/>
+        </svg>
+    </span>
+    ACCESO EXCLUSIVO
+</span>
+
+            <h2>
+                PRISIONER0 <span>PREMIUM</span>
+            </h2>
+
+            <p>
+                Historias seleccionadas, juegos completos,
+                DLC y contenido exclusivo en una biblioteca
+                que no encontrarás en el catálogo gratuito.
+            </p>
+
+            <a href="premium.html#premium-catalog" class="premium-home-button">
+                Explorar catálogo PREMIUM
+            </a>
+
+        </div>
+
+<div class="premium-home-covers">
+
+    <div class="premium-game-stack">
+
+        <div class="premium-game-card card-one">
+            <div class="premium-game-image">
+                <img src="assets/img/covers/error143.webp" alt="Error143">
+            </div>
+            <div class="premium-game-title">
+                Error143<br>
+                Full Game
+            </div>
+        </div>
+
+        <div class="premium-game-card card-two">
+            <div class="premium-game-image">
+                <img src="assets/img/covers/a-date-with-death.webp" alt="A Date with Death">
+            </div>
+            <div class="premium-game-title">
+                A Date with Death<br>
+                Full Game
+            </div>
+        </div>
+
+        <div class="premium-game-card card-four">
+            <div class="premium-game-image premium-more-image">
+                <span>+</span>
+            </div>
+            <div class="premium-game-title">
+                Más historias...
+            </div>
+        </div>
+
+    </div>
+
+    <div class="premium-stack-caption">
+        <span>✦</span> UNA BIBLIOTECA DE HISTORIAS EXCLUSIVAS
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+<!-- ===== FIN PRISIONER0 PREMIUM ===== -->
+ 
 <!-- TARJETA ACCESO ANTICIPADO VIP -->
 <div class="vip-featured-card">
 
@@ -494,6 +727,7 @@ content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
 
     <!-- Scripts de la plataforma -->
     <script src="assets/js/games-data.js"></script>
+    <script src="assets/js/premium-data.js"></script>
     <script src="assets/js/vip.js"></script>
     <script src="assets/js/vip-ad-control.js"></script>
     <script src="assets/js/index.js"></script>
