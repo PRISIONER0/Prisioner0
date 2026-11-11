@@ -498,8 +498,10 @@ if (premiumActivateButton) {
 
             if (data.requires_change === true) {
                 
-                console.log("PREMIUM: entrando en cambio de dispositivo");
-                
+                console.log("PREMIUM: antes de abrir el modal");
+                showPremiumDeviceModal(data, getPremiumDeviceId());
+                console.log("PREMIUM: después de abrir el modal");
+
                 showPremiumDeviceModal(data, getPremiumDeviceId());
                 return;
             }
