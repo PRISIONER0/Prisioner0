@@ -497,7 +497,9 @@ if (premiumActivateButton) {
             // devuelve HTTP 409 cuando se requiere reemplazar un dispositivo.
 
             if (data.requires_change === true) {
-
+                
+                console.log("PREMIUM: entrando en cambio de dispositivo");
+                
                 showPremiumDeviceModal(data, getPremiumDeviceId());
                 return;
             }
@@ -510,7 +512,7 @@ if (premiumActivateButton) {
                     "No se pudo activar el código."
                 );
             }
-
+            
             savePremiumSession(data.premium);
 
             showPremiumMessage("¡PREMIUM activado correctamente!", true);
