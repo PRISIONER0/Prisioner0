@@ -1,3 +1,4 @@
+
 /* =====================================================
    PRISIONER0 PREMIUM
    Activación, validación de sesión y dispositivos
@@ -40,12 +41,10 @@ async function premiumFetch(endpoint, options = {}) {
 
     try {
 
-        const response = await fetch(`${PREMIUM_API}${endpoint}`, {
+        return await fetch(`${PREMIUM_API}${endpoint}`, {
             ...options,
             signal: controller.signal
         });
-
-        return response;
 
     } catch (error) {
 
@@ -262,8 +261,6 @@ async function checkPremiumSession() {
         console.error("Error comprobando PREMIUM:", error);
 
         showPremiumMessage(error.message || "No se pudo comprobar tu sesión.");
-
-        // No eliminamos la sesión local si hubo un error de conexión.
     }
 }
 
@@ -303,7 +300,7 @@ function clearPremiumSession() {
 
 
 // =====================================================
-// MODAL DE CAMBIO DE DISPOSITIVO
+// MODAL PREMIUM DE CAMBIO DE DISPOSITIVO
 // =====================================================
 
 function showPremiumDeviceModal(data, deviceId) {
@@ -311,78 +308,241 @@ function showPremiumDeviceModal(data, deviceId) {
     const devices = data.premium?.devices || [];
 
     if (devices.length < 2) {
-        showPremiumMessage("No se pudieron obtener tus dispositivos.");
+        showPremiumMessage("No se pudieron obtener los dos dispositivos registrados.");
         return;
     }
 
     // Evitar duplicar el modal.
+
     const previousOverlay = document.getElementById("premiumDeviceChangeOverlay");
 
     if (previousOverlay) {
         previousOverlay.remove();
     }
 
+    // Crear fondo.
+
     const overlay = document.createElement("div");
+
     overlay.id = "premiumDeviceChangeOverlay";
 
+    Object.assign(overlay.style, {
+        position: "fixed",
+        inset: "0",
+        width: "100%",
+        height: "100%",
+        background: "rgba(0,0,0,0.88)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "20px",
+        boxSizing: "border-box",
+        zIndex: "2147483647",
+        overflowY: "auto"
+    });
+
+    // Crear ventana.
+
     const modal = document.createElement("div");
-    modal.className = "vip-device-modal";
 
-    modal.innerHTML = `
-        <div class="vip-device-modal-icon">⚠️</div>
+    Object.assign(modal.style, {
+        position: "relative",
+        width: "100%",
+        maxWidth: "430px",
+        maxHeight: "90vh",
+        overflowY: "auto",
+        background: "#171717",
+        color: "#ffffff",
+        border: "1px solid #444",
+        borderRadius: "16px",
+        padding: "28px 22px",
+        boxSizing: "border-box",
+        textAlign: "center",
+        fontFamily: "Arial, sans-serif",
+        boxShadow: "0 15px 60px rgba(0,0,0,0.7)"
+    });
 
-        <h3>Límite de dispositivos</h3>
+    const title = document.createElement("h3");
 
-        <p>Tu código PREMIUM ya está activo en 2 dispositivos.</p>
+    title.textContent = "Límite de dispositivos";
 
-        <p>
-            Tenés <strong>1 cambio disponible</strong>.
-            ¿Cuál dispositivo querés reemplazar?
-        </p>
+    Object.assign(title.style, {
+        color: "#ffffff",
+        fontSize: "22px",
+        margin: "8px 0 15px"
+    });
 
-        <div class="vip-device-options">
+    const icon = document.createElement("div");
 
-            ${devices.map((device, index) => `
-                <button
-                    type="button"
-                    class="vip-device-option"
-                    data-session-id="${device.id}">
+    icon.textContent = "⚠️";
 
-                    <span>🖥️</span>
-                    <strong>Dispositivo ${index + 1}</strong>
-                    <small>Registrado anteriormente</small>
+    Object.assign(icon.style, {
+        fontSize: "42px",
+        marginBottom: "10px"
+    });
 
-                </button>
-            `).join("")}
+    const description = document.createElement("p");
 
-        </div>
+    description.textContent =
+        "Tu código PREMIUM ya está activo en 2 dispositivos.";
 
-        <button
-            type="button"
-            class="vip-device-cancel"
-            id="premiumDeviceCancel">
+    Object.assign(description.style, {
+        color: "#cccccc",
+        fontSize: "15px",
+        lineHeight: "1.5",
+        marginBottom: "12px"
+    });
 
-            Cancelar
+    const instructions = document.createElement("p");
 
-        </button>
-    `;
+    instructions.textContent =
+        "Tenés 1 cambio disponible. Elegí cuál dispositivo querés reemplazar:";
+
+    Object.assign(instructions.style, {
+        color: "#ffffff",
+        fontSize: "14px",
+        lineHeight: "1.5",
+        marginBottom: "20px"
+    });
+
+    // Contenedor de dispositivos.
+
+    const optionsContainer = document.createElement("div");
+
+    Object.assign(optionsContainer.style, {
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+        width: "100%"
+    });
+
+    // Mensaje interno del modal.
+
+    const modalMessage = document.createElement("p");
+
+    modalMessage.style.color = "#ff6b6b";
+    modalMessage.style.fontSize = "13px";
+    modalMessage.style.minHeight = "18px";
+    modalMessage.style.margin = "12px 0";
+
+    // Botón cancelar.
+
+    const cancelButton = document.createElement("button");
+
+    cancelButton.type = "button";
+    cancelButton.textContent = "Cancelar";
+
+    Object.assign(cancelButton.style, {
+        width: "100%",
+        padding: "13px",
+        marginTop: "10px",
+        border: "1px solid #555",
+        borderRadius: "9px",
+        background: "#292929",
+        color: "#ffffff",
+        fontSize: "14px",
+        fontWeight: "bold",
+        cursor: "pointer"
+    });
+
+    // Construir modal.
+
+    modal.appendChild(icon);
+    modal.appendChild(title);
+    modal.appendChild(description);
+    modal.appendChild(instructions);
+    modal.appendChild(optionsContainer);
+    modal.appendChild(modalMessage);
+    modal.appendChild(cancelButton);
 
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
-    overlay.querySelectorAll(".vip-device-option").forEach(button => {
+    // Evitar desplazamiento de la página de fondo.
+
+    const previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    let changingDevice = false;
+
+    function closeModal() {
+
+        if (changingDevice) return;
+
+        overlay.remove();
+        document.body.style.overflow = previousBodyOverflow;
+    }
+
+    cancelButton.addEventListener("click", () => {
+
+        closeModal();
+        showPremiumMessage("Activación cancelada.");
+
+    });
+
+    // Crear una opción por cada dispositivo.
+
+    devices.forEach((device, index) => {
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+
+        Object.assign(button.style, {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "6px",
+            width: "100%",
+            padding: "17px 12px",
+            border: "1px solid #00a8ff",
+            borderRadius: "10px",
+            background: "#222831",
+            color: "#ffffff",
+            cursor: "pointer",
+            fontSize: "14px"
+        });
+
+        const deviceIcon = document.createElement("span");
+
+        deviceIcon.textContent = "📱";
+
+        deviceIcon.style.fontSize = "25px";
+
+        const deviceTitle = document.createElement("strong");
+
+        deviceTitle.textContent = `Reemplazar dispositivo ${index + 1}`;
+
+        const deviceDate = document.createElement("small");
+
+        deviceDate.textContent =
+            "Registrado: " + formatPremiumDate(device.created_at);
+
+        deviceDate.style.color = "#bbbbbb";
+
+        button.appendChild(deviceIcon);
+        button.appendChild(deviceTitle);
+        button.appendChild(deviceDate);
 
         button.addEventListener("click", async () => {
 
-            const replaceSessionId = button.dataset.sessionId;
+            if (changingDevice) return;
 
-            button.disabled = true;
+            changingDevice = true;
 
-            overlay.querySelectorAll(".vip-device-option").forEach(option => {
+            optionsContainer.querySelectorAll("button").forEach(option => {
                 option.disabled = true;
+                option.style.opacity = "0.5";
+                option.style.cursor = "wait";
             });
 
-            showPremiumMessage("Cambiando dispositivo...");
+            cancelButton.disabled = true;
+
+            cancelButton.style.opacity = "0.5";
+
+            modalMessage.style.color = "#00a8ff";
+            modalMessage.textContent = "Cambiando dispositivo...";
 
             try {
 
@@ -394,13 +554,14 @@ function showPremiumDeviceModal(data, deviceId) {
                     body: JSON.stringify({
                         code: data.premium.code,
                         device_id: deviceId,
-                        replace_session_id: replaceSessionId
+                        replace_session_id: device.id
                     })
                 });
 
                 const result = await premiumReadResponse(response);
 
                 if (!response.ok || !result.ok) {
+
                     throw new Error(
                         result.error ||
                         result.mensaje ||
@@ -412,29 +573,50 @@ function showPremiumDeviceModal(data, deviceId) {
 
                 overlay.remove();
 
-                showPremiumMessage("¡Dispositivo cambiado y PREMIUM activado!", true);
+                document.body.style.overflow = previousBodyOverflow;
+
+                showPremiumMessage(
+                    "¡Dispositivo cambiado y PREMIUM activado correctamente!",
+                    true
+                );
+
                 showPremiumActive(result.premium.expires_at);
+
+                if (premiumCodeInput) {
+                    premiumCodeInput.value = "";
+                }
 
             } catch (error) {
 
                 console.error("Error cambiando dispositivo:", error);
 
-                overlay.querySelectorAll(".vip-device-option").forEach(option => {
+                modalMessage.style.color = "#ff6b6b";
+                modalMessage.textContent =
+                    error.message || "No se pudo cambiar el dispositivo.";
+
+                changingDevice = false;
+
+                optionsContainer.querySelectorAll("button").forEach(option => {
                     option.disabled = false;
+                    option.style.opacity = "1";
+                    option.style.cursor = "pointer";
                 });
 
-                showPremiumMessage(error.message);
-
+                cancelButton.disabled = false;
+                cancelButton.style.opacity = "1";
             }
         });
+
+        optionsContainer.appendChild(button);
     });
 
-    document.getElementById("premiumDeviceCancel").addEventListener("click", () => {
+    // Mostrar modal.
 
-        overlay.remove();
-        showPremiumMessage("Activación cancelada.");
-
+    requestAnimationFrame(() => {
+        overlay.style.opacity = "1";
     });
+
+    console.log("PREMIUM: modal de cambio de dispositivo mostrado.");
 }
 
 
@@ -472,8 +654,6 @@ if (premiumActivateButton) {
 
         try {
 
-            console.log("PREMIUM: enviando solicitud de activación...");
-
             const response = await premiumFetch("/activate-code", {
                 method: "POST",
                 headers: {
@@ -486,26 +666,54 @@ if (premiumActivateButton) {
                 })
             });
 
-            console.log("PREMIUM: respuesta HTTP:", response.status);
-
             const data = await premiumReadResponse(response);
 
-            console.log("PREMIUM: respuesta del servidor:", data);
-
-            // Si hay dos dispositivos, mostrar el modal.
-            // Esto debe comprobarse antes de response.ok porque el Worker
-            // devuelve HTTP 409 cuando se requiere reemplazar un dispositivo.
+            // IMPORTANTE:
+            // El Worker devuelve HTTP 409 cuando corresponde
+            // reemplazar uno de los dispositivos.
 
             if (data.requires_change === true) {
 
-                console.log("PREMIUM: antes de abrir el modal");
-
                 showPremiumDeviceModal(data, getPremiumDeviceId());
-
-                console.log("PREMIUM: después de abrir el modal");
 
                 return;
             }
+
+            if (!response.ok || !data.ok) {
+
+                throw new Error(
+                    data.error ||
+                    data.mensaje ||
+                    "No se pudo activar el código."
+                );
+            }
+
+            savePremiumSession(data.premium);
+
+            showPremiumMessage("¡PREMIUM activado correctamente!", true);
+
+            showPremiumActive(data.premium.expires_at);
+
+            premiumCodeInput.value = "";
+
+        } catch (error) {
+
+            console.error("Error activando PREMIUM:", error);
+
+            showPremiumMessage(
+                error.message || "Ocurrió un error al activar el código."
+            );
+
+        } finally {
+
+            premiumActivateButton.disabled = false;
+
+            premiumActivateButton.innerHTML =
+                '<i class="fa-solid fa-unlock-keyhole"></i> ACTIVAR';
+
+        }
+    });
+}
 
 
 // =====================================================
