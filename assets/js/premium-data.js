@@ -6,7 +6,7 @@
 const premiumGames = [
 
     {
-        title: "Error143",
+        title: "Error 143 (COMPLETO)",
         page: "error143.html",
         cover: "error143.webp",
 
@@ -17,7 +17,7 @@ const premiumGames = [
     },
 
     {
-        title: "A date with death",
+        title: "A date with death (COMPLETO)",
         page: "a-date-with-death.html",
         cover: "a-date-with-death.webp",
 

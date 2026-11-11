@@ -1,4 +1,3 @@
-
 /* =====================================================
    PRISIONER0 PREMIUM
    Activación, validación de sesión y dispositivos
