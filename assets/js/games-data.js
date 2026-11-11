@@ -70,7 +70,7 @@ const games = [
         page: "the-art-shop.html",
         cover: "the-art-shop.webp",
         featured: false,
-        language: "Español",
+        language: "Español/Portuguese",
         pc: true,
         android: true,
     },
