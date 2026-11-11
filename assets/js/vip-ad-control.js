@@ -1,19 +1,25 @@
-// =====================================================
-// PRISIONER0 VIP
-// CONTROL DE PUBLICIDAD
-// =====================================================
+
+/* =====================================================
+   PRISIONER0 VIP + PREMIUM
+   CONTROL DE PUBLICIDAD
+   VIP conserva su funcionamiento original.
+   PREMIUM se comprueba de forma independiente.
+===================================================== */
+
+const PREMIUM_AD_API =
+    "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
 
 document.addEventListener("DOMContentLoaded", async function () {
+
+    /* =================================================
+       COMPROBAR SESIÓN VIP (ORIGINAL)
+    ================================================= */
 
     const sessionToken = localStorage.getItem(
         "prisioner0_vip_session"
     );
 
     let vipActivo = false;
-
-    // =================================================
-    // COMPROBAR SESIÓN VIP
-    // =================================================
 
     if (sessionToken) {
 
@@ -48,29 +54,93 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    console.log(
-        "VIP activo - publicidad:",
-        vipActivo
-    );
+    console.log("VIP activo - publicidad:", vipActivo);
 
-    // =================================================
-    // VIP → NO CARGAR PUBLICIDAD
-    // =================================================
+    /* =================================================
+       VIP ACTIVO → NO CARGAR PUBLICIDAD
+    ================================================= */
 
     if (vipActivo) {
 
         document
             .querySelectorAll(".ad-container")
-            .forEach(ad => {
-                ad.remove();
-            });
+            .forEach(ad => ad.remove());
 
         return;
     }
 
-    // =================================================
-    // USUARIO NORMAL → CARGAR PUBLICIDAD
-    // =================================================
+    /* =================================================
+       COMPROBAR SESIÓN PREMIUM (INDEPENDIENTE)
+    ================================================= */
+
+    const premiumToken = localStorage.getItem(
+        "prisioner0_premium_session"
+    );
+
+    let premiumActivo = false;
+
+    if (premiumToken) {
+
+        try {
+
+            const response = await fetch(
+                `${PREMIUM_AD_API}/check-session`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        session_token: premiumToken
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            premiumActivo =
+                data.ok === true &&
+                data.premium === true;
+
+        } catch (error) {
+
+            console.error(
+                "Error comprobando PREMIUM para publicidad:",
+                error
+            );
+
+            // Si hay una sesión PREMIUM guardada pero
+            // el servidor no responde, evitamos mostrar
+            // anuncios hasta poder comprobarla.
+            document
+                .querySelectorAll(".ad-container")
+                .forEach(ad => ad.remove());
+
+            return;
+        }
+    }
+
+    console.log(
+        "PREMIUM activo - publicidad:",
+        premiumActivo
+    );
+
+    /* =================================================
+       PREMIUM ACTIVO → NO CARGAR PUBLICIDAD
+    ================================================= */
+
+    if (premiumActivo) {
+
+        document
+            .querySelectorAll(".ad-container")
+            .forEach(ad => ad.remove());
+
+        return;
+    }
+
+    /* =================================================
+       USUARIO NORMAL → CARGAR PUBLICIDAD
+    ================================================= */
 
     if (
         typeof aclib === "undefined" ||
@@ -84,64 +154,48 @@ document.addEventListener("DOMContentLoaded", async function () {
         return;
     }
 
-    // =================================================
-    // BANNER PC SUPERIOR
-    // =================================================
+    /* BANNER PC SUPERIOR */
 
     const topDesktop =
         document.getElementById("adTop");
 
     if (topDesktop) {
-
         aclib.runBanner({
             zoneId: "12031562"
         });
-
     }
 
-    // =================================================
-    // BANNER PC INFERIOR
-    // =================================================
+    /* BANNER PC INFERIOR */
 
     const bottomDesktop =
         document.getElementById("adBottom");
 
     if (bottomDesktop) {
-
         aclib.runBanner({
             zoneId: "12031562"
         });
-
     }
 
-    // =================================================
-    // BANNER MÓVIL SUPERIOR
-    // =================================================
+    /* BANNER MÓVIL SUPERIOR */
 
     const topMobile =
         document.getElementById("adTopMobile");
 
     if (topMobile) {
-
         aclib.runBanner({
             zoneId: "12031670"
         });
-
     }
 
-    // =================================================
-    // BANNER MÓVIL INFERIOR
-    // =================================================
+    /* BANNER MÓVIL INFERIOR */
 
     const bottomMobile =
         document.getElementById("adBottomMobile");
 
     if (bottomMobile) {
-
         aclib.runBanner({
             zoneId: "12031670"
         });
-
     }
 
 });

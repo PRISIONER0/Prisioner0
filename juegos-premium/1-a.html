@@ -380,7 +380,7 @@
     <!-- PC + ANDROID                                  -->
     <!-- ============================================= -->
 
-    <!--
+    
     <a href="https://pipalapeda.itch.io/1a"
        class="original-btn"
        target="_blank"
@@ -786,112 +786,135 @@
 <!-- MODAL PREMIUM TEMPORAL -->
 <!-- ========================================= -->
 
-<script>
 
+
+<script>
 (function() {
 
+    const PREMIUM_API = "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
+
     const modal = document.getElementById("premiumModal");
-
     const closeButton = document.getElementById("closePremiumModal");
-
     const closeSecondaryButton = document.getElementById("closePremiumModalSecondary");
 
     const downloadButtons = document.querySelectorAll(".premium-download-btn");
 
-
-    // ABRIR MODAL
+    // COLOCAR AQUÍ LOS ENLACES REALES
+    const PREMIUM_DOWNLOADS = {
+        pc: "CAMBIARLINK_PC",
+        android: "CAMBIARLINK_ANDROID"
+    };
 
     function openPremiumModal() {
-
         modal.classList.add("active");
-
         modal.setAttribute("aria-hidden", "false");
-
         document.body.style.overflow = "hidden";
-
     }
-
-
-    // CERRAR MODAL
 
     function closePremiumModal() {
-
         modal.classList.remove("active");
-
         modal.setAttribute("aria-hidden", "true");
-
         document.body.style.overflow = "";
-
     }
 
+    async function checkPremium() {
 
-    // BOTONES DE DESCARGA
+        const sessionToken = localStorage.getItem("prisioner0_premium_session");
+
+        if (!sessionToken) return false;
+
+        try {
+            const response = await fetch(`${PREMIUM_API}/check-session`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    session_token: sessionToken
+                })
+            });
+
+            const data = await response.json();
+
+            return data.ok === true && data.premium === true;
+
+        } catch (error) {
+            console.error("Error comprobando PREMIUM:", error);
+            return false;
+        }
+    }
+
+    async function requestPremiumDownload(platform, button) {
+
+        if (button.dataset.downloading === "true") return;
+
+        button.dataset.downloading = "true";
+        button.disabled = true;
+
+        try {
+
+            const premiumActivo = await checkPremium();
+
+            if (!premiumActivo) {
+                openPremiumModal();
+                return;
+            }
+
+            const downloadLink = PREMIUM_DOWNLOADS[platform];
+
+            if (!downloadLink || downloadLink.startsWith("CAMBIARLINK")) {
+                alert("Todavía no configuraste el enlace de descarga.");
+                return;
+            }
+
+            window.location.href = downloadLink;
+
+        } catch (error) {
+
+            console.error("Error iniciando descarga PREMIUM:", error);
+            alert("No se pudo iniciar la descarga. Intentá nuevamente.");
+
+        } finally {
+
+            setTimeout(function() {
+                button.dataset.downloading = "false";
+                button.disabled = false;
+            }, 2000);
+
+        }
+    }
 
     downloadButtons.forEach(function(button) {
 
         button.addEventListener("click", function() {
-
-            /*
-             * SISTEMA PREMIUM PENDIENTE
-             *
-             * Aquí conectaremos la verificación de membresía.
-             *
-             * SIN PREMIUM:
-             * Se muestra este modal.
-             *
-             * CON PREMIUM ACTIVO:
-             * Se solicita al servidor el enlace de descarga
-             * autorizado para la plataforma seleccionada.
-             *
-             * No colocar enlaces de descarga directos en este HTML.
-             */
-
-            openPremiumModal();
-
+            requestPremiumDownload(button.dataset.platform, button);
         });
 
     });
 
-
-    // CERRAR CON X
+    document.addEventListener("contextmenu", function(event) {
+        if (event.target.closest(".premium-download-btn")) {
+            event.preventDefault();
+        }
+    });
 
     closeButton.addEventListener("click", closePremiumModal);
-
-
-    // CERRAR CON BOTÓN SECUNDARIO
-
     closeSecondaryButton.addEventListener("click", closePremiumModal);
 
-
-    // CERRAR AL HACER CLIC FUERA
-
     modal.addEventListener("click", function(event) {
-
-        if (event.target === modal) {
-
-            closePremiumModal();
-
-        }
-
+        if (event.target === modal) closePremiumModal();
     });
-
-
-    // CERRAR CON ESCAPE
 
     document.addEventListener("keydown", function(event) {
-
         if (event.key === "Escape" && modal.classList.contains("active")) {
-
             closePremiumModal();
-
         }
-
     });
 
-
 })();
-
 </script>
+
+
 
 
 </body>

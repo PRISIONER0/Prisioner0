@@ -64,12 +64,13 @@ const games = [
     // featured: false
     // ================================
 
+    
     {
-        title: "The art shop (DAY 3)",
+        title: "The art shop (Day 3)",
         page: "the-art-shop.html",
         cover: "the-art-shop.webp",
         featured: false,
-        language: "Español/Portuguese",
+        language: "Español",
         pc: true,
         android: true,
     },
@@ -1301,16 +1302,16 @@ const games = [
         pc: true,
         android: true,
     },
+    
     {
-        title: "A date with death",
-        page: "a-date-with-death.html",
-        cover: "a-date-with-death.webp",
+        title: "A date with death 2",
+        page: "a-date-with-death-2.html",
+        cover: "a-date-with-death-2.webp",
         featured: false,
         language: "Español",
         pc: true,
         android: false,
     },
-
     {
         title: "Mirage-noir",
         page: "mirage-noir.html",

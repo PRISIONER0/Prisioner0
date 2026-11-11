@@ -244,73 +244,82 @@ body {
   font-size: .85rem;
 }
 
+
 /* PREMIUM ACTIVADO */
 
 .premium-active-panel {
   text-align: center;
-  padding: 10px;
+  padding: 4px 8px;
 }
 
 .premium-active-icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--premium-pink);
-  filter: drop-shadow(0 0 12px #ec4899);
+  filter: drop-shadow(0 0 8px #ec4899);
 }
 
 .premium-active-panel h2 {
   color: #22c55e;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin: 4px 0;
 }
 
 .premium-active-text {
   color: var(--premium-muted);
-  margin-bottom: 25px;
+  font-size: .8rem;
+  line-height: 1.3;
+  margin: 0 0 12px;
 }
 
 .premium-status-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-bottom: 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .premium-status-info div {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 15px;
+  gap: 8px;
+  padding: 9px 10px;
   background: var(--premium-bg);
   border: 1px solid var(--premium-border);
-  border-radius: 12px;
+  border-radius: 10px;
   text-align: left;
+  min-width: 0;
 }
 
 .premium-status-info i {
   color: var(--premium-purple);
-  font-size: 1.3rem;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .premium-status-info span {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .premium-status-info strong {
   color: var(--premium-muted);
-  font-size: .8rem;
+  font-size: .7rem;
 }
 
 .premium-status-info small {
-  font-size: .95rem;
+  font-size: .8rem;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .premium-logout-button {
   background: #ef444422;
   border: 1px solid #ef444466;
   color: #f87171;
-  padding: 10px 20px;
+  padding: 8px 14px;
   border-radius: 10px;
+  font-size: .8rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -318,6 +327,13 @@ body {
 .premium-logout-button:hover {
   background: #ef444444;
 }
+
+@media (max-width: 480px) {
+  .premium-status-info {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* CATÁLOGO */
 
