@@ -497,50 +497,15 @@ if (premiumActivateButton) {
             // devuelve HTTP 409 cuando se requiere reemplazar un dispositivo.
 
             if (data.requires_change === true) {
-                
+
                 console.log("PREMIUM: antes de abrir el modal");
+
                 showPremiumDeviceModal(data, getPremiumDeviceId());
+
                 console.log("PREMIUM: después de abrir el modal");
 
-                showPremiumDeviceModal(data, getPremiumDeviceId());
                 return;
             }
-
-            if (!response.ok || !data.ok) {
-
-                throw new Error(
-                    data.error ||
-                    data.mensaje ||
-                    "No se pudo activar el código."
-                );
-            }
-            
-            savePremiumSession(data.premium);
-
-            showPremiumMessage("¡PREMIUM activado correctamente!", true);
-
-            showPremiumActive(data.premium.expires_at);
-
-            premiumCodeInput.value = "";
-
-        } catch (error) {
-
-            console.error("Error activando PREMIUM:", error);
-
-            showPremiumMessage(
-                error.message || "Ocurrió un error al activar el código."
-            );
-
-        } finally {
-
-            premiumActivateButton.disabled = false;
-
-            premiumActivateButton.innerHTML =
-                '<i class="fa-solid fa-unlock-keyhole"></i> ACTIVAR';
-
-        }
-    });
-}
 
 
 // =====================================================
