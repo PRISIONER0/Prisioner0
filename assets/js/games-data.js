@@ -63,8 +63,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-
     
+    {
+        title: "Off script",
+        page: "offscript.html",
+        cover: "offscript.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
     {
         title: "The art shop (Day 3)",
         page: "the-art-shop.html",
