@@ -63,7 +63,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-     
+
+    {
+        title: "Keep the mask on",
+        page: "keep-the-mask-on.html",
+        cover: "keep-the-mask-on.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
     {
         title: "Bloody painter dating sim dlc valentines day",
         page: "bloody-painter-dating-sim-dlc-valentines-day.html",
