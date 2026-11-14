@@ -125,7 +125,10 @@ function showVipAccessUnlocked() {
 
             <span class="vip-flags">
                 <img src="https://flagcdn.com/20x15/es.png"
-                     alt="Español">
+                    alt="Español">
+
+                <img src="https://flagcdn.com/20x15/br.png"
+                    alt="Português">
             </span>
 
             Descargar Traducción (PC)
@@ -140,7 +143,10 @@ function showVipAccessUnlocked() {
 
             <span class="vip-flags">
                 <img src="https://flagcdn.com/20x15/es.png"
-                     alt="Español">
+                    alt="Español">
+
+                <img src="https://flagcdn.com/20x15/br.png"
+                    alt="Português">
             </span>
 
             Descargar Juego (Android)
@@ -192,7 +198,7 @@ async function requestVipDownload(platform) {
         if (platform === "pc") {
 
             window.location.href =
-                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/PRISIONER0_Bloody.Painter.Dating.Sim.DLC.zip";
+                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/empty-box-PRISIONER0.zip";
 
             return;
         }
@@ -205,7 +211,7 @@ async function requestVipDownload(platform) {
         if (platform === "android") {
 
             window.location.href =
-                "https://github.com/PRISIONER0/ACupofDreams-Espa-ol/releases/download/v1.0/PRISIONER0_Bloody.Painter.Dating.Sim.DLC.apk";
+                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/e.b.prisioner0-1.0.0-1794628839-release.apk";
 
             return;
         }

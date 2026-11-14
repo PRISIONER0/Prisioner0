@@ -89,95 +89,6 @@
 </script>
 <!-- admaven -->
 <meta name='admaven-placement' content=BpdU8qja8>
-
-<script>
-(async function() {
-
-    const vipSession =
-        localStorage.getItem("prisioner0_vip_session");
-
-    const premiumSession =
-        localStorage.getItem("prisioner0_premium_session");
-
-    const VIP_API =
-        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
-
-    const PREMIUM_API =
-        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
-
-
-    async function checkSession(api, token, type) {
-
-        if (!token) return false;
-
-        try {
-
-            const response = await fetch(`${api}/check-session`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    session_token: token
-                })
-            });
-
-            if (!response.ok) return false;
-
-            const data = await response.json();
-
-            if (type === "vip") {
-                return data.ok === true && data.vip === true;
-            }
-
-            if (type === "premium") {
-                return data.ok === true && data.premium === true;
-            }
-
-            return false;
-
-        } catch (error) {
-
-            console.error("Error comprobando suscripción:", error);
-            return false;
-        }
-    }
-
-
-    const [vipActive, premiumActive] = await Promise.all([
-
-        checkSession(VIP_API, vipSession, "vip"),
-
-        checkSession(PREMIUM_API, premiumSession, "premium")
-
-    ]);
-
-
-    // Si tiene VIP o Premium activo, no cargar publicidad.
-
-    if (vipActive || premiumActive) {
-        return;
-    }
-
-
-    // =================================
-    // ADMAVEN
-    // =================================
-
-    const admaven = document.createElement("script");
-
-    admaven.setAttribute("data-cfasync", "false");
-
-    admaven.src =
-        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
-
-    document.head.appendChild(admaven);
-
-})();
-</script>
-<!-- admaven -->
-<meta name='admaven-placement' content=BpdU8qja8>
-
 <meta name="description" content="Descarga bloody-painter-dating-sim-dlc-valentines-day en español y portugués para PC y Android. Traducción y port de esta Visual Novel en PRISIONER0, con tutoriales para descargar e instalar el juego.">
 <meta name="keywords" content="bloody-painter-dating-sim-dlc-valentines-day español, bloody-painter-dating-sim-dlc-valentines-day português, bloody-painter-dating-sim-dlc-valentines-day tradução, bloody-painter-dating-sim-dlc-valentines-day PC, bloody-painter-dating-sim-dlc-valentines-day Android, Visual Novel español, Visual Novels em português, PRISIONER0">
 <meta name="author" content="PRISIONER0">
@@ -192,7 +103,7 @@
       type="image/webp"
       href="../assets/img/favicon.webp">
 
-<title>BLOODY PAINTER DATING SIM DLC VALENTINES DAY en Español y Portugués para PC y Android | PRISIONER0</title>
+<title>BLOODY PAINTER DATING SIM DLC VALENTINES DAY en Español para PC y Android | PRISIONER0</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PRISIONER0">
 <meta property="og:title" content="bloody-painter-dating-sim-dlc-valentines-day en Español y Portugués para PC y Android | PRISIONER0">
@@ -225,56 +136,6 @@
 <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
 
 </head>
-<style>.vip-access-download {
-    margin-bottom: 10px;
-}
-
-.vip-access-download:last-child {
-    margin-bottom: 0;
-}
-
-.vip-flags {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-    margin-right: 4px;
-}
-
-.vip-flags img {
-    width: 20px;
-    height: 15px;
-    object-fit: cover;
-    border-radius: 2px;
-}
-
-.chapter1-link {
-    display: inline-block;
-    margin-top: 12px;
-    color: #aaa;
-    font-size: 14px;
-    text-decoration: none;
-    opacity: 0.8;
-}
-
-.chapter1-link:hover {
-    color: #fff;
-    opacity: 1;
-}
-.translation-warning {
-    background: #2a1f00;
-    border: 1px solid #d6a600;
-    color: #ffd84d;
-    padding: 12px 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.translation-warning strong {
-    font-weight: 700;
-}
-</style>
 
 <body data-game="bloody-painter-dating-sim-dlc-valentines-day.html">
 
@@ -363,20 +224,12 @@
 
     </p>
 
-<p class="game-description">
+    <p class="game-description">
+
 [Bloody Painter Dating Sim – Valentine DLC] es una novela visual de romance y terror en la que continúas tu relación con Bloody Painter después de convertirte en su compañero de vida.
  Celebra San Valentín junto a este peligroso asesino en una historia especial de 20 minutos, con nuevas ilustraciones y voces en inglés.
 
-<div class="translation-warning">
-    ⚠️ <strong>IMPORTANTE:</strong><br><br>
-¿Aún no eres VIP?.
-Este juego <strong>está disponible actualmente como acceso anticipado exclusivo para miembros VIP</strong> y más adelante estará disponible para todo el público.<br><br>
-
-Si tienes una membresía VIP, por favor aprovecha tu beneficio y disfruta del acceso anticipado. <strong>Te pedimos que NO! compartas el juego ni los archivos con otras personas</strong>, ya que esto perjudica la experiencia y el beneficio de quienes apoyan a PRISIONER0 mediante su membresía VIP.<br><br>
-
-Además, tu apoyo nos permite continuar trabajando y traer <strong>más traducciones y nuevos juegos</strong> para la comunidad. ❤️
-</div>
-</p>
+    </p>
 
     <div class="game-buttons">
 
@@ -390,8 +243,32 @@ Además, tu apoyo nos permite continuar trabajando y traer <strong>más traducci
             Ver juego original
 
         </a>
-        
-        <div id="vipAccess"></div>
+
+        <a href="https://cuty.io/KWGlykPzq"
+            class="download-btn download-vip"
+            data-direct="https://github.com/PRISIONER0/bpddlc/releases/tag/V1.0"
+            data-short="https://cuty.io/KWGlykPzq"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <i class="fa-solid fa-desktop"></i>
+
+            Descargar Traducción Español (PC)
+
+        </a>
+
+        <a href="https://cuty.io/5pWYy"
+            class="download-btn download-vip"
+            data-direct="https://github.com/PRISIONER0/bpddlc/releases/tag/V1"
+            data-short="https://cuty.io/5pWYy"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            Descargar Juego Español (Android)
+
+        </a>
 
         <!-- *Tutoriales* -->
 
@@ -460,7 +337,7 @@ Además, tu apoyo nos permite continuar trabajando y traer <strong>más traducci
     <div class="footer-content">
         <div class="footer-brand">
             <h3>PRISIONER0</h3>
-            <p>Traducciones y ports de Visual Novels en español.</p>
+            <p>Traducciones y ports de Visual Novels en español y portugués.</p>
         </div>
         <div class="footer-nav-links">
             <a href="https://discord.gg/BS7uRGx62m" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-discord"></i> Discord</a>
@@ -486,12 +363,12 @@ Además, tu apoyo nos permite continuar trabajando y traer <strong>más traducci
 </div>
 
 <script src="../assets/js/games-data.js"></script>
+<script src="../assets/js/premium-data.js"></script>
 <script src="../assets/js/games.js"></script>
 <script src="../assets/js/vip.js"></script>
 <script src="../assets/js/vip-modal.js"></script>
 <script src="../assets/js/vip-ad-control.js"></script>
 <script src="../assets/js/vip-downloads.js"></script>
-<script src="../assets/js/vip-access.js"></script>
 <script src="../assets/js/tutoriales.js"></script>
 
 </body>

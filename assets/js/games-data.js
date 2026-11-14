@@ -63,7 +63,16 @@ const games = [
     // MÁS JUEGOS (VER MÁS)
     // featured: false
     // ================================
-    
+     
+    {
+        title: "Bloody painter dating sim dlc valentines day",
+        page: "bloody-painter-dating-sim-dlc-valentines-day.html",
+        cover: "bloody-painter-dating-sim-dlc-valentines-day.webp",
+        featured: false,
+        language: "Español",
+        pc: true,
+        android: true,
+    },   
     {
         title: "Off script",
         page: "offscript.html",
