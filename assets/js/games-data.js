@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Your Boyfriend(ACTUALIZADO DIA 5)",
+        page: "your-boyfriend.html",
+        cover: "your-boyfriend.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },
+    {
         title: "Keep the mask on",
         page: "keep-the-mask-on.html",
         cover: "keep-the-mask-on.webp",
@@ -524,15 +533,6 @@ const games = [
         android: true,
     },
     {
-        title: "Criminally yours DLC",
-        page: "criminally-yours.html",
-        cover: "criminally-yours.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
         title: "Your loving test subject",
         page: "your-loving-test-subject.html",
         cover: "your-loving-test-subject.webp",
@@ -794,15 +794,6 @@ const games = [
         language: "Español",
         pc: true,
         android: true,
-    },
-    {
-        title: "Your Boyfriend",
-        page: "your-boyfriend.html",
-        cover: "your-boyfriend.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: false,
     },
     {
         title: "My best friend yui",
