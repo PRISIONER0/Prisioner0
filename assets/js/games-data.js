@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Blooming rues",
+        page: "blooming-rues.html",
+        cover: "blooming-rues.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },
+    {
         title: "Your Boyfriend(ACTUALIZADO DIA 5)",
         page: "your-boyfriend.html",
         cover: "your-boyfriend.webp",
