@@ -65,6 +65,24 @@ const games = [
     // ================================
 
     {
+        title: "Your new roommate",
+        page: "your-new-roommate.html",
+        cover: "your-new-roommate.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },
+    {
+        title: "Trapped with jester",
+        page: "trapped-with-jester.html",
+        cover: "trapped-with-jester.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: false,
+    },
+    {
         title: "Blooming rues",
         page: "blooming-rues.html",
         cover: "blooming-rues.webp",
