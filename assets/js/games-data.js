@@ -71,7 +71,7 @@ const games = [
         featured: false,
         language: "Español/Portuguese",
         pc: true,
-        android: false,
+        android: true,
     },
     {
         title: "Trapped with jester",
@@ -80,7 +80,7 @@ const games = [
         featured: false,
         language: "Español/Portuguese",
         pc: true,
-        android: false,
+        android: true,
     },
     {
         title: "Blooming rues",
@@ -89,7 +89,7 @@ const games = [
         featured: false,
         language: "Español/Portuguese",
         pc: true,
-        android: false,
+        android: true,
     },
     {
         title: "Your Boyfriend(ACTUALIZADO DIA 5)",
