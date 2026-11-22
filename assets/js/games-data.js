@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "My sweet pets",
+        page: "my-sweet-pets.html",
+        cover: "my-sweet-pets.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Your new roommate",
         page: "your-new-roommate.html",
         cover: "your-new-roommate.webp",
