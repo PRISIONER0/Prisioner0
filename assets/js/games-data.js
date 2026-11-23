@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Diagnosis lovesick",
+        page: "diagnosis-lovesick.html",
+        cover: "diagnosis-lovesick.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "My sweet pets",
         page: "my-sweet-pets.html",
         cover: "my-sweet-pets.webp",
