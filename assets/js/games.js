@@ -1,20 +1,19 @@
+/* =====================================================
+   PRISIONER0 - GAMES.JS
+   Funciones para todas las páginas de juegos
+=====================================================*/
 
-/** =====================================================
- *  PRISIONER0 - GAMES.JS
- *  Funciones para todas las páginas de juegos
- * ===================================================== */
 
-
-/** =====================================================
- *  MENÚ
- * ===================================================== */
+/* =====================================================
+   MENÚ
+=====================================================*/
 
 // Aquí agregaremos Inicio, Juegos, Acerca de y Contacto.
 
 
-/** =====================================================
- *  BUSCADOR GLOBAL DE JUEGOS
- * ===================================================== */
+/* =====================================================
+   BUSCADOR GLOBAL DE JUEGOS
+=====================================================*/
 
 // Obtener el campo de búsqueda
 const gameSearch = document.getElementById("gameSearch");
@@ -25,21 +24,18 @@ const gamesSearchResults = document.getElementById("gamesSearchResults");
 // Primer resultado encontrado
 let firstResult = null;
 
-// Detectar si estamos dentro de una carpeta de juegos
-const isGamePage =
-    window.location.pathname.includes("/juegos/") ||
-    window.location.pathname.includes("/juegos-premium/");
+// Detectar si estamos dentro de la carpeta /juegos
+const isGamePage = window.location.pathname.includes("/juegos/");
 
 // Ruta de imágenes
 const coverPath = isGamePage
     ? "../assets/img/covers/"
     : "assets/img/covers/";
 
-// Obtener juegos PREMIUM de forma segura
-const premiumList =
-    typeof premiumGames !== "undefined"
-        ? premiumGames
-        : [];
+// Ruta hacia las páginas de juegos
+const basePath = isGamePage
+    ? ""
+    : "juegos/";
 
 // Si existe el buscador...
 if (gameSearch && gamesSearchResults) {
@@ -65,34 +61,13 @@ if (gameSearch && gamesSearchResults) {
         // Juego actual (si existe)
         const currentGame = document.body.dataset.game || "";
 
-        /*
-            Buscar juegos normales y PREMIUM.
-            Excluir el juego que estamos visitando.
-        */
+        // Buscar coincidencias
+        const results = games.filter(game =>
 
-        const results = [
+            game.title.toLowerCase().includes(text) &&
+            game.page !== currentGame
 
-            ...games
-                .filter(game =>
-                    game.title.toLowerCase().includes(text) &&
-                    game.page !== currentGame
-                )
-                .map(game => ({
-                    game: game,
-                    isPremium: false
-                })),
-
-            ...premiumList
-                .filter(game =>
-                    game.title.toLowerCase().includes(text) &&
-                    game.page !== currentGame
-                )
-                .map(game => ({
-                    game: game,
-                    isPremium: true
-                }))
-
-        ];
+        );
 
         // Si no encontró resultados...
         if (results.length === 0) {
@@ -106,14 +81,11 @@ if (gameSearch && gamesSearchResults) {
         gamesSearchResults.style.display = "block";
 
         // Crear un resultado por cada juego
-        results.forEach(result => {
-
-            const game = result.game;
-            const isPremium = result.isPremium;
+        results.forEach(game => {
 
             if (firstResult === null) {
 
-                firstResult = result;
+                firstResult = game;
 
             }
 
@@ -123,29 +95,16 @@ if (gameSearch && gamesSearchResults) {
 
             item.innerHTML = `
 
-                <img
-                    src="${coverPath}${game.cover}"
-                    alt="${game.title}"
-                >
+                <img src="${coverPath}${game.cover}" alt="${game.title}">
 
                 <span>${game.title}</span>
 
             `;
 
-            // Determinar la ruta correcta
-            const gamePath = isPremium
-                ? "juegos-premium/"
-                : "juegos/";
-
-            const basePath = isGamePage
-                ? "../"
-                : "";
-
             // Abrir el juego al hacer clic
             item.addEventListener("click", function () {
 
-                window.location.href =
-                    basePath + gamePath + game.page;
+                window.location.href = basePath + game.page;
 
             });
 
@@ -157,7 +116,6 @@ if (gameSearch && gamesSearchResults) {
 
 }
 
-
 // Abrir el primer resultado al presionar Enter
 if (gameSearch) {
 
@@ -165,18 +123,7 @@ if (gameSearch) {
 
         if (e.key === "Enter" && firstResult) {
 
-            const game = firstResult.game;
-
-            const gamePath = firstResult.isPremium
-                ? "juegos-premium/"
-                : "juegos/";
-
-            const basePath = isGamePage
-                ? "../"
-                : "";
-
-            window.location.href =
-                basePath + gamePath + game.page;
+            window.location.href = basePath + firstResult.page;
 
         }
 
@@ -185,9 +132,9 @@ if (gameSearch) {
 }
 
 
-/** =====================================================
- *  LIGHTBOX DE CAPTURAS
- * ===================================================== */
+/* =====================================================
+   LIGHTBOX DE CAPTURAS
+=====================================================*/
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
@@ -214,16 +161,13 @@ if (lightbox && lightboxImg) {
 }
 
 
-/** =====================================================
- *  CERRAR BUSCADOR AL HACER CLIC FUERA
- * ===================================================== */
+/* =====================================================
+   CERRAR BUSCADOR AL HACER CLIC FUERA
+=====================================================*/
 
 document.addEventListener("click", function (e) {
 
-    if (
-        gamesSearchResults &&
-        !e.target.closest(".games-search-box")
-    ) {
+    if (gamesSearchResults && !e.target.closest(".games-search-box")) {
 
         gamesSearchResults.style.display = "none";
 

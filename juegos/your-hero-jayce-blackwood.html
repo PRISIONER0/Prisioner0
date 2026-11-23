@@ -2,94 +2,9 @@
 <html lang="es">
 
 <head>
-<script>
-(async function() {
-
-    const vipSession =
-        localStorage.getItem("prisioner0_vip_session");
-
-    const premiumSession =
-        localStorage.getItem("prisioner0_premium_session");
-
-    const VIP_API =
-        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
-
-    const PREMIUM_API =
-        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
 
 
-    async function checkSession(api, token, type) {
-
-        if (!token) return false;
-
-        try {
-
-            const response = await fetch(`${api}/check-session`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    session_token: token
-                })
-            });
-
-            if (!response.ok) return false;
-
-            const data = await response.json();
-
-            if (type === "vip") {
-                return data.ok === true && data.vip === true;
-            }
-
-            if (type === "premium") {
-                return data.ok === true && data.premium === true;
-            }
-
-            return false;
-
-        } catch (error) {
-
-            console.error("Error comprobando suscripción:", error);
-            return false;
-        }
-    }
-
-
-    const [vipActive, premiumActive] = await Promise.all([
-
-        checkSession(VIP_API, vipSession, "vip"),
-
-        checkSession(PREMIUM_API, premiumSession, "premium")
-
-    ]);
-
-
-    // Si tiene VIP o Premium activo, no cargar publicidad.
-
-    if (vipActive || premiumActive) {
-        return;
-    }
-
-
-    // =================================
-    // ADMAVEN
-    // =================================
-
-    const admaven = document.createElement("script");
-
-    admaven.setAttribute("data-cfasync", "false");
-
-    admaven.src =
-        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
-
-    document.head.appendChild(admaven);
-
-})();
-</script>
-<!-- admaven -->
-<meta name='admaven-placement' content=BpdU8qja8>
-<meta name="description" content="Descarga your-hero-jayce-blackwood en español para PC y Android. Encuentra la traducción y el port de esta Visual Novel en PRISIONER0, junto con tutoriales para descargar e instalar el juego.">
+    <meta name="description" content="Descarga your-hero-jayce-blackwood en español para PC y Android. Encuentra la traducción y el port de esta Visual Novel en PRISIONER0, junto con tutoriales para descargar e instalar el juego.">
 <meta name="keywords" content="your-hero-jayce-blackwood español, your-hero-jayce-blackwood traducción, your-hero-jayce-blackwood PC, your-hero-jayce-blackwood Android, Visual Novel español, Visual Novels en español, traducciones de juegos, PRISIONER0">
 <meta name="author" content="PRISIONER0">
 <meta name="robots" content="index, follow">
@@ -103,7 +18,7 @@
       type="image/webp"
       href="../assets/img/favicon.webp">
 
-<title>YOUR HERO JAYCE BLACKWOOD en Español para PC y Android | PRISIONER0</title>
+<title>YOUR HERO JAYCE BLACKWOOD 1.2 en Español/Portuguese para PC y Android | PRISIONER0</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PRISIONER0">
 <meta property="og:title" content="your-hero-jayce-blackwood en Español para PC y Android | PRISIONER0">
@@ -121,20 +36,16 @@
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/tutoriales.css">
 <link rel="stylesheet" href="../assets/css/tutoriales.css">
-<!-- *Google tag (gtag.js)* -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z73RW5F2N1"></script>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNZSMBCJ0D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-Z73RW5F2N1');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7008409481351567"
-     crossorigin="anonymous"></script>
 
-<!-- *Adcash* -->
-<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+  gtag('config', 'G-BNZSMBCJ0D');
+</script>
 
 </head>
 
@@ -159,37 +70,15 @@
             <a href="../index.html#juegos">Catálogo</a>
             <a href="../acerca.html">Acerca de</a>
             <a href="../contacto.html">Contacto</a>
-            <a href="../vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
-                <i class="fa-solid fa-crown"></i> VIP
-            </a>
-            <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
-                <i class="fa-solid fa-fire"></i> PRISIONER0+
-            </a>
+                <a href="../vip.html" class="nav-btn-plus nav-btn-vip">
+                    <i class="fa-solid fa-heart"></i> VIP
+                </a>
+                <a href="https://prisioner0.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus nav-btn-sfw">
+                    <i class="fa-solid fa-globe"></i> PRISIONER0
+                </a>
         </nav>
     </div>
 </header>
-
-<!-- 
-    ==================================================
-    BLOQUES DE ANUNCIOS OCULTOS TEMPORALMENTE (ADNET)
-    ==================================================
-
-    <div class="ad-container ad-desktop" id="adTop">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031562',
-            });
-        </script>
-    </div>
-
-    <div class="ad-container ad-mobile" id="adTopMobile">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031670',
-            });
-        </script>
-    </div>
--->
 
 <main>
 
@@ -206,12 +95,12 @@
 
 <div class="game-details">
 
-    <h1>YOUR HERO JAYCE BLACKWOOD</h1>
+    <h1>YOUR HERO JAYCE BLACKWOOD 1.2</h1>
 
     <p class="game-platforms">
 
         <i class="fa-solid fa-language"></i>
-        Español
+        Español/Portuguese
 
         •
 
@@ -227,8 +116,9 @@
 
     <p class="game-description">
 
-Una noche basta para que Jayce se enamore de ti, pero cuando vuelven a encontrarse, tú ya no recuerdas al héroe que una vez te salvó.
- Entre romance oscuro, obsesión, celos y violencia, descubre hasta dónde está dispuesto a llegar Jayce para conseguir que lo ames como él te ama.
+Una noche, Jayce te salva y queda completamente obsesionado contigo, pero cuando vuelven a encontrarse,
+ tú ya no recuerdas al héroe que una vez te protegió. Entre deseo, celos, obsesión y violencia, déjate arrastrar por una relación cada vez más intensa y descubre hasta dónde llegará Jayce para hacerte suyo.
+
 
     </p>
 
@@ -245,29 +135,29 @@ Una noche basta para que Jayce se enamore de ti, pero cuando vuelven a encontrar
 
         </a>
 
-        <a href="https://cuty.io/cBeV46qFshq"
+        <a href="https://cuty.io/xrDmcKC26S"
             class="download-btn download-vip"
-            data-direct="https://github.com/PRISIONER0/Your_Hero_Jayce_Blackwoo-PRISIONER0ES/releases/tag/V1.0"
-            data-short="https://cuty.io/cBeV46qFshq"
+            data-direct="https://github.com/PRISIONER0/Your_Hero_Jayce_NSFW-PRISIONEROES/releases/tag/V1.0"
+            data-short="https://cuty.io/xrDmcKC26S"
             target="_blank"
             rel="noopener noreferrer">
 
             <i class="fa-solid fa-desktop"></i>
 
-            Descargar Traducción (PC)
+            Descargar Juego en Español/Portuguese (PC)
 
         </a>
 
-        <a href="https://cuty.io/gczha"
+        <a href="https://cuty.io/0Ievrgn2n3"
             class="download-btn download-vip"
-            data-direct="https://github.com/PRISIONER0/Your_Hero_Jayce_Blackwoo-PRISIONER0ES/releases/tag/V1"
-            data-short="https://cuty.io/gczha"
+            data-direct="https://github.com/PRISIONER0/Your_Hero_Jayce_NSFW-PRISIONEROES/releases/tag/V1"
+            data-short="https://cuty.io/0Ievrgn2n3"
             target="_blank"
             rel="noopener noreferrer">
 
             <i class="fa-solid fa-mobile-screen-button"></i>
 
-            Descargar Juego en Español (Android)
+            Descargar Juego en Español/Portuguese (Android)
 
         </a>
 
@@ -312,28 +202,6 @@ Una noche basta para que Jayce se enamore de ti, pero cuando vuelven a encontrar
 
 </main>
 
-<!-- 
-    ==================================================
-    ANUNCIOS INFERIORES OCULTOS TEMPORALMENTE
-    ==================================================
-
-    <div class="ad-container ad-desktop" id="adBottom">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031562',
-            });
-        </script>
-    </div>
-
-    <div class="ad-container ad-mobile" id="adBottomMobile">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031670',
-            });
-        </script>
-    </div>
--->
-
 <footer class="site-footer">
     <div class="footer-content">
         <div class="footer-brand">
@@ -364,13 +232,12 @@ Una noche basta para que Jayce se enamore de ti, pero cuando vuelven a encontrar
 </div>
 
 <script src="../assets/js/games-data.js"></script>
-<script src="../assets/js/premium-data.js"></script>
 <script src="../assets/js/games.js"></script>
 <script src="../assets/js/vip.js"></script>
 <script src="../assets/js/vip-modal.js"></script>
-<script src="../assets/js/vip-ad-control.js"></script>
 <script src="../assets/js/vip-downloads.js"></script>
 <script src="../assets/js/tutoriales.js"></script>
 
+<script src="../assets/js/vip-ad-control.js"></script>
 </body>
 </html>
