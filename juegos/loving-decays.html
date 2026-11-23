@@ -2,94 +2,10 @@
 <html lang="es">
 
 <head>
-<script>
-(async function() {
-
-    const vipSession =
-        localStorage.getItem("prisioner0_vip_session");
-
-    const premiumSession =
-        localStorage.getItem("prisioner0_premium_session");
-
-    const VIP_API =
-        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
-
-    const PREMIUM_API =
-        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
 
 
-    async function checkSession(api, token, type) {
-
-        if (!token) return false;
-
-        try {
-
-            const response = await fetch(`${api}/check-session`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    session_token: token
-                })
-            });
-
-            if (!response.ok) return false;
-
-            const data = await response.json();
-
-            if (type === "vip") {
-                return data.ok === true && data.vip === true;
-            }
-
-            if (type === "premium") {
-                return data.ok === true && data.premium === true;
-            }
-
-            return false;
-
-        } catch (error) {
-
-            console.error("Error comprobando suscripción:", error);
-            return false;
-        }
-    }
 
 
-    const [vipActive, premiumActive] = await Promise.all([
-
-        checkSession(VIP_API, vipSession, "vip"),
-
-        checkSession(PREMIUM_API, premiumSession, "premium")
-
-    ]);
-
-
-    // Si tiene VIP o Premium activo, no cargar publicidad.
-
-    if (vipActive || premiumActive) {
-        return;
-    }
-
-
-    // =================================
-    // ADMAVEN
-    // =================================
-
-    const admaven = document.createElement("script");
-
-    admaven.setAttribute("data-cfasync", "false");
-
-    admaven.src =
-        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
-
-    document.head.appendChild(admaven);
-
-})();
-</script>
-<!-- admaven -->
-<meta name='admaven-placement' content=BpdU8qja8>
-<meta name='admaven-placement' content=BpdU8qja8>
 <meta name="description" content="PRISIONER0 ofrece traducciones y ports de Visual Novels al español para PC y Android.">
 <meta name="keywords"
 content="Visual Novels, Traducciones, Español, PRISIONER0, PC, Android">
@@ -116,8 +32,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
   gtag('config', 'G-Z73RW5F2N1');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7008409481351567"
-     crossorigin="anonymous"></script>
+
 </head>
 
 <body data-game="loving-decays.html">
@@ -156,21 +71,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     BLOQUES DE ANUNCIOS OCULTOS TEMPORALMENTE (ADNET)
     ==================================================
 
-    <div class="ad-container ad-desktop" id="adTop">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031562',
-            });
-        </script>
-    </div>
+    
 
-    <div class="ad-container ad-mobile" id="adTopMobile">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031670',
-            });
-        </script>
-    </div>
+    
 -->
 
 <main>
@@ -286,21 +189,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     ANUNCIOS INFERIORES OCULTOS TEMPORALMENTE
     ==================================================
 
-    <div class="ad-container ad-desktop" id="adBottom">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031562',
-            });
-        </script>
-    </div>
+    
 
-    <div class="ad-container ad-mobile" id="adBottomMobile">
-        <script>
-            aclib.runBanner({
-                zoneId: '12031670',
-            });
-        </script>
-    </div>
+    
 -->
 
 <footer class="site-footer">

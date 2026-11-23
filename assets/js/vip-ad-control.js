@@ -1,201 +1,81 @@
-
 /* =====================================================
-   PRISIONER0 VIP + PREMIUM
-   CONTROL DE PUBLICIDAD
-   VIP conserva su funcionamiento original.
-   PREMIUM se comprueba de forma independiente.
+   PRISIONER0 SFW — CONTROL CENTRALIZADO DE HILLTOPADS
+   Editá este archivo para cambiar la publicidad.
+   VIP y PREMIUM activos nunca reciben el popunder.
 ===================================================== */
 
-const PREMIUM_AD_API =
-    "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
+const HILLTOPADS_CONFIG = {
+    enabled: true,
+    scriptUrl: "//surefootedpause.com/csDR9W6gb.2F5rl/SSW/Qx9kNxzLYT1pMxDXkx4/M_S/0_3HN/j/Uvw/OvT/go1O",
+    maxLoads: 3,
+    windowMinutes: 60,
+    vipApi: "https://prisioner0-vip-api.javiieergutierrez01.workers.dev",
+    premiumApi: "https://prisioner0-premium-api.javiieergutierrez01.workers.dev",
+    vipStorageKey: "prisioner0_vip_session",
+    premiumStorageKey: "prisioner0_premium_session",
+    frequencyStorageKey: "prisioner0_hilltopads_loads"
+};
 
-document.addEventListener("DOMContentLoaded", async function () {
+(async function initHilltopAds() {
+    if (!HILLTOPADS_CONFIG.enabled) return;
 
-    /* =================================================
-       COMPROBAR SESIÓN VIP (ORIGINAL)
-    ================================================= */
+    const vipToken = localStorage.getItem(HILLTOPADS_CONFIG.vipStorageKey);
+    const premiumToken = localStorage.getItem(HILLTOPADS_CONFIG.premiumStorageKey);
 
-    const sessionToken = localStorage.getItem(
-        "prisioner0_vip_session"
-    );
-
-    let vipActivo = false;
-
-    if (sessionToken) {
-
+    async function checkSession(api, token, type) {
+        if (!token) return false;
         try {
-
-            const response = await fetch(
-                `${VIP_API}/check-session`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        session_token: sessionToken
-                    })
-                }
-            );
-
+            const response = await fetch(`${api}/check-session`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ session_token: token })
+            });
+            if (!response.ok) return null;
             const data = await response.json();
-
-            vipActivo =
-                data.ok === true &&
-                data.vip === true;
-
+            if (type === "vip") return data.ok === true && data.vip === true;
+            if (type === "premium") return data.ok === true && data.premium === true;
+            return false;
         } catch (error) {
-
-            console.error(
-                "Error comprobando VIP para publicidad:",
-                error
-            );
-
+            console.error(`No se pudo comprobar la sesión ${type}:`, error);
+            return null;
         }
     }
 
-    console.log("VIP activo - publicidad:", vipActivo);
+    const [vipStatus, premiumStatus] = await Promise.all([
+        checkSession(HILLTOPADS_CONFIG.vipApi, vipToken, "vip"),
+        checkSession(HILLTOPADS_CONFIG.premiumApi, premiumToken, "premium")
+    ]);
 
-    /* =================================================
-       VIP ACTIVO → NO CARGAR PUBLICIDAD
-    ================================================= */
+    if (vipStatus === true || premiumStatus === true) return;
+    if ((vipToken && vipStatus === null) || (premiumToken && premiumStatus === null)) return;
 
-    if (vipActivo) {
-
-        document
-            .querySelectorAll(".ad-container")
-            .forEach(ad => ad.remove());
-
-        return;
+    // Máximo 3 cargas del script en cualquier período móvil de 60 minutos.
+    const now = Date.now();
+    const windowMs = HILLTOPADS_CONFIG.windowMinutes * 60 * 1000;
+    let loads = [];
+    try {
+        const stored = JSON.parse(localStorage.getItem(HILLTOPADS_CONFIG.frequencyStorageKey) || "[]");
+        if (Array.isArray(stored)) loads = stored.filter(value => Number.isFinite(value) && now - value < windowMs && now >= value);
+        if (loads.length >= HILLTOPADS_CONFIG.maxLoads) return;
+        loads.push(now);
+        localStorage.setItem(HILLTOPADS_CONFIG.frequencyStorageKey, JSON.stringify(loads));
+    } catch (error) {
+        console.warn("No se pudo aplicar el límite local de HilltopAds:", error);
     }
 
-    /* =================================================
-       COMPROBAR SESIÓN PREMIUM (INDEPENDIENTE)
-    ================================================= */
+    if (document.getElementById("prisioner0-hilltopads-script")) return;
 
-    const premiumToken = localStorage.getItem(
-        "prisioner0_premium_session"
-    );
+    const script = document.createElement("script");
+    script.id = "prisioner0-hilltopads-script";
+    script.settings = {};
+    script.src = HILLTOPADS_CONFIG.scriptUrl;
+    script.async = true;
+    script.referrerPolicy = "no-referrer-when-downgrade";
 
-    let premiumActivo = false;
-
-    if (premiumToken) {
-
-        try {
-
-            const response = await fetch(
-                `${PREMIUM_AD_API}/check-session`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        session_token: premiumToken
-                    })
-                }
-            );
-
-            const data = await response.json();
-
-            premiumActivo =
-                data.ok === true &&
-                data.premium === true;
-
-        } catch (error) {
-
-            console.error(
-                "Error comprobando PREMIUM para publicidad:",
-                error
-            );
-
-            // Si hay una sesión PREMIUM guardada pero
-            // el servidor no responde, evitamos mostrar
-            // anuncios hasta poder comprobarla.
-            document
-                .querySelectorAll(".ad-container")
-                .forEach(ad => ad.remove());
-
-            return;
-        }
+    const currentScript = document.currentScript;
+    if (currentScript && currentScript.parentNode) {
+        currentScript.parentNode.insertBefore(script, currentScript.nextSibling);
+    } else {
+        (document.head || document.body).appendChild(script);
     }
-
-    console.log(
-        "PREMIUM activo - publicidad:",
-        premiumActivo
-    );
-
-    /* =================================================
-       PREMIUM ACTIVO → NO CARGAR PUBLICIDAD
-    ================================================= */
-
-    if (premiumActivo) {
-
-        document
-            .querySelectorAll(".ad-container")
-            .forEach(ad => ad.remove());
-
-        return;
-    }
-
-    /* =================================================
-       USUARIO NORMAL → CARGAR PUBLICIDAD
-    ================================================= */
-
-    if (
-        typeof aclib === "undefined" ||
-        typeof aclib.runBanner !== "function"
-    ) {
-
-        console.error(
-            "La publicidad no está disponible."
-        );
-
-        return;
-    }
-
-    /* BANNER PC SUPERIOR */
-
-    const topDesktop =
-        document.getElementById("adTop");
-
-    if (topDesktop) {
-        aclib.runBanner({
-            zoneId: "12031562"
-        });
-    }
-
-    /* BANNER PC INFERIOR */
-
-    const bottomDesktop =
-        document.getElementById("adBottom");
-
-    if (bottomDesktop) {
-        aclib.runBanner({
-            zoneId: "12031562"
-        });
-    }
-
-    /* BANNER MÓVIL SUPERIOR */
-
-    const topMobile =
-        document.getElementById("adTopMobile");
-
-    if (topMobile) {
-        aclib.runBanner({
-            zoneId: "12031670"
-        });
-    }
-
-    /* BANNER MÓVIL INFERIOR */
-
-    const bottomMobile =
-        document.getElementById("adBottomMobile");
-
-    if (bottomMobile) {
-        aclib.runBanner({
-            zoneId: "12031670"
-        });
-    }
-
-});
+})();
