@@ -2,10 +2,95 @@
 <html lang="es">
 
 <head>
+<script>
+(async function() {
+
+    const vipSession =
+        localStorage.getItem("prisioner0_vip_session");
+
+    const premiumSession =
+        localStorage.getItem("prisioner0_premium_session");
+
+    const VIP_API =
+        "https://prisioner0-vip-api.javiieergutierrez01.workers.dev";
+
+    const PREMIUM_API =
+        "https://prisioner0-premium-api.javiieergutierrez01.workers.dev";
 
 
-    <meta name="description" content="Descarga welcome-home en español y portugués para PC y Android. Encuentra la traducción y el port de esta Visual Novel en PRISIONER0, junto con tutoriales de descarga e instalación.">
-<meta name="keywords" content="welcome-home español, welcome-home português, welcome-home traducción, welcome-home PC, welcome-home Android, Visual Novel español, Visual Novel português, traducciones de juegos, PRISIONER0">
+    async function checkSession(api, token, type) {
+
+        if (!token) return false;
+
+        try {
+
+            const response = await fetch(`${api}/check-session`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    session_token: token
+                })
+            });
+
+            if (!response.ok) return false;
+
+            const data = await response.json();
+
+            if (type === "vip") {
+                return data.ok === true && data.vip === true;
+            }
+
+            if (type === "premium") {
+                return data.ok === true && data.premium === true;
+            }
+
+            return false;
+
+        } catch (error) {
+
+            console.error("Error comprobando suscripción:", error);
+            return false;
+        }
+    }
+
+
+    const [vipActive, premiumActive] = await Promise.all([
+
+        checkSession(VIP_API, vipSession, "vip"),
+
+        checkSession(PREMIUM_API, premiumSession, "premium")
+
+    ]);
+
+
+    // Si tiene VIP o Premium activo, no cargar publicidad.
+
+    if (vipActive || premiumActive) {
+        return;
+    }
+
+
+    // =================================
+    // ADMAVEN
+    // =================================
+
+    const admaven = document.createElement("script");
+
+    admaven.setAttribute("data-cfasync", "false");
+
+    admaven.src =
+        "//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1722241";
+
+    document.head.appendChild(admaven);
+
+})();
+</script>
+<!-- admaven -->
+<meta name='admaven-placement' content=BpdU8qja8>
+<meta name="description" content="Descarga welcome-home en español y portugués para PC y Android. Traducción y port de esta Visual Novel en PRISIONER0, con tutoriales para descargar e instalar el juego.">
+<meta name="keywords" content="welcome-home español, welcome-home português, welcome-home tradução, welcome-home PC, welcome-home Android, Visual Novel español, Visual Novels em português, PRISIONER0">
 <meta name="author" content="PRISIONER0">
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
@@ -18,16 +103,16 @@
       type="image/webp"
       href="../assets/img/favicon.webp">
 
-<title>WELCOME HOME en Español y Português para PC y Android | PRISIONER0</title>
+<title>WELCOME HOME en Español y Portugués para PC y Android | PRISIONER0</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PRISIONER0">
-<meta property="og:title" content="welcome-home en Español y Português para PC y Android | PRISIONER0">
-<meta property="og:description" content="Descarga welcome-home en español y portugués para PC y Android. Traducción y port oficial de PRISIONER0.">
+<meta property="og:title" content="welcome-home en Español y Portugués para PC y Android | PRISIONER0">
+<meta property="og:description" content="Descarga welcome-home en español y portugués para PC y Android. Traducción y port de PRISIONER0.">
 <meta property="og:url" content="https://prisioner0.com/welcome-home.html">
 <meta property="og:image" content="https://prisioner0.com/assets/img/covers/welcome-home.webp">
 <meta property="og:image:alt" content="Portada de welcome-home en español y portugués">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="welcome-home en Español y Português para PC y Android | PRISIONER0">
+<meta name="twitter:title" content="welcome-home en Español y Portugués para PC y Android | PRISIONER0">
 <meta name="twitter:description" content="Descarga welcome-home en español y portugués para PC y Android. Traducción y port de PRISIONER0.">
 <meta name="twitter:image" content="https://prisioner0.com/assets/img/covers/welcome-home.webp">
 <link rel="stylesheet"
@@ -35,16 +120,20 @@
 
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/tutoriales.css">
+<!-- *Google tag (gtag.js)* -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z73RW5F2N1"></script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNZSMBCJ0D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-BNZSMBCJ0D');
+  gtag('config', 'G-Z73RW5F2N1');
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7008409481351567"
+     crossorigin="anonymous"></script>
+
+<!-- *Adcash* -->
+<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
 
 </head>
 
@@ -69,15 +158,37 @@
             <a href="../index.html#juegos">Catálogo</a>
             <a href="../acerca.html">Acerca de</a>
             <a href="../contacto.html">Contacto</a>
-                <a href="../vip.html" class="nav-btn-plus nav-btn-vip">
-                    <i class="fa-solid fa-heart"></i> VIP
-                </a>
-                <a href="https://prisioner0.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus nav-btn-sfw">
-                    <i class="fa-solid fa-globe"></i> PRISIONER0
-                </a>
+            <a href="../vip.html" class="nav-btn-plus" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
+                <i class="fa-solid fa-crown"></i> VIP
+            </a>
+            <a href="https://prisioner0plus.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus">
+                <i class="fa-solid fa-fire"></i> PRISIONER0+
+            </a>
         </nav>
     </div>
 </header>
+
+<!-- 
+    ==================================================
+    BLOQUES DE ANUNCIOS OCULTOS TEMPORALMENTE (ADNET)
+    ==================================================
+
+    <div class="ad-container ad-desktop" id="adTop">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031562',
+            });
+        </script>
+    </div>
+
+    <div class="ad-container ad-mobile" id="adTopMobile">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031670',
+            });
+        </script>
+    </div>
+-->
 
 <main>
 
@@ -115,8 +226,8 @@
 
     <p class="game-description">
 
-Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reunirse contigo, llevándote a su propio mundo. Entre romance,
- deseo, obsesión y terror, descubre sus secretos, explora una relación cada vez más intensa y decide si intentarás escapar o si terminarás quedándote a su lado.
+Un día, el personaje que creaste cobra conciencia y desarrolla una obsesión por reunirse con su creador, hasta el punto de arrastrarte a su propio mundo.
+ Ahora tendrás que encontrar la forma de escapar o aceptar vivir junto a él, mientras descubres sus secretos y te enfrentas a una historia de terror, romance y contenido +18 con 7 finales diferentes.
 
 
     </p>
@@ -134,29 +245,29 @@ Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reun
 
         </a>
 
-        <a href="https://cuty.io/rV8RfmToP"
+        <a href="https://cuty.io/3aOGA"
             class="download-btn download-vip"
-            data-direct="https://github.com/PRISIONER0/whnsfwp/releases/tag/V1.0"
-            data-short="https://cuty.io/rV8RfmToP"
+            data-direct="https://github.com/PRISIONER0/WH/releases/tag/V1.0"
+            data-short="https://cuty.io/3aOGA"
             target="_blank"
             rel="noopener noreferrer">
 
             <i class="fa-solid fa-desktop"></i>
 
-            Descargar Juego en Español / Português (PC)
+            Descargar Traducción Español/Portuguese (PC)
 
         </a>
 
-        <a href="https://cuty.io/ahRFP"
+        <a href="https://cuty.io/A4RN0kv"
             class="download-btn download-vip"
-            data-direct="https://github.com/PRISIONER0/whnsfwp/releases/tag/V1"
-            data-short="https://cuty.io/ahRFP"
+            data-direct="https://github.com/PRISIONER0/WH/releases/tag/V1"
+            data-short="https://cuty.io/A4RN0kv"
             target="_blank"
             rel="noopener noreferrer">
 
             <i class="fa-solid fa-mobile-screen-button"></i>
 
-            Descargar Juego en Español / Português (Android)
+            Descargar Juego Español/Portuguese (Android)
 
         </a>
 
@@ -182,14 +293,14 @@ Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reun
 
     <div class="screenshots-grid">
 
-        <img src="../assets/img/screenshots/welcome-home 1.webp"
-             alt="Captura de pantalla de welcome-home en español y portugués">
+        <img src="../assets/img/screenshots/welcome-home1.webp"
+             alt="Captura de pantalla de welcome-home">
 
-        <img src="../assets/img/screenshots/welcome-home 2.webp"
-             alt="Captura de pantalla de welcome-home en español y portugués">
+        <img src="../assets/img/screenshots/welcome-home2.webp"
+             alt="Captura de pantalla de welcome-home">
 
-        <img src="../assets/img/screenshots/welcome-home 3.webp"
-             alt="Captura de pantalla de welcome-home en español y portugués">
+        <img src="../assets/img/screenshots/welcome-home3.webp"
+             alt="Captura de pantalla de welcome-home">
 
     </div>
 
@@ -200,6 +311,28 @@ Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reun
 </section>
 
 </main>
+
+<!-- 
+    ==================================================
+    ANUNCIOS INFERIORES OCULTOS TEMPORALMENTE
+    ==================================================
+
+    <div class="ad-container ad-desktop" id="adBottom">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031562',
+            });
+        </script>
+    </div>
+
+    <div class="ad-container ad-mobile" id="adBottomMobile">
+        <script>
+            aclib.runBanner({
+                zoneId: '12031670',
+            });
+        </script>
+    </div>
+-->
 
 <footer class="site-footer">
     <div class="footer-content">
@@ -214,7 +347,7 @@ Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reun
             <a href="https://www.youtube.com/@PRISIONER0-NV" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i> YouTube</a>
         </div>
     </div>
-    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; max-width: 1200px; margin: 0 auto; padding-top: 15px; border-top: 1px text-align: left; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; max-width: 1200px; margin: 0 auto; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
         <p>© 2026 PRISIONER0. Todos los derechos reservados.</p>
         <div class="footer-legal-links" style="display: flex; gap: 15px; font-size: 13px;">
             <a href="privacidad.html" style="color: rgba(255,255,255,0.7); text-decoration: none;">Política de Privacidad</a>
@@ -231,12 +364,13 @@ Un día, el personaje que creaste cobra vida y desarrolla una obsesión por reun
 </div>
 
 <script src="../assets/js/games-data.js"></script>
+<script src="../assets/js/premium-data.js"></script>
 <script src="../assets/js/games.js"></script>
 <script src="../assets/js/vip.js"></script>
 <script src="../assets/js/vip-modal.js"></script>
+<script src="../assets/js/vip-ad-control.js"></script>
 <script src="../assets/js/vip-downloads.js"></script>
 <script src="../assets/js/tutoriales.js"></script>
 
-<script src="../assets/js/vip-ad-control.js"></script>
 </body>
 </html>

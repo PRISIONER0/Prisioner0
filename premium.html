@@ -56,34 +56,63 @@
     <!-- ========================================= -->
 
     <header class="site-header">
+
         <div class="nav-container">
+
             <div class="brand-logo">
                 <a href="index.html">
-                    <img src="assets/img/logo.webp" alt="PRISIONER0+ Logo">
+                    <img src="assets/img/logo.webp" alt="PRISIONER0 Logo">
                 </a>
             </div>
-            
-            <div class="global-search">
+
+            <div class="games-search-box">
+
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Buscar entre novelas visuales sin censura...">
+
+                <input
+                    type="text"
+                    placeholder="Buscar entre 100+ novelas visuales..."
+                    id="gameSearch"
+                    autocomplete="off"
+                    spellcheck="false">
+
+                <div id="gamesSearchResults"></div>
+
             </div>
 
             <nav class="nav-links">
+
                 <a href="index.html">Inicio</a>
                 <a href="index.html#juegos">Catálogo</a>
                 <a href="acerca.html">Acerca de</a>
                 <a href="contacto.html">Contacto</a>
-                <a href="vip.html" class="nav-btn-plus nav-btn-vip">
-                    <i class="fa-solid fa-heart"></i> VIP
+                <a href="vip.html"
+                   class="nav-btn-plus"
+                   style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000;">
+
+                    <i class="fa-solid fa-crown"></i> VIP
                 </a>
-                <a href="premium.html" class="nav-btn-plus premium-nav-btn">
+                
+                <a href="premium.html"
+                   class="nav-btn-plus premium-nav-btn">
+
                     <i class="fa-solid fa-gem"></i> PREMIUM
+
                 </a>
-                <a href="https://prisioner0.com" target="_blank" rel="noopener noreferrer" class="nav-btn-plus nav-btn-sfw">
-                    <i class="fa-solid fa-globe"></i> PRISIONER0
+
+                <a href="https://prisioner0plus.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="nav-btn-plus">
+
+                    <i class="fa-solid fa-fire"></i> PRISIONER0+
+
                 </a>
+
             </nav>
+
         </div>
+
     </header>
 
 

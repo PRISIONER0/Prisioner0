@@ -198,7 +198,7 @@ async function requestVipDownload(platform) {
         if (platform === "pc") {
 
             window.location.href =
-                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/Spotlight-PRISIONER0.zip";
+                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/empty-box-PRISIONER0.zip";
 
             return;
         }
@@ -211,7 +211,7 @@ async function requestVipDownload(platform) {
         if (platform === "android") {
 
             window.location.href =
-                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/wtsl.prisioner0-0.3-1794627931-release.apk";
+                "https://pub-622e9a81bd3346fdb72ca5e034ea84a9.r2.dev/e.b.prisioner0-1.0.0-1794628839-release.apk";
 
             return;
         }
