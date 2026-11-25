@@ -65,6 +65,24 @@ const games = [
     // ================================
 
     {
+        title: "Fatal love",
+        page: "fatal-love.html",
+        cover: "fatal-love.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Condemned hearts",
+        page: "condemned-hearts.html",
+        cover: "condemned-hearts.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Diagnosis lovesick",
         page: "diagnosis-lovesick.html",
         cover: "diagnosis-lovesick.webp",
@@ -772,15 +790,6 @@ const games = [
         title: "Trap of salvation",
         page: "trap-of-salvation.html",
         cover: "trap-of-salvation.webp",
-        featured: false,
-        language: "Español",
-        pc: true,
-        android: true,
-    },
-    {
-        title: "Condemned hearts",
-        page: "condemned-hearts.html",
-        cover: "condemned-hearts.webp",
         featured: false,
         language: "Español",
         pc: true,
