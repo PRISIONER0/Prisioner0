@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "Itigo kuruiza",
+        page: "itigokuruiza.html",
+        cover: "itigokuruiza.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Fatal love",
         page: "fatal-love.html",
         cover: "fatal-love.webp",
