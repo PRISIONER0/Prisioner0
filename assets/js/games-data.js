@@ -65,7 +65,16 @@ const games = [
     // ================================
 
     {
-        title: "Itigo kuruiza",
+        title: "Lock",
+        page: "lock.html",
+        cover: "lock.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
+        title: "Itigo kuruiza(ARREGLADO)",
         page: "itigokuruiza.html",
         cover: "itigokuruiza.webp",
         featured: false,
