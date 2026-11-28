@@ -65,6 +65,15 @@ const games = [
     // ================================
 
     {
+        title: "prisoners",
+        page: "prisoners.html",
+        cover: "prisoners.webp",
+        featured: false,
+        language: "Español/Portuguese",
+        pc: true,
+        android: true,
+    },
+    {
         title: "Lock",
         page: "lock.html",
         cover: "lock.webp",
